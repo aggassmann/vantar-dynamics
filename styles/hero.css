@@ -1,0 +1,106 @@
+/* ==========================================================================
+   VANTAR Dynamics — Kinetic gradient mesh + Hero
+   A giant, blurred, slowly-drifting orange↔purple field behind the hero.
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  padding: calc(var(--s-9) + 8px) var(--s-5) var(--s-7);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Organic blurred mesh built from layered radial gradients. */
+.mesh {
+  position: absolute;
+  inset: -30% -20% -10% -20%;
+  z-index: -1;
+  filter: blur(46px) saturate(118%);
+  opacity: 0.92;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.mesh::before,
+.mesh::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40%;
+}
+
+.mesh::before {
+  background:
+    radial-gradient(38% 42% at 22% 28%, rgba(255, 107, 53, 0.92), transparent 70%),
+    radial-gradient(34% 38% at 78% 22%, rgba(255, 154, 82, 0.78), transparent 72%),
+    radial-gradient(46% 50% at 70% 78%, rgba(109, 40, 217, 0.85), transparent 70%);
+  animation: drift1 22s var(--ease) infinite alternate;
+}
+
+.mesh::after {
+  background:
+    radial-gradient(40% 44% at 30% 75%, rgba(139, 92, 246, 0.7), transparent 72%),
+    radial-gradient(30% 34% at 60% 40%, rgba(181, 55, 155, 0.6), transparent 70%),
+    radial-gradient(28% 30% at 85% 60%, rgba(255, 184, 107, 0.6), transparent 72%);
+  animation: drift2 28s var(--ease) infinite alternate;
+  mix-blend-mode: multiply;
+}
+
+@keyframes drift1 {
+  0%   { transform: translate3d(-3%, -2%, 0) scale(1.05) rotate(0deg); }
+  100% { transform: translate3d(5%, 4%, 0) scale(1.18) rotate(8deg); }
+}
+@keyframes drift2 {
+  0%   { transform: translate3d(4%, 3%, 0) scale(1.1) rotate(0deg); }
+  100% { transform: translate3d(-4%, -5%, 0) scale(1.2) rotate(-10deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh::before, .mesh::after { animation: none; }
+}
+
+/* Soft fade so the mesh melts into the cream page. */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 38%;
+  background: linear-gradient(to bottom, transparent, var(--cream));
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero .eyebrow { margin-bottom: var(--s-4); }
+
+.hero .display { margin-bottom: var(--s-4); }
+
+.hero .lead { max-width: 30ch; }
+
+.hero-cta {
+  display: flex;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+  margin-top: var(--s-6);
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-6);
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  background: var(--glass-bg-2);
+  border: 1px solid var(--glass-brd);
+  color: var(--ink-soft);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.badge b { color: var(--ink); font-weight: 600; }

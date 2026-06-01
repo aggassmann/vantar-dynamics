@@ -1,0 +1,80 @@
+/* ==========================================================================
+   VANTAR Dynamics — Design Tokens
+   Premium engineering aesthetic: warm cream base, orange↔purple kinetic accents,
+   editorial serif headings + geometric sans body.
+   ========================================================================== */
+
+:root {
+  /* --- Surface / cream base --- */
+  --cream:        #faf8f5;
+  --cream-2:      #f5f1ea;
+  --cream-3:      #efe9df;
+  --paper:        #fffdfa;
+
+  /* --- Ink (warm near-black) --- */
+  --ink:          #1a1613;
+  --ink-soft:     #4c453d;
+  --ink-faint:    #8a8178;
+  --hairline:     rgba(26, 22, 19, 0.08);
+  --hairline-2:   rgba(26, 22, 19, 0.14);
+
+  /* --- Accent ramp: warm orange --- */
+  --orange:       #ff6b35;
+  --orange-warm:  #ff9a52;
+  --amber:        #ffb86b;
+
+  /* --- Accent ramp: deep purple --- */
+  --purple:       #6d28d9;
+  --purple-deep:  #3b0d6b;
+  --violet:       #8b5cf6;
+
+  /* --- Functional --- */
+  --good:         #2f9e6f;
+  --warn:         #e8a33d;
+  --bad:          #e2553b;
+  --axis-x:       #ff6b35;
+  --axis-y:       #6d28d9;
+  --axis-z:       #2f9e6f;
+
+  /* --- Glass --- */
+  --glass-bg:     rgba(255, 253, 250, 0.62);
+  --glass-bg-2:   rgba(255, 253, 250, 0.82);
+  --glass-brd:    rgba(255, 255, 255, 0.7);
+  --glass-shadow: 0 8px 40px -12px rgba(59, 13, 107, 0.18),
+                  0 2px 8px -4px rgba(26, 22, 19, 0.1);
+
+  /* --- Gradients --- */
+  --grad-accent:  linear-gradient(120deg, var(--orange) 0%, var(--violet) 100%);
+  --grad-text:    linear-gradient(115deg, #ff6b35 0%, #b5379b 45%, #6d28d9 100%);
+
+  /* --- Typography --- */
+  --font-serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino,
+                "Times New Roman", Georgia, serif;
+  --font-sans:  "Space Grotesk", "Inter", system-ui, -apple-system,
+                "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:  "Space Grotesk", ui-monospace, "SF Mono", "Cascadia Code",
+                "Roboto Mono", monospace;
+
+  /* --- Spacing scale (8pt-ish, mobile-first) --- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px;
+
+  /* --- Radii --- */
+  --r-sm: 10px; --r-md: 16px; --r-lg: 22px; --r-xl: 30px; --r-pill: 999px;
+
+  /* --- Motion --- */
+  --ease:      cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in:   cubic-bezier(0.4, 0, 1, 1);
+  --dur-fast:  160ms;
+  --dur:       280ms;
+  --dur-slow:  520ms;
+
+  /* --- Layout --- */
+  --maxw:      560px;          /* mobile-first column cap */
+  --nav-h:     72px;
+  --safe-b:    env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur: 0ms; --dur-slow: 0ms; }
+}
