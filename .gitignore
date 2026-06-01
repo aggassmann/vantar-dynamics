@@ -1,0 +1,19 @@
+# Dependencies (no build system, but reserved)
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Local env
+.env
+.env.local
