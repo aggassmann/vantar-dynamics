@@ -1,4 +1,5 @@
 // VANTAR Dynamics — Shared tool view scaffold
+// This file is served by GitHub Pages and must be available as a module.
 export function toolShell(meta, bodyHTML) {
   return `
   <div class="toolview is-active">
