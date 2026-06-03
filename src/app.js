@@ -3,6 +3,7 @@
 
 import { renderPortfolio, initModal } from "./ui/portfolio.js";
 import { renderContact } from "./ui/contact.js";
+import { renderDiagnostics } from "./ui/diagnostics.js";
 
 import accelerometer from "./tools/accelerometer.js";
 import vibration from "./tools/vibration.js";
@@ -77,11 +78,26 @@ function unmountTool() {
 
 /* ------------------------------ PWA / SW ------------------------------- */
 function registerSW() {
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./sw.js").catch(() => {/* offline is best-effort */});
-    });
-  }
+  if (!("serviceWorker" in navigator)) return;
+  // Auto-heal stale installs: when a new service worker takes control, reload
+  // once so the page runs the freshest code (fixes the "old cached JS" trap).
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (refreshing) return;
+    refreshing = true;
+    location.reload();
+  });
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").then((reg) => {
+      reg.update();
+      reg.addEventListener("updatefound", () => {
+        const sw = reg.installing;
+        if (sw) sw.addEventListener("statechange", () => {
+          if (sw.state === "installed" && navigator.serviceWorker.controller) sw.postMessage("skip");
+        });
+      });
+    }).catch(() => {/* offline is best-effort */});
+  });
 }
 
 /* -------------------------------- Boot --------------------------------- */
@@ -89,6 +105,7 @@ function boot() {
   renderPortfolio();
   renderContact();
   renderToolGrid();
+  renderDiagnostics();
   initModal();
   initNav();
   registerSW();

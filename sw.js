@@ -2,7 +2,7 @@
    Offline-first cache for the static app shell. Sensor APIs still require
    HTTPS + user gesture at runtime; this only handles asset delivery. */
 
-const CACHE = "vantar-v1";
+const CACHE = "vantar-v2";
 const ASSETS = [
   "./",
   "./index.html",
@@ -18,6 +18,7 @@ const ASSETS = [
   "./src/ui/portfolio.js",
   "./src/ui/contact.js",
   "./src/ui/permissions.js",
+  "./src/ui/diagnostics.js",
   "./src/lib/chart.js",
   "./src/lib/fft.js",
   "./src/lib/csv.js",
@@ -35,6 +36,10 @@ self.addEventListener("install", (e) => {
   );
 });
 
+self.addEventListener("message", (e) => {
+  if (e.data === "skip") self.skipWaiting();
+});
+
 self.addEventListener("activate", (e) => {
   e.waitUntil(
     caches.keys().then((keys) =>
@@ -46,20 +51,21 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const { request } = e;
   if (request.method !== "GET") return;
-  // Network-first for navigations, cache-first for assets.
-  if (request.mode === "navigate") {
-    e.respondWith(fetch(request).catch(() => caches.match("./index.html")));
-    return;
-  }
+
+  // Network-first everywhere so code/style updates always reach the installed
+  // PWA when online; the cache is only an offline fallback. This avoids the
+  // classic "stale cached JS" trap with cache-first service workers.
   e.respondWith(
-    caches.match(request).then((hit) =>
-      hit || fetch(request).then((res) => {
-        const copy = res.clone();
-        if (res.ok && new URL(request.url).origin === location.origin) {
+    fetch(request)
+      .then((res) => {
+        if (res && res.ok && new URL(request.url).origin === location.origin) {
+          const copy = res.clone();
           caches.open(CACHE).then((c) => c.put(request, copy));
         }
         return res;
-      }).catch(() => hit)
-    )
+      })
+      .catch(() =>
+        caches.match(request).then((hit) => hit || caches.match("./index.html"))
+      )
   );
 });

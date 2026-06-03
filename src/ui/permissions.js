@@ -52,6 +52,8 @@ export async function requestMotion(intentCopy) {
     (hasOrient && typeof DeviceOrientationEvent.requestPermission === "function");
 
   if (needsGesture) {
+    // iOS: must call requestPermission() within the user gesture. We host that
+    // call right after the intent dialog's "grant" click (same activation task).
     const ok = await askIntent(intentCopy);
     if (!ok) return "denied";
     try {
@@ -67,9 +69,9 @@ export async function requestMotion(intentCopy) {
       return "denied";
     }
   }
-  // Android/desktop: no explicit prompt, but still surface intent once.
-  const ok = await askIntent(intentCopy);
-  return ok ? "granted" : "denied";
+  // Android/desktop: no system prompt exists for motion. Don't gate behind an
+  // extra dialog (one more thing that can fail) — the user's tap is the gesture.
+  return "granted";
 }
 
 /**

@@ -1,7 +1,7 @@
 // VANTAR Dynamics — Linear accelerometer (gravity-filtered) + CSV export
 import { toolShell } from "./_shell.js";
 import { RollingChart } from "../lib/chart.js";
-import { requestMotion } from "../ui/permissions.js";
+import { requestMotion, isSecure } from "../ui/permissions.js";
 import { toCSV, downloadText, stampedName } from "../lib/csv.js";
 
 const meta = {
@@ -36,7 +36,8 @@ export default {
           <button class="btn btn-ghost btn-sm" id="ac-pause" disabled>Pausar</button>
           <button class="btn btn-soft btn-sm" id="ac-export" disabled>Exportar CSV</button>
         </div>
-        <p class="note" style="margin-top:var(--s-3)">Muestras grabadas: <b id="ac-count" class="mono">0</b>. La captura almacena lecturas crudas por eje con timestamp para exportar a CSV.</p>
+        <div class="warnbox hidden" id="ac-hint" style="margin-top:var(--s-3)"></div>
+        <p class="note" style="margin-top:var(--s-3)">Muestras grabadas: <b id="ac-count" class="mono">0</b>. Movés/agitás el teléfono para ver las curvas. La captura guarda lecturas crudas por eje con timestamp para exportar a CSV.</p>
       </div>
     `);
 
@@ -51,38 +52,53 @@ export default {
     });
 
     const state = {
-      running: false, raf: 0, last: { x: 0, y: 0, z: 0 },
-      gravity: { x: 0, y: 0, z: 0 }, useLinear: false,
+      running: false, raf: 0, last: { x: 0, y: 0, z: 0, gx: 0, gy: 0, gz: 0 },
+      gravity: { x: 0, y: 0, z: 0 }, source: "—",
       records: [], rateCount: 0, rateT: performance.now(),
+      events: 0, watchdog: 0,
     };
 
     const setStatus = (cls, text) => {
       const s = $("#ac-status"); s.className = "status " + cls;
       $("#ac-state").textContent = text;
     };
+    const showHint = (html) => { const h = $("#ac-hint"); h.innerHTML = "⚠️ " + html; h.classList.remove("hidden"); };
+    const hideHint = () => $("#ac-hint").classList.add("hidden");
 
     const onMotion = (e) => {
+      state.events++;
+      const gi = e.accelerationIncludingGravity;
       const lin = e.acceleration;
-      let x, y, z;
-      if (lin && lin.x !== null) {
-        state.useLinear = true;
-        x = lin.x; y = lin.y; z = lin.z;
-      } else {
-        // Estimate & subtract gravity via low-pass high-pass split.
-        const g = e.accelerationIncludingGravity || { x: 0, y: 0, z: 0 };
+      let x, y, z, gx = 0, gy = 0, gz = 0;
+
+      // Prefer accelerationIncludingGravity (the most reliably populated field on
+      // Android) and high-pass it to remove gravity. Many devices report
+      // `acceleration` as all-zeros, which would otherwise pin the graph flat.
+      if (gi && gi.x !== null && (gi.x !== 0 || gi.y !== 0 || gi.z !== 0)) {
+        gx = gi.x || 0; gy = gi.y || 0; gz = gi.z || 0;
         const a = 0.85;
-        state.gravity.x = a * state.gravity.x + (1 - a) * (g.x || 0);
-        state.gravity.y = a * state.gravity.y + (1 - a) * (g.y || 0);
-        state.gravity.z = a * state.gravity.z + (1 - a) * (g.z || 0);
-        x = (g.x || 0) - state.gravity.x;
-        y = (g.y || 0) - state.gravity.y;
-        z = (g.z || 0) - state.gravity.z;
+        state.gravity.x = a * state.gravity.x + (1 - a) * gx;
+        state.gravity.y = a * state.gravity.y + (1 - a) * gy;
+        state.gravity.z = a * state.gravity.z + (1 - a) * gz;
+        x = gx - state.gravity.x;
+        y = gy - state.gravity.y;
+        z = gz - state.gravity.z;
+        state.source = "g-filt";
+      } else if (lin && lin.x !== null) {
+        x = lin.x || 0; y = lin.y || 0; z = lin.z || 0;
+        state.source = "linear";
+      } else {
+        return; // event carried no usable data
       }
-      state.last = { x, y, z };
+
+      state.last = { x, y, z, gx, gy, gz };
       state.rateCount++;
       if (state.running) {
         const now = performance.now();
-        state.records.push({ iso: new Date().toISOString(), t: now.toFixed(2), x, y, z });
+        state.records.push({
+          iso: new Date().toISOString(), t: now.toFixed(2),
+          x, y, z, gx, gy, gz,
+        });
         $("#ac-count").textContent = state.records.length;
       }
     };
@@ -97,7 +113,7 @@ export default {
       const now = performance.now();
       if (now - state.rateT > 500) {
         const hz = (state.rateCount * 1000) / (now - state.rateT);
-        $("#ac-rate").textContent = `${hz.toFixed(0)} Hz${state.useLinear ? "" : " · g-filt"}`;
+        $("#ac-rate").textContent = `${hz.toFixed(0)} Hz · ${state.source}`;
         state.rateCount = 0; state.rateT = now;
       }
       state.raf = requestAnimationFrame(loop);
@@ -105,25 +121,42 @@ export default {
 
     let listening = false;
     async function start() {
-      if (!listening) {
-        const res = await requestMotion({
-          kind: "motion",
-          title: "Acceso al acelerómetro",
-          message: "VANTAR usa los sensores de movimiento de tu dispositivo para graficar la aceleración en tiempo real. Los datos no salen de tu teléfono.",
-        });
-        if (res !== "granted") {
-          setStatus("", res === "insecure" ? "Requiere HTTPS" : res === "unsupported" ? "No soportado" : "Permiso denegado");
-          return;
+      try {
+        if (!listening) {
+          if (!isSecure()) { setStatus("", "Requiere HTTPS"); showHint("Los sensores de movimiento sólo funcionan sobre <b>HTTPS</b>. Abrí el sitio publicado (github.io), no un archivo local."); return; }
+          const res = await requestMotion({
+            kind: "motion",
+            title: "Acceso al acelerómetro",
+            message: "VANTAR usa los sensores de movimiento para graficar la aceleración en tiempo real. Los datos no salen de tu teléfono.",
+          });
+          if (res !== "granted") {
+            setStatus("", res === "insecure" ? "Requiere HTTPS" : res === "unsupported" ? "No soportado" : "Permiso denegado");
+            if (res === "unsupported") showHint("Tu navegador no expone <b>DeviceMotionEvent</b>. Probá Chrome o Firefox actualizados.");
+            else if (res === "denied") showHint("Permiso denegado. En Chrome: candado/⋮ → <b>Configuración del sitio</b> → <b>Sensores de movimiento</b> → Permitir, y recargá.");
+            return;
+          }
+          window.addEventListener("devicemotion", onMotion);
+          listening = true;
+          state.raf = requestAnimationFrame(loop);
+
+          // Watchdog: if no motion events arrive shortly, tell the user why.
+          state.events = 0;
+          clearTimeout(state.watchdog);
+          state.watchdog = setTimeout(() => {
+            if (state.events === 0) {
+              showHint("No llegan datos del sensor. En <b>Chrome Android</b>: candado/⋮ → Configuración del sitio → <b>Sensores de movimiento</b> → Permitir. Algunos navegadores in-app (Instagram/Facebook) bloquean sensores: abrilo en Chrome.");
+            } else { hideHint(); }
+          }, 2200);
         }
-        window.addEventListener("devicemotion", onMotion);
-        listening = true;
-        state.raf = requestAnimationFrame(loop);
+        state.running = true;
+        setStatus("live", "Capturando");
+        $("#ac-start").disabled = true;
+        $("#ac-pause").disabled = false;
+        $("#ac-export").disabled = false;
+      } catch (err) {
+        setStatus("", "Error");
+        showHint("Ocurrió un error iniciando el sensor: <b>" + (err && err.message ? err.message : err) + "</b>");
       }
-      state.running = true;
-      setStatus("live", "Capturando");
-      $("#ac-start").disabled = true;
-      $("#ac-pause").disabled = false;
-      $("#ac-export").disabled = false;
     }
     function pause() {
       state.running = false;
@@ -134,8 +167,11 @@ export default {
     }
     function exportCSV() {
       if (!state.records.length) return;
-      const header = ["timestamp_iso", "t_ms", "accel_x_ms2", "accel_y_ms2", "accel_z_ms2"];
-      const rows = state.records.map((r) => [r.iso, r.t, r.x.toFixed(5), r.y.toFixed(5), r.z.toFixed(5)]);
+      const header = ["timestamp_iso", "t_ms", "linear_x_ms2", "linear_y_ms2", "linear_z_ms2", "raw_incl_gravity_x", "raw_incl_gravity_y", "raw_incl_gravity_z"];
+      const rows = state.records.map((r) => [
+        r.iso, r.t, r.x.toFixed(5), r.y.toFixed(5), r.z.toFixed(5),
+        r.gx.toFixed(5), r.gy.toFixed(5), r.gz.toFixed(5),
+      ]);
       downloadText(stampedName("vantar_accel"), toCSV(header, rows));
     }
 
@@ -145,6 +181,7 @@ export default {
 
     return function cleanup() {
       cancelAnimationFrame(state.raf);
+      clearTimeout(state.watchdog);
       if (listening) window.removeEventListener("devicemotion", onMotion);
       chart.destroy();
     };

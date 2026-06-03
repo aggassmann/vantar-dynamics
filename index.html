@@ -104,6 +104,20 @@
             <p class="lead" style="margin-top:var(--s-3);font-size:.92rem">Seis instrumentos que aprovechan los sensores nativos del dispositivo vía Web APIs. Requiere HTTPS y tu permiso.</p>
           </div>
           <div class="tool-grid" id="tool-grid"><!-- injected --></div>
+
+          <div class="card card-pad" id="diag-card" style="margin-top:var(--s-5)">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--s-3)">
+              <h3 style="font-size:1.05rem">Diagnóstico de sensores</h3>
+              <span class="status" id="diag-status"><span class="dot"></span><span>—</span></span>
+            </div>
+            <p class="note" style="margin:var(--s-2) 0 var(--s-3)">Verificá qué APIs expone tu dispositivo y probá la señal de movimiento en vivo.</p>
+            <div id="diag-table"><!-- injected --></div>
+            <div class="controls">
+              <button class="btn btn-primary btn-sm" id="diag-test">Probar movimiento</button>
+            </div>
+            <p class="note mono" id="diag-live" style="margin-top:var(--s-3)">eventos: 0</p>
+          </div>
+
           <div class="warnbox" style="margin-top:var(--s-5)">
             ⚠️ La disponibilidad de cada sensor depende de tu navegador y hardware. En iOS, los sensores de movimiento exigen una interacción explícita. Si algún instrumento no está soportado, mostrará un fallback claro.
           </div>
