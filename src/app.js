@@ -101,14 +101,19 @@ function registerSW() {
 }
 
 /* -------------------------------- Boot --------------------------------- */
+// Each step is isolated: a failure in any optional render must never take down
+// navigation. Navigation + modal are wired FIRST so the tabs always work.
+function step(label, fn) {
+  try { fn(); } catch (err) { console.error(`[boot] ${label} failed:`, err); }
+}
 function boot() {
-  renderPortfolio();
-  renderContact();
-  renderToolGrid();
-  renderDiagnostics();
-  initModal();
-  initNav();
-  registerSW();
+  step("initNav", initNav);
+  step("initModal", initModal);
+  step("portfolio", renderPortfolio);
+  step("contact", renderContact);
+  step("toolGrid", renderToolGrid);
+  step("diagnostics", renderDiagnostics);
+  step("serviceWorker", registerSW);
 }
 
 document.readyState === "loading"
