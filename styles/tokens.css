@@ -1,56 +1,56 @@
 /* ==========================================================================
    VANTAR Dynamics — Design Tokens
-   Premium engineering aesthetic: warm cream base, orange↔purple kinetic accents,
-   editorial serif headings + geometric sans body.
+   V-Telemetry identity: near-black surfaces, industrial mustard accent,
+   unified Space Grotesk technical type, blueprint grid.
    ========================================================================== */
 
 :root {
-  /* --- Surface / cream base --- */
-  --cream:        #faf8f5;
-  --cream-2:      #f5f1ea;
-  --cream-3:      #efe9df;
-  --paper:        #fffdfa;
+  /* --- Dark surfaces --- */
+  --cream:        #0d0d0f;       /* page background */
+  --cream-2:      #151518;       /* glass card base */
+  --cream-3:      #1f1f23;       /* secondary buttons / borders */
+  --paper:        #0d0d0f;
 
-  /* --- Ink (warm near-black) --- */
-  --ink:          #1a1613;
-  --ink-soft:     #4c453d;
-  --ink-faint:    #8a8178;
-  --hairline:     rgba(26, 22, 19, 0.08);
-  --hairline-2:   rgba(26, 22, 19, 0.14);
+  /* --- Text & greys --- */
+  --ink:          #ffffff;       /* primary text & titles */
+  --ink-soft:     #a1a1a6;       /* secondary text */
+  --ink-faint:    #6e6e73;       /* faint text / inner borders */
+  --hairline:     rgba(255, 255, 255, 0.08);
+  --hairline-2:   rgba(255, 255, 255, 0.15);
 
-  /* --- Accent ramp: warm orange --- */
-  --orange:       #ff6b35;
-  --orange-warm:  #ff9a52;
-  --amber:        #ffb86b;
+  /* --- Industrial mustard accent --- */
+  --yellow:       #D49A17;
+  --orange:       #D49A17;        /* legacy alias (project tags) */
+  --orange-warm:  #E5A93C;
+  --amber:        #FFCC00;
 
-  /* --- Accent ramp: deep purple --- */
-  --purple:       #6d28d9;
-  --purple-deep:  #3b0d6b;
-  --violet:       #8b5cf6;
+  /* --- Legacy accent aliases mapped to brand (kept so refs stay coherent) --- */
+  --purple:       #D49A17;
+  --purple-deep:  #9b6c0b;
+  --violet:       #D49A17;
 
   /* --- Functional --- */
   --good:         #2f9e6f;
   --warn:         #e8a33d;
   --bad:          #e2553b;
-  --axis-x:       #ff6b35;
-  --axis-y:       #6d28d9;
-  --axis-z:       #2f9e6f;
+  --axis-x:       #ffffff;        /* chart axes */
+  --axis-y:       #a1a1a6;
+  --axis-z:       #D49A17;
 
-  /* --- Glass --- */
-  --glass-bg:     rgba(255, 253, 250, 0.62);
-  --glass-bg-2:   rgba(255, 253, 250, 0.82);
-  --glass-brd:    rgba(255, 255, 255, 0.7);
-  --glass-shadow: 0 8px 40px -12px rgba(59, 13, 107, 0.18),
-                  0 2px 8px -4px rgba(26, 22, 19, 0.1);
+  /* --- Glassmorphism (dark) --- */
+  --glass-bg:     rgba(21, 21, 24, 0.7);
+  --glass-bg-2:   rgba(21, 21, 24, 0.85);
+  --glass-brd:    rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.6),
+                  0 2px 8px -4px rgba(0, 0, 0, 0.3);
 
-  /* --- Gradients --- */
-  --grad-accent:  linear-gradient(120deg, var(--orange) 0%, var(--violet) 100%);
-  --grad-text:    linear-gradient(115deg, #ff6b35 0%, #b5379b 45%, #6d28d9 100%);
+  /* --- No complex gradients / neon: flat mustard + white --- */
+  --grad-accent:  var(--yellow);
+  --grad-text:    #ffffff;
 
-  /* --- Typography --- */
-  --font-serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino,
-                "Times New Roman", Georgia, serif;
-  --font-sans:  "Space Grotesk", "Inter", system-ui, -apple-system,
+  /* --- Unified technical typography (Fraunces removed) --- */
+  --font-serif: "Space Grotesk", system-ui, sans-serif;
+  --font-sans:  "Space Grotesk", system-ui, -apple-system,
                 "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono:  "Space Grotesk", ui-monospace, "SF Mono", "Cascadia Code",
                 "Roboto Mono", monospace;
