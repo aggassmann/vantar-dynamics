@@ -2,15 +2,16 @@
 // Each project carries an inline SVG "cover" so the app stays asset-light and
 // works fully offline. Replace covers/photos with real renders any time.
 
-const cover = (a, b, paths) => `
+const cover = (paths) => `
 <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" fill="#151518"/>
   <defs>
-    <linearGradient id="cg-${a.replace('#','')}" x1="0" y1="0" x2="400" y2="200" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/>
-    </linearGradient>
+    <pattern id="cover-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </pattern>
   </defs>
-  <rect width="400" height="200" fill="url(#cg-${a.replace('#','')})"/>
-  <g fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${paths}</g>
+  <rect width="400" height="200" fill="url(#cover-grid)"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">${paths}</g>
 </svg>`;
 
 export const PROJECTS = [
@@ -19,9 +20,7 @@ export const PROJECTS = [
     tag: "Adquisición de datos",
     title: "Sistema DAQ multicanal",
     desc: "Plataforma de adquisición a 10 kHz para monitoreo de vibración en maquinaria rotativa.",
-    cover: cover("#ff6b35", "#b5379b",
-      `<polyline points="20,150 60,90 100,130 140,60 180,110 220,40 260,120 300,70 340,140 380,100"/>
-       <line x1="20" y1="170" x2="380" y2="170" stroke-opacity="0.5"/>`),
+    cover: cover(`<polyline points="20,150 60,90 100,130 140,60 180,110 220,40 260,120 300,70 340,140 380,100" stroke="#D49A17" stroke-width="2.5"/><line x1="20" y1="170" x2="380" y2="170" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>`),
     year: "2025",
     role: "Diseño electrónico + firmware",
     stack: ["STM32", "ADS1256", "Python", "InfluxDB"],
@@ -39,9 +38,7 @@ export const PROJECTS = [
     tag: "Visión artificial · AgTech",
     title: "Conteo y clasificación de frutos",
     desc: "Visión embebida para estimación de rendimiento y detección de plagas en cultivo.",
-    cover: cover("#6d28d9", "#ff6b35",
-      `<circle cx="120" cy="90" r="26"/><circle cx="200" cy="120" r="20"/>
-       <circle cx="270" cy="70" r="30"/><rect x="40" y="40" width="320" height="120" rx="10" stroke-opacity="0.5"/>`),
+    cover: cover(`<circle cx="120" cy="90" r="26" stroke="#ffffff" stroke-width="2"/><circle cx="200" cy="120" r="20" stroke="#ffffff" stroke-width="2"/><circle cx="270" cy="70" r="30" stroke="#D49A17" stroke-width="2.5"/><rect x="40" y="40" width="320" height="120" rx="10" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>`),
     year: "2025",
     role: "Pipeline de visión + edge AI",
     stack: ["Jetson", "YOLOv8", "OpenCV", "TensorRT"],
@@ -59,9 +56,7 @@ export const PROJECTS = [
     tag: "Diseño CAD/CAE",
     title: "Cabezal cosechador optimizado",
     desc: "Rediseño estructural y análisis FEA de un cabezal para reducir masa manteniendo rigidez.",
-    cover: cover("#3b0d6b", "#8b5cf6",
-      `<path d="M40,150 L120,60 L200,60 L280,150 Z"/><line x1="120" y1="60" x2="200" y2="150"/>
-       <line x1="200" y1="60" x2="120" y2="150"/><line x1="40" y1="150" x2="280" y2="150"/>`),
+    cover: cover(`<path d="M40,150 L120,60 L200,60 L280,150 Z" stroke="#ffffff" stroke-width="2"/><line x1="120" y1="60" x2="200" y2="150" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/><line x1="200" y1="60" x2="120" y2="150" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/><line x1="40" y1="150" x2="280" y2="150" stroke="#D49A17" stroke-width="2.5"/>`),
     year: "2024",
     role: "Análisis estructural (FEA)",
     stack: ["SolidWorks", "Ansys", "Topology Opt."],
@@ -79,10 +74,7 @@ export const PROJECTS = [
     tag: "Automatización",
     title: "Celda de automatización industrial",
     desc: "Línea de clasificación automatizada con PLC, visión y robótica colaborativa.",
-    cover: cover("#ff9a52", "#6d28d9",
-      `<rect x="40" y="120" width="320" height="20" rx="4"/><circle cx="90" cy="160" r="14"/>
-       <circle cx="170" cy="160" r="14"/><circle cx="250" cy="160" r="14"/><circle cx="330" cy="160" r="14"/>
-       <rect x="150" y="50" width="100" height="50" rx="6"/>`),
+    cover: cover(`<rect x="40" y="120" width="320" height="20" rx="4" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/><circle cx="90" cy="160" r="14" stroke="#ffffff" stroke-width="2"/><circle cx="170" cy="160" r="14" stroke="#ffffff" stroke-width="2"/><circle cx="250" cy="160" r="14" stroke="#ffffff" stroke-width="2"/><circle cx="330" cy="160" r="14" stroke="#ffffff" stroke-width="2"/><rect x="150" y="50" width="100" height="50" rx="6" stroke="#D49A17" stroke-width="2.5"/>`),
     year: "2024",
     role: "Integración & control",
     stack: ["Siemens S7", "UR Cobot", "SCADA", "OPC-UA"],
@@ -100,10 +92,7 @@ export const PROJECTS = [
     tag: "IoT · Edge",
     title: "Telemetría de flota agrícola",
     desc: "Red de nodos LoRa/4G para telemetría y mantenimiento predictivo de maquinaria.",
-    cover: cover("#b5379b", "#ff6b35",
-      `<circle cx="200" cy="100" r="10"/><circle cx="200" cy="100" r="40" stroke-opacity="0.6"/>
-       <circle cx="200" cy="100" r="70" stroke-opacity="0.35"/><line x1="200" y1="100" x2="300" y2="50"/>
-       <line x1="200" y1="100" x2="120" y2="150"/>`),
+    cover: cover(`<circle cx="200" cy="100" r="10" stroke="#D49A17" stroke-width="2.5"/><circle cx="200" cy="100" r="40" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="200" cy="100" r="70" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/><line x1="200" y1="100" x2="300" y2="50" stroke="#ffffff" stroke-width="2"/><line x1="200" y1="100" x2="120" y2="150" stroke="#ffffff" stroke-width="2"/>`),
     year: "2023",
     role: "Arquitectura IoT",
     stack: ["LoRaWAN", "ESP32", "Node-RED", "Grafana"],
@@ -121,9 +110,7 @@ export const PROJECTS = [
     tag: "Análisis dinámico",
     title: "Banco de ensayo dinámico",
     desc: "Banco instrumentado para caracterizar respuesta en frecuencia y amortiguamiento.",
-    cover: cover("#6d28d9", "#ffb86b",
-      `<path d="M20,100 C60,40 100,160 140,100 S220,40 260,100 S340,160 380,100"/>
-       <line x1="20" y1="100" x2="380" y2="100" stroke-opacity="0.4"/>`),
+    cover: cover(`<path d="M20,100 C60,40 100,160 140,100 S220,40 260,100 S340,160 380,100" stroke="#D49A17" stroke-width="2.5"/><line x1="20" y1="100" x2="380" y2="100" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>`),
     year: "2023",
     role: "Instrumentación & análisis",
     stack: ["LabVIEW", "Shaker", "FFT", "Matlab"],

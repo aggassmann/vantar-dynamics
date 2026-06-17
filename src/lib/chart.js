@@ -4,9 +4,8 @@
 //   • SpectrumChart — frequency-bin bar chart (vibration / audio FFT)
 // Both share HiDPI handling. Tools own their requestAnimationFrame loop.
 
-const CSS = getComputedStyle(document.documentElement);
-const INK = (CSS.getPropertyValue("--ink-faint") || "#8a8178").trim();
-const HAIR = "rgba(26,22,19,0.10)";
+const INK = "#a1a1a6";
+const HAIR = "rgba(255,255,255,0.12)";
 
 class Base {
   constructor(canvas, cssHeight = 180) {
@@ -61,7 +60,7 @@ export class RollingChart extends Base {
     // Grid: zero line + quarter lines
     ctx.strokeStyle = HAIR; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(0, midY); ctx.lineTo(w, midY); ctx.stroke();
-    ctx.setLineDash([3, 5]); ctx.strokeStyle = "rgba(26,22,19,0.06)";
+    ctx.setLineDash([3, 5]); ctx.strokeStyle = "rgba(255,255,255,0.06)";
     [0.5, -0.5].forEach((q) => {
       const y = midY - q * 2 * (h / 2 - 8);
       ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
@@ -119,7 +118,7 @@ export class SpectrumChart extends Base {
 
     const baseY = h - 16;
     const grad = ctx.createLinearGradient(0, 0, 0, baseY);
-    grad.addColorStop(0, "#ff6b35"); grad.addColorStop(1, "#6d28d9");
+    grad.addColorStop(0, "#D49A17"); grad.addColorStop(1, "rgba(255, 255, 255, 0.1)");
 
     const bars = Math.min(usableBins - 1, Math.floor(w / 3));
     const bw = w / bars;
@@ -142,7 +141,7 @@ export class SpectrumChart extends Base {
     ctx.textAlign = "right"; ctx.fillText(`${cap >= 1000 ? (cap/1000).toFixed(1)+'k' : Math.round(cap)} Hz`, w - 2, h - 3);
     ctx.textAlign = "left";
     if (info.peakHz) {
-      ctx.fillStyle = "#1a1613"; ctx.font = "600 11px 'Space Grotesk', sans-serif";
+      ctx.fillStyle = "#ffffff"; ctx.font = "600 11px 'Space Grotesk', sans-serif";
       ctx.fillText(`pico ≈ ${info.peakHz < 1000 ? Math.round(info.peakHz)+' Hz' : (info.peakHz/1000).toFixed(2)+' kHz'}`, 6, 14);
     }
   }
