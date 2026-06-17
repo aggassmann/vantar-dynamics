@@ -4,6 +4,7 @@
 import { renderPortfolio, initModal } from "./ui/portfolio.js";
 import { renderContact } from "./ui/contact.js";
 import { renderDiagnostics } from "./ui/diagnostics.js";
+import { initBrandTab } from "./ui/brand.js";
 
 import accelerometer from "./tools/accelerometer.js";
 import vibration from "./tools/vibration.js";
@@ -16,7 +17,7 @@ const TOOLS = [accelerometer, vibration, magnetometer, luxmeter, soundmeter, inc
 const $ = (s, r = document) => r.querySelector(s);
 
 /* ----------------------------- Tab routing ----------------------------- */
-const VIEWS = { home: "#view-home", tools: "#view-tools", contact: "#view-contact" };
+const VIEWS = { home: "#view-home", tools: "#view-tools", brand: "#view-brand", contact: "#view-contact" };
 
 function showTab(tab) {
   Object.entries(VIEWS).forEach(([k, sel]) =>
@@ -113,6 +114,7 @@ function boot() {
   step("contact", renderContact);
   step("toolGrid", renderToolGrid);
   step("diagnostics", renderDiagnostics);
+  step("brandTab", initBrandTab);
   step("serviceWorker", registerSW);
 }
 
