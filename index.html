@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="VANTAR Dynamics" />
-  <meta property="og:description" content="Ingeniería de medición y dinámica de máquinas, desde Argentina." />
+  <meta property="og:description" content="Ingeniería del movimiento. Hecho en Argentina." />
   <meta property="og:image" content="./assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -54,7 +54,7 @@
   <main class="app">
     <!-- ===================== TOP NAV (desktop only) ======================= -->
     <header class="topnav" aria-label="Navegación principal">
-      <div class="topnav-brand">
+      <button class="topnav-brand" data-tab="home" aria-label="VANTAR Dynamics, ir al inicio">
         <span class="tn-iso" aria-hidden="true">
           <svg viewBox="0 0 100 100" stroke="#ffffff" fill="none">
             <path d="M18.900 23.624L43.556 70.695A7.75 7.75 0 0 1 49.657 67.258L25.100 20.376A3.5 3.5 0 0 0 18.900 23.624Z" fill="#ffffff" stroke="none"/>
@@ -67,9 +67,8 @@
         </span>
         <span><span class="tn-w1">VANTAR</span><span class="tn-w2">DYNAMICS</span></span>
         <svg class="flag flag-nav" viewBox="0 0 30 20" role="img" aria-label="Bandera argentina"><use href="#flag-ar"/></svg>
-      </div>
+      </button>
       <nav class="topnav-links">
-        <button data-tab="home">Inicio</button>
         <button data-tab="products">Productos</button>
         <button data-tab="tools">Toolbox</button>
         <button data-tab="contact">Contacto</button>
@@ -86,15 +85,10 @@
           </div>
           <div class="word"><span class="w1">VANTAR</span><span class="w2">DYNAMICS</span></div>
         </div>
-        <p class="eyebrow eyebrow-ar"><svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Bandera argentina"><use href="#flag-ar"/></svg><span>Ingeniería argentina de medición y dinámica</span></p>
-        <h1 class="display">Ingeniería<br /><span class="text-grad">en movimiento.</span></h1>
+        <h1 class="slogan">Ingeniería del movimiento.</h1>
+        <p class="hecho-ar"><svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Bandera argentina"><use href="#flag-ar"/></svg><span>Hecho en Argentina</span></p>
         <p class="lead">Medimos, entendemos y resolvemos el comportamiento dinámico de las máquinas: vibraciones, balanceo, instrumentación y simulación.</p>
-        <div class="hero-cta">
-          <button class="btn btn-primary" data-go="contact">Contanos tu problema</button>
-          <button class="btn btn-ghost" data-go="tools">Probar el toolbox</button>
-        </div>
         <div class="hero-badges">
-          <span class="badge badge-ar"><svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Bandera argentina"><use href="#flag-ar"/></svg><b>Hecho en Argentina</b></span>
           <span class="badge">Equipos rotantes</span>
           <span class="badge">Maquinaria agrícola</span>
         </div>
@@ -172,27 +166,6 @@
         <div class="card card-pad stack confid">
           <p>Cada medición, cada diseño y cada resultado es información del cliente. Por eso no publicamos nombres de clientes, fotos de sus equipos ni datos de sus proyectos.</p>
           <p class="note">Si lo necesitás, firmamos un acuerdo de confidencialidad antes de la primera visita.</p>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="sec-head">
-          <span class="eyebrow">Productos propios · En desarrollo</span>
-          <h2>Instrumentos pensados<br />para el trabajo en campo.</h2>
-        </div>
-        <div class="grid">
-          <button class="card card-pad prod-link" data-go="products">
-            <span class="pill">En desarrollo</span>
-            <h3>BalanSense</h3>
-            <p>Balanceador dinámico portátil, en 2 planos.</p>
-            <span class="proj-foot">Ver producto →</span>
-          </button>
-          <button class="card card-pad prod-link" data-go="products">
-            <span class="pill">En desarrollo</span>
-            <h3>VibraSense</h3>
-            <p>Acelerómetros portátiles e inalámbricos para adquisición de datos.</p>
-            <span class="proj-foot">Ver producto →</span>
-          </button>
         </div>
       </div>
 
@@ -356,25 +329,6 @@
     </section>
   </main>
 
-  <!-- ============================ BOTTOM NAV ============================== -->
-  <nav class="bottomnav" aria-label="Navegación principal">
-    <button class="navbtn is-active" data-tab="home" aria-label="Inicio">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
-      <span>Inicio</span>
-    </button>
-    <button class="navbtn" data-tab="products" aria-label="Productos">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg>
-      <span>Productos</span>
-    </button>
-    <button class="navbtn" data-tab="tools" aria-label="Toolbox">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6 2 2 6-6a4 4 0 0 0 5.4-5.4l-2.3 2.3-2-2 2.3-2.3Z"/></svg>
-      <span>Toolbox</span>
-    </button>
-    <button class="navbtn" data-tab="contact" aria-label="Contacto">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-      <span>Contacto</span>
-    </button>
-  </nav>
 
   <!-- ============================ MODAL ================================== -->
   <div class="modal" id="modal" aria-modal="true" role="dialog">
