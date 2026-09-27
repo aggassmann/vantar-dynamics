@@ -1,7 +1,7 @@
 // VANTAR Dynamics — Application orchestrator
 // Tab router, toolbox registry/mounting, modal wiring, PWA registration.
 
-import { renderPortfolio, initModal } from "./ui/portfolio.js";
+import { initModal } from "./ui/portfolio.js";
 import { renderContact } from "./ui/contact.js";
 import { renderDiagnostics } from "./ui/diagnostics.js";
 import { initBrandTab } from "./ui/brand.js";
@@ -19,7 +19,7 @@ const $ = (s, r = document) => r.querySelector(s);
 const CAPS = detectCapabilities();
 
 /* ----------------------------- Tab routing ----------------------------- */
-const VIEWS = { home: "#view-home", tools: "#view-tools", brand: "#view-brand", contact: "#view-contact" };
+const VIEWS = { home: "#view-home", products: "#view-products", tools: "#view-tools", brand: "#view-brand", contact: "#view-contact" };
 
 function showTab(tab) {
   Object.entries(VIEWS).forEach(([k, sel]) =>
@@ -154,7 +154,6 @@ function step(label, fn) {
 function boot() {
   step("initNav", initNav);
   step("initModal", initModal);
-  step("portfolio", renderPortfolio);
   step("contact", renderContact);
   step("toolGrid", renderToolGrid);
   step("diagnostics", renderDiagnostics);

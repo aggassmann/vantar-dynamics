@@ -2,7 +2,7 @@
    Offline-first cache for the static app shell. Sensor APIs still require
    HTTPS + user gesture at runtime; this only handles asset delivery. */
 
-const CACHE = "vantar-v4";
+const CACHE = "vantar-v5";
 const ASSETS = [
   "./",
   "./index.html",
@@ -18,7 +18,6 @@ const ASSETS = [
   "./styles/hero.css",
   "./styles/responsive.css",
   "./src/app.js",
-  "./src/data/projects.js",
   "./src/ui/portfolio.js",
   "./src/ui/contact.js",
   "./src/ui/permissions.js",

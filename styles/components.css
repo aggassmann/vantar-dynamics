@@ -352,3 +352,21 @@
 .perm-card .ic { width: 64px; height: 64px; margin: 0 auto var(--s-4); border-radius: 18px;
   display: grid; place-items: center; background: var(--grad-accent); color: #fff; }
 .perm-card .ic svg { width: 32px; height: 32px; }
+
+/* --- Services, products, confidentiality (contenido real 2026-09) ------ */
+.svc { display: flex; flex-direction: column; gap: var(--s-2); }
+.svc-num { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; color: var(--yellow); }
+.svc h3, .prod-link h3 { font-size: 1.08rem; }
+.svc p, .prod-link p { font-size: 0.86rem; color: var(--ink-soft); line-height: 1.5; }
+.pill {
+  align-self: flex-start; display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.66rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--yellow); border: 1px solid rgba(212, 154, 23, 0.45);
+}
+.prod-link { display: flex; flex-direction: column; gap: var(--s-2); text-align: left; color: var(--ink); cursor: pointer; }
+.prod-link:active { transform: scale(0.98); }
+.prod-detail { display: flex; flex-direction: column; gap: var(--s-3); margin-bottom: var(--s-4); }
+.prod-name { font-size: 1.7rem; letter-spacing: -0.02em; }
+.confid { border-left: 3px solid var(--yellow); }
+.confid p { color: var(--ink-soft); line-height: 1.6; }
+.linklike { background: none; border: 0; padding: 0; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }

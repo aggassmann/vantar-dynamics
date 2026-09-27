@@ -1,5 +1,8 @@
 // VANTAR Dynamics — Contact tab (premium form + professional links)
 
+// Dirección prevista con el dominio propio (ver GUIA-DOMINIO.md, etapa 2).
+const EMAIL = "contacto@vantar-dynamics.com";
+
 const ICONS = {
   mail: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`,
   linkedin: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.4 8.75 22 11 22 14.4V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.96 0-2.26 1.53-2.26 3.1V21H9z"/></svg>`,
@@ -12,9 +15,9 @@ export function renderContact() {
   if (!mount) return;
   mount.innerHTML = `
     <div class="sec-head" style="margin-top:var(--s-7)">
-      <span class="eyebrow">Contratación · Consultoría</span>
-      <h2>Construyamos tu próximo<br />sistema de ingeniería.</h2>
-      <p class="lead" style="margin-top:var(--s-3);font-size:.92rem">Desarrollo industrial, consultoría mecatrónica, AgTech y soluciones a medida. Contame tu desafío y respondo con una propuesta técnica.</p>
+      <span class="eyebrow">Contacto</span>
+      <h2>Contanos qué le pasa<br />a tu máquina.</h2>
+      <p class="lead" style="margin-top:var(--s-3);font-size:.92rem">Vibraciones, balanceo, instrumentación, simulación o un producto en desarrollo. Contame el problema y te respondo con una propuesta técnica. Todo lo que compartas se trata con confidencialidad.</p>
     </div>
 
     <form class="card card-pad stack" id="contact-form" novalidate>
@@ -29,34 +32,32 @@ export function renderContact() {
       <div class="field">
         <label for="cf-type">Tipo de proyecto</label>
         <select id="cf-type" name="type">
-          <option>Desarrollo industrial / automatización</option>
-          <option>Consultoría mecatrónica</option>
-          <option>AgTech / maquinaria agrícola</option>
-          <option>Análisis dinámico / vibraciones</option>
-          <option>Visión artificial</option>
-          <option>Adquisición de datos (DAQ)</option>
+          <option>Análisis de vibraciones / diagnóstico</option>
+          <option>Balanceo dinámico</option>
+          <option>Instrumentación / adquisición de datos</option>
+          <option>Simulación CAE</option>
+          <option>Ingeniería conceptual / básica de producto</option>
+          <option>Productos: BalanSense / VibraSense</option>
           <option>Otro</option>
         </select>
       </div>
       <div class="field">
         <label for="cf-msg">Describí tu desafío</label>
-        <textarea id="cf-msg" name="message" placeholder="Contexto, objetivos, restricciones, plazos…" required></textarea>
+        <textarea id="cf-msg" name="message" placeholder="Qué equipo, qué síntoma, desde cuándo, qué necesitás…" required></textarea>
       </div>
       <button type="submit" class="btn btn-primary btn-block">Enviar consulta</button>
       <p class="note center">Abre tu cliente de correo con el mensaje pre-cargado. Sin servidores, sin tracking.</p>
       <div id="cf-ok" class="formok hidden">✓ ¡Gracias! Tu cliente de correo debería haberse abierto con la consulta lista para enviar.</div>
     </form>
 
-    <h3 style="margin:var(--s-6) 0 0">Redes profesionales</h3>
+    <h3 style="margin:var(--s-6) 0 0">Otros canales</h3>
     <div class="social">
-      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">${ICONS.linkedin}<span>LinkedIn</span></a>
-      <a href="https://github.com/" target="_blank" rel="noopener">${ICONS.github}<span>GitHub</span></a>
-      <a href="mailto:contacto@vantardynamics.com">${ICONS.mail}<span>Email</span></a>
-      <a href="https://wa.me/" target="_blank" rel="noopener">${ICONS.whatsapp}<span>WhatsApp</span></a>
+      <a href="mailto:${EMAIL}">${ICONS.mail}<span>Email</span></a>
     </div>
+    <p class="note" style="margin-top:var(--s-3)">LinkedIn, Instagram y Facebook: próximamente.</p>
 
     <footer class="foot">
-      <p><b>VANTAR Dynamics</b> · Engineering &amp; Dynamics Studio</p>
+      <p><b>VANTAR Dynamics</b> · Ingeniería de medición y dinámica de máquinas</p>
     </footer>
   `;
 
@@ -69,7 +70,7 @@ export function renderContact() {
     const body = encodeURIComponent(
       `Nombre/Empresa: ${data.get("name")}\nEmail: ${data.get("email")}\nTipo: ${data.get("type")}\n\n${data.get("message")}`
     );
-    window.location.href = `mailto:contacto@vantardynamics.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
     document.getElementById("cf-ok").classList.remove("hidden");
   });
 }
