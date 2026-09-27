@@ -9,43 +9,7 @@
   isolation: isolate;
 }
 
-/* 2D engineering grid */
-.mesh {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-color: #0d0d0f;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.95;
-  pointer-events: none;
-}
-
-/* Low-intensity floating mustard glow */
-.mesh::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 28%, rgba(212, 154, 23, 0.06) 0%, transparent 62%);
-  animation: pulseGlow 14s ease-in-out infinite alternate;
-}
-@keyframes pulseGlow {
-  from { opacity: 0.7; transform: scale(1); }
-  to   { opacity: 1; transform: scale(1.1); }
-}
-
-/* Soft fade into the page */
-.hero::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 34%;
-  background: linear-gradient(to bottom, transparent, var(--cream));
-  z-index: -1;
-  pointer-events: none;
-}
+/* La retícula y el brillo mostaza ahora son de toda la página (ver base.css) */
 
 /* --- Animated logo lockup --------------------------------------------- */
 .brandmark {

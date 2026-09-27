@@ -3,7 +3,6 @@
 
 import { initModal } from "./ui/portfolio.js";
 import { renderContact } from "./ui/contact.js";
-import { renderDiagnostics } from "./ui/diagnostics.js";
 import { initBrandTab } from "./ui/brand.js";
 import { detectCapabilities, toolAvailable } from "./lib/capabilities.js";
 
@@ -156,7 +155,6 @@ function boot() {
   step("initModal", initModal);
   step("contact", renderContact);
   step("toolGrid", renderToolGrid);
-  step("diagnostics", renderDiagnostics);
   step("brandTab", initBrandTab);
   step("serviceWorker", registerSW);
 }

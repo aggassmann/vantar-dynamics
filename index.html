@@ -78,7 +78,6 @@
     <!-- ============================ TAB 1: HOME ============================ -->
     <section id="view-home" class="view is-active" aria-label="Inicio">
       <header class="hero">
-        <div class="mesh" aria-hidden="true"></div>
         <div class="brandmark">
           <div class="iso" aria-hidden="true">
             <svg viewBox="0 0 100 100" fill="none"><defs><clipPath id="hero-clip"><path d="M18.900 23.624L43.556 70.695A7.75 7.75 0 0 1 49.657 67.258L25.100 20.376A3.5 3.5 0 0 0 18.900 23.624Z"/></clipPath></defs><line class="vd-bar" x1="19.2" y1="16.7" x2="47.1" y2="70.0" stroke="#FFFFFF" stroke-width="8" pathLength="1" clip-path="url(#hero-clip)"/><circle class="vd-ring" cx="50" cy="75" r="9" fill="none" stroke="#FFFFFF" stroke-width="2.5" pathLength="1" transform="rotate(-118 50 75)"/><line class="vd-data" x1="78" y1="22" x2="56" y2="64" stroke="#FFFFFF" stroke-width="2.5" pathLength="1"/><circle class="vd-node vd-n1" cx="78" cy="22" r="5" fill="#D49A17" stroke="#FFFFFF" stroke-width="1.5"/><circle class="vd-node vd-n2" cx="67" cy="43" r="5" fill="#D49A17" stroke="#FFFFFF" stroke-width="1.5"/><circle class="vd-node vd-n3" cx="56" cy="64" r="5" fill="#D49A17" stroke="#FFFFFF" stroke-width="1.5"/></svg>
@@ -234,19 +233,6 @@
             <p class="lead" style="margin-top:var(--s-3);font-size:.92rem">Seis instrumentos de demostración que usan los sensores de tu celular. Es el mismo principio de medición que usamos en campo con VibraSense. Requiere HTTPS y tu permiso.</p>
           </div>
           <div class="tool-grid" id="tool-grid"><!-- injected --></div>
-
-          <div class="card card-pad" id="diag-card" style="margin-top:var(--s-5)">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--s-3)">
-              <h3 style="font-size:1.05rem">Diagnóstico de sensores</h3>
-              <span class="status" id="diag-status"><span class="dot"></span><span>—</span></span>
-            </div>
-            <p class="note" style="margin:var(--s-2) 0 var(--s-3)">Verificá qué APIs expone tu dispositivo y probá la señal de movimiento en vivo.</p>
-            <div id="diag-table"><!-- injected --></div>
-            <div class="controls">
-              <button class="btn btn-primary btn-sm" id="diag-test">Probar movimiento</button>
-            </div>
-            <p class="note mono" id="diag-live" style="margin-top:var(--s-3)">eventos: 0</p>
-          </div>
 
           <div class="warnbox" style="margin-top:var(--s-5)">
             ⚠️ La disponibilidad de cada sensor depende de tu navegador y hardware. En iOS, los sensores de movimiento exigen una interacción explícita. Si algún instrumento no está soportado, mostrará un fallback claro.

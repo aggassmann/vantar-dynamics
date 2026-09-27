@@ -26,6 +26,31 @@ body {
   overscroll-behavior-y: contain;
 }
 
+/* Retícula técnica y estela mostaza fijas: acompañan todo el scroll */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+body::before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+body::after {
+  background: radial-gradient(ellipse 58% 46% at 50% 40%, rgba(212, 154, 23, 0.14), rgba(212, 154, 23, 0.04) 45%, transparent 72%);
+  animation: estela 12s ease-in-out infinite alternate;
+}
+@keyframes estela {
+  from { opacity: 0.75; transform: scale(1); }
+  to   { opacity: 1; transform: scale(1.08); }
+}
+@media (prefers-reduced-motion: reduce) { body::after { animation: none; } }
+
 img, svg, canvas { display: block; max-width: 100%; }
 
 button, input, textarea, select {
