@@ -43,14 +43,14 @@ body::before {
 .estela {
   position: fixed;
   left: 50%;
-  top: 40%;
-  width: min(120vw, 1100px);
-  height: 62vh;
+  top: 0;
+  width: min(120vw, 1000px);
+  height: min(62vh, 620px);
   z-index: -1;
   pointer-events: none;
   border-radius: 50%;
   background: radial-gradient(closest-side, rgba(212, 154, 23, 0.17), rgba(212, 154, 23, 0.06) 55%, transparent);
-  transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, calc(40vh - 50%), 0); /* sin JS: 40 % de la pantalla */
   will-change: transform;
   animation: estela-latido 12s ease-in-out infinite alternate;
 }
