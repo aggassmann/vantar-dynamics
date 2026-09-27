@@ -4,6 +4,7 @@
 import { initModal } from "./ui/portfolio.js";
 import { renderContact } from "./ui/contact.js";
 import { initBrandTab } from "./ui/brand.js";
+import { initEstela } from "./ui/estela.js";
 import { detectCapabilities, toolAvailable } from "./lib/capabilities.js";
 
 import accelerometer from "./tools/accelerometer.js";
@@ -156,6 +157,7 @@ function boot() {
   step("contact", renderContact);
   step("toolGrid", renderToolGrid);
   step("brandTab", initBrandTab);
+  step("estela", initEstela);
   step("serviceWorker", registerSW);
 }
 
