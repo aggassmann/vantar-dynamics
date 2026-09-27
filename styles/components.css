@@ -389,3 +389,7 @@
   .nac { flex-direction: row; align-items: flex-start; gap: var(--s-6); }
   .nac-list { grid-template-columns: 1fr 1fr; gap: var(--s-4) var(--s-6); }
 }
+
+/* --- Quiénes somos --- */
+.about p { color: var(--ink-soft); line-height: 1.7; max-width: 65ch; }
+.about p:first-child { color: var(--ink); }

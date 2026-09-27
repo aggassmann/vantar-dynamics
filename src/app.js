@@ -19,7 +19,7 @@ const $ = (s, r = document) => r.querySelector(s);
 const CAPS = detectCapabilities();
 
 /* ----------------------------- Tab routing ----------------------------- */
-const VIEWS = { home: "#view-home", products: "#view-products", tools: "#view-tools", brand: "#view-brand", contact: "#view-contact" };
+const VIEWS = { home: "#view-home", about: "#view-about", services: "#view-services", products: "#view-products", tools: "#view-tools", brand: "#view-brand", contact: "#view-contact" };
 
 function showTab(tab) {
   Object.entries(VIEWS).forEach(([k, sel]) =>
@@ -33,6 +33,18 @@ function showTab(tab) {
 }
 
 function initNav() {
+  // Menú desplegable en pantallas angostas
+  const nav = document.querySelector(".topnav");
+  const toggle = document.querySelector(".nav-toggle");
+  if (nav && toggle) {
+    const cerrar = () => { nav.classList.remove("menu-abierto"); toggle.setAttribute("aria-expanded", "false"); };
+    toggle.addEventListener("click", () => {
+      const abierto = nav.classList.toggle("menu-abierto");
+      toggle.setAttribute("aria-expanded", String(abierto));
+    });
+    nav.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", cerrar));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") cerrar(); });
+  }
   // Covers both the bottom nav (.navbtn) and the desktop top nav buttons.
   document.querySelectorAll("[data-tab]").forEach((b) =>
     b.addEventListener("click", () => showTab(b.dataset.tab))
