@@ -2,13 +2,14 @@
    Offline-first cache for the static app shell. Sensor APIs still require
    HTTPS + user gesture at runtime; this only handles asset delivery. */
 
-const CACHE = "vantar-v5";
+const CACHE = "vantar-v6";
 const ASSETS = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
   "./assets/favicon.svg",
-  "./assets/og-image.svg",
+  "./assets/og-image.png",
+  "./assets/apple-touch-icon.png",
   "./assets/isotype.svg",
   "./assets/logo-dark.svg",
   "./assets/logo-light.svg",

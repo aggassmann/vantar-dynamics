@@ -78,7 +78,7 @@ function renderMobileHint() {
   hint.innerHTML = `
     <span class="mh-ico" aria-hidden="true">
       <svg viewBox="0 0 100 100" stroke="#fff" fill="none">
-        <line x1="22" y1="22" x2="44" y2="64" stroke-width="7" stroke-linecap="round"/>
+        <path d="M18.900 23.624L43.556 70.695A7.75 7.75 0 0 1 49.657 67.258L25.100 20.376A3.5 3.5 0 0 0 18.900 23.624Z" fill="#fff" stroke="none"/>
         <line x1="78" y1="22" x2="56" y2="64" stroke-width="2.5"/>
         <circle cx="50" cy="75" r="9" stroke-width="2.5"/>
         <circle cx="78" cy="22" r="5" fill="#D49A17"/><circle cx="67" cy="43" r="5" fill="#D49A17"/><circle cx="56" cy="64" r="5" fill="#D49A17"/>
