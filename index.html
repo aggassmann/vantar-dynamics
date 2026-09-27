@@ -39,6 +39,14 @@
         <stop offset="1" stop-color="#6d28d9" />
       </linearGradient>
     </defs>
+    <symbol id="flag-ar" viewBox="0 0 30 20">
+      <rect width="30" height="20" fill="#74ACDF"/>
+      <rect y="6.667" width="30" height="6.667" fill="#FFFFFF"/>
+      <g transform="translate(15 10)" fill="#F6B40E">
+        <rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(0.0)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(22.5)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(45.0)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(67.5)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(90.0)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(112.5)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(135.0)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(157.5)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(180.0)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(202.5)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(225.0)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(247.5)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(270.0)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(292.5)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(315.0)"/><rect x="-0.35" y="-3.3" width="0.7" height="1.5" transform="rotate(337.5)"/>
+        <circle r="1.9" stroke="#85340A" stroke-width="0.25"/>
+      </g>
+    </symbol>
   </svg>
 
   <main class="app">
@@ -56,6 +64,7 @@
           </svg>
         </span>
         <span><span class="tn-w1">VANTAR</span><span class="tn-w2">DYNAMICS</span></span>
+        <svg class="flag flag-nav" viewBox="0 0 30 20" role="img" aria-label="Bandera argentina"><use href="#flag-ar"/></svg>
       </div>
       <nav class="topnav-links">
         <button data-tab="home">Inicio</button>
@@ -84,7 +93,7 @@
           </div>
           <div class="word"><span class="w1">VANTAR</span><span class="w2">DYNAMICS</span></div>
         </div>
-        <p class="eyebrow">Ingeniería de medición y dinámica</p>
+        <p class="eyebrow eyebrow-ar"><svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Bandera argentina"><use href="#flag-ar"/></svg><span>Ingeniería argentina de medición y dinámica</span></p>
         <h1 class="display">Ingeniería<br /><span class="text-grad">en movimiento.</span></h1>
         <p class="lead">Medimos, entendemos y resolvemos el comportamiento dinámico de las máquinas: vibraciones, balanceo, instrumentación y simulación.</p>
         <div class="hero-cta">
@@ -92,9 +101,9 @@
           <button class="btn btn-ghost" data-go="tools">Probar el toolbox</button>
         </div>
         <div class="hero-badges">
+          <span class="badge badge-ar"><svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Bandera argentina"><use href="#flag-ar"/></svg><b>Hecho en Argentina</b></span>
           <span class="badge">Equipos rotantes</span>
           <span class="badge">Maquinaria agrícola</span>
-          <span class="badge">Hecho en Argentina</span>
         </div>
       </header>
 
@@ -124,6 +133,22 @@
             <h3>Ingeniería conceptual y básica de producto</h3>
             <p>Acompañamiento en las etapas tempranas de un desarrollo, antes del detalle y la fabricación.</p>
           </article>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="sec-head">
+          <span class="eyebrow">Industria nacional</span>
+          <h2>Ingeniería argentina,<br />para la industria argentina.</h2>
+        </div>
+        <div class="card card-pad nac">
+          <div class="nac-flag"><svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Bandera argentina"><use href="#flag-ar"/></svg></div>
+          <ul class="nac-list">
+            <li><b>Diseñado y desarrollado en Argentina.</b> El hardware y el software de nuestros productos son desarrollo propio, hecho acá.</li>
+            <li><b>Atención directa, en español.</b> Hablás con quien hace el trabajo, sin intermediarios ni soporte del otro lado del mundo.</li>
+            <li><b>Conocemos la industria local.</b> Maquinaria agrícola, plantas y talleres de acá, con sus condiciones reales de trabajo.</li>
+            <li><b>Conocimiento que se queda en el país.</b> Queremos que medir, diagnosticar y balancear deje de depender de equipos y servicios importados.</li>
+          </ul>
         </div>
       </div>
 
@@ -180,7 +205,8 @@
 
       <footer class="foot">
         <p><b>VANTAR Dynamics</b> · Ingeniería de medición y dinámica de máquinas</p>
-        <p>© 2026 · Argentina · <button class="linklike" data-go="brand">Identidad de marca</button></p>
+        <p class="foot-ar"><svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Bandera argentina"><use href="#flag-ar"/></svg><span>Diseñado y desarrollado en Argentina</span></p>
+        <p>© 2026 · <button class="linklike" data-go="brand">Identidad de marca</button></p>
       </footer>
     </section>
 
@@ -190,7 +216,7 @@
         <div class="sec-head" style="margin-top:var(--s-7)">
           <span class="eyebrow">Productos propios</span>
           <h2>Hardware y software<br />desarrollados por VANTAR.</h2>
-          <p class="lead" style="margin-top:var(--s-3);font-size:.92rem">Dos instrumentos portátiles con software propio, multiplataforma y con exportación de datos. Hoy están en desarrollo.</p>
+          <p class="lead" style="margin-top:var(--s-3);font-size:.92rem">Dos instrumentos portátiles con software propio, multiplataforma y con exportación de datos, diseñados y desarrollados en Argentina. Hoy están en desarrollo.</p>
         </div>
 
         <article class="card card-pad prod-detail">

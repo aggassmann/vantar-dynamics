@@ -370,3 +370,22 @@
 .confid { border-left: 3px solid var(--yellow); }
 .confid p { color: var(--ink-soft); line-height: 1.6; }
 .linklike { background: none; border: 0; padding: 0; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
+
+/* --- Argentina: la bandera es el único lugar donde aparecen sus colores --- */
+.flag { width: 24px; height: 16px; flex: none; border-radius: 2px; box-shadow: 0 0 0 1px var(--hairline-2); vertical-align: middle; }
+.flag-nav { width: 21px; height: 14px; margin-left: 4px; }
+.eyebrow-ar { display: inline-flex; align-items: center; gap: 10px; }
+.eyebrow-ar .flag { width: 21px; height: 14px; }
+.badge-ar { display: inline-flex; align-items: center; gap: 8px; }
+.badge-ar .flag { width: 18px; height: 12px; }
+.nac { display: flex; flex-direction: column; gap: var(--s-4); }
+.nac-flag .flag { width: 54px; height: 36px; border-radius: 3px; }
+.nac-list { list-style: none; padding: 0; display: grid; gap: var(--s-3); }
+.nac-list li { color: var(--ink-soft); font-size: 0.9rem; line-height: 1.55; padding-left: var(--s-4); border-left: 2px solid var(--hairline-2); }
+.nac-list b { color: var(--ink); font-weight: 600; }
+.foot-ar { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-soft); }
+.foot-ar .flag { width: 18px; height: 12px; }
+@media (min-width: 1024px) {
+  .nac { flex-direction: row; align-items: flex-start; gap: var(--s-6); }
+  .nac-list { grid-template-columns: 1fr 1fr; gap: var(--s-4) var(--s-6); }
+}

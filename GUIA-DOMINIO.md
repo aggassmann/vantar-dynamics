@@ -20,6 +20,12 @@ y reenvío de email gratis). Alternativa: Namecheap o Porkbun.
    Precio orientativo de un `.com`: alrededor de USD 10–12 por año (confirmalo en pantalla).
 4. Dejar activada la **privacidad WHOIS** (viene por defecto: oculta tus datos personales).
 
+> **Si lo comprás en GoDaddy por la promo del primer año** (USD 0,01–0,99): mirá el total del
+> carrito antes de pagar. A veces la promo obliga a comprar varios años, y la renovación ronda
+> USD 20–23 por año. Sacá los extras (email, hosting, "protección"). A los 60 días podés transferir
+> el dominio a Cloudflare: la transferencia cobra 1 año al precio de costo y desde ahí renueva barato.
+> Si tenés la renovación automática activada en GoDaddy, desactivala después de la transferencia.
+
 > Opcional: `.com.ar` se compra en https://nic.ar con clave fiscal (AFIP/ARCA). Sirve para que nadie
 > lo use en Argentina y redirigirlo al `.com`. No es imprescindible.
 

@@ -58,6 +58,7 @@ export function renderContact() {
 
     <footer class="foot">
       <p><b>VANTAR Dynamics</b> · Ingeniería de medición y dinámica de máquinas</p>
+      <p class="foot-ar"><svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Bandera argentina"><use href="#flag-ar"/></svg><span>Diseñado y desarrollado en Argentina</span></p>
     </footer>
   `;
 
