@@ -48,7 +48,7 @@
   :root { --maxw: 1120px; --franja: 1120px; }
   .app {
     max-width: 1120px;
-    padding-bottom: calc(var(--nav-h) + var(--s-8));
+    padding-bottom: calc(var(--nav-h) + 110px);
     padding-top: 0;
   }
 

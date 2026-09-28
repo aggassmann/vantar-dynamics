@@ -21,16 +21,30 @@ const CAPS = detectCapabilities();
 /* ----------------------------- Tab routing ----------------------------- */
 const VIEWS = { home: "#view-home", about: "#view-about", services: "#view-services", products: "#view-products", tools: "#view-tools", brand: "#view-brand", contact: "#view-contact" };
 
+const SALIDA_MS = 240; // la página actual se desvanece antes de que entre la nueva
+let cambioPendiente = null;
+
 function showTab(tab) {
-  Object.entries(VIEWS).forEach(([k, sel]) =>
-    $(sel).classList.toggle("is-active", k === tab)
-  );
+  const nueva = $(VIEWS[tab]);
+  if (!nueva) return;
   document.querySelectorAll("[data-tab]").forEach((b) =>
     b.classList.toggle("is-active", b.dataset.tab === tab)
   );
   document.body.dataset.vista = tab; // el logo de la barra inferior se oculta en la portada
-  if (tab === "tools") unmountTool(); // always land on the toolbox grid
-  window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+
+  const actual = document.querySelector(".view.is-active:not(.saliendo)");
+  const entrar = () => {
+    document.querySelectorAll(".view").forEach((v) => v.classList.remove("is-active", "saliendo"));
+    nueva.classList.add("is-active");
+    if (tab === "tools") unmountTool(); // always land on the toolbox grid
+    window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+  };
+
+  clearTimeout(cambioPendiente);
+  if (actual === nueva) { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
+  if (!actual || window.matchMedia("(prefers-reduced-motion: reduce)").matches) { entrar(); return; }
+  actual.classList.add("saliendo");
+  cambioPendiente = setTimeout(entrar, SALIDA_MS);
 }
 
 function initNav() {

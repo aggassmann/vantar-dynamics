@@ -64,7 +64,7 @@ export function initEstela() {
   window.addEventListener("scroll", arrancar, { passive: true });
   window.addEventListener("resize", arrancar);
   window.addEventListener("load", arrancar);
-  document.addEventListener("click", () => setTimeout(arrancar, 60)); // cambio de pestaña
+  document.addEventListener("click", () => setTimeout(arrancar, 320)); // cambio de pestaña (después de la transición)
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(arrancar);
   arrancar();
 }

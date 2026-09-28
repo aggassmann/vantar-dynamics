@@ -101,15 +101,22 @@ a { color: inherit; text-decoration: none; }
   max-width: var(--maxw);
   margin: 0 auto;
   min-height: 100dvh;
-  padding-bottom: calc(var(--nav-h) + var(--safe-b) + var(--s-7)); /* espacio para la barra inferior */
+  padding-bottom: calc(var(--nav-h) + var(--safe-b) + 96px); /* espacio para la barra inferior y su velo */
 }
 
-.view { display: none; animation: viewIn var(--dur-slow) var(--ease); }
-.view.is-active { display: block; }
-
-@keyframes viewIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
+.view { display: none; }
+/* Cambio de página amortiguado: sale suave y la nueva entra lento, frenando al final */
+.view.is-active { display: block; animation: vistaEntra 0.75s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.view.saliendo { animation: vistaSale 0.24s cubic-bezier(0.4, 0, 1, 1) forwards; }
+@keyframes vistaEntra {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes vistaSale {
+  to { opacity: 0; transform: translateY(-10px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .view.is-active, .view.saliendo { animation: none; }
 }
 
 .section { padding: 0 var(--s-5); }

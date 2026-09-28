@@ -167,7 +167,7 @@
   grid-auto-flow: column;
   grid-auto-columns: minmax(0, 1fr); /* columnas iguales */
   align-items: center;
-  background: var(--glass-bg-2);
+  background: rgba(21, 21, 24, 0.94);
   border: 1px solid var(--hairline-2);
   border-radius: var(--r-pill);
   box-shadow: var(--glass-shadow);
@@ -402,4 +402,14 @@
 body[data-vista="home"] .nav-logo { display: none; }
 @media (max-width: 419px) {
   .navbtn span { white-space: normal; text-align: center; line-height: 1.15; }
+}
+
+/* Velo bajo la barra inferior: el contenido se funde en el fondo antes de pasar por detrás */
+.nav-velo {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: calc(var(--nav-h) + var(--s-4) + var(--safe-b) + 64px);
+  z-index: 49;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--cream) 0%, var(--cream) 42%, rgba(13, 13, 15, 0.85) 62%, rgba(13, 13, 15, 0) 100%);
 }
