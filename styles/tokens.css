@@ -14,7 +14,7 @@
   /* --- Text & greys --- */
   --ink:          #ffffff;       /* primary text & titles */
   --ink-soft:     #a1a1a6;       /* secondary text */
-  --ink-faint:    #6e6e73;       /* faint text / inner borders */
+  --ink-faint:    #8a8a90;       /* texto chico: sube desde #6E6E73 para cumplir contraste 4,5:1 */
   --hairline:     rgba(255, 255, 255, 0.08);
   --hairline-2:   rgba(255, 255, 255, 0.15);
 

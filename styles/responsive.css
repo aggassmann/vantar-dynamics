@@ -48,7 +48,7 @@
   :root { --maxw: 1120px; --franja: 1120px; }
   .app {
     max-width: 1120px;
-    padding-bottom: calc(var(--nav-h) + 110px);
+    padding-bottom: var(--s-8);
     padding-top: 0;
   }
 
@@ -57,7 +57,7 @@
   .section { padding-left: var(--s-6); padding-right: var(--s-6); }
 
   /* Hero becomes two columns */
-  .hero { padding: var(--s-9) var(--s-6); }
+  .hero { padding: var(--s-7) var(--s-6) var(--s-9); }
 
   /* Denser grids on wide screens */
   .grid { grid-template-columns: repeat(3, 1fr); }
@@ -80,6 +80,28 @@
 
   /* Tap targets can relax to hover affordances */
   .toolcard:hover, .proj:hover { transform: translateY(-2px); }
+}
+
+/* Computadora: la barra de navegación sube a la parte superior */
+@media (min-width: 1024px) {
+  .bottomnav {
+    top: 16px; bottom: auto;
+    width: auto; height: 56px;
+    grid-auto-columns: auto;
+    padding: 0 8px; gap: 2px;
+  }
+  .navbtn { flex-direction: row; gap: 8px; padding: 9px 16px; border-radius: var(--r-pill); }
+  .navbtn:not(.nav-logo) svg { display: none; }
+  .navbtn span { font-size: 0.86rem; }
+  .navbtn:hover { color: var(--ink); background: var(--cream-3); }
+  .navbtn.is-active:not(.nav-logo) { background: var(--yellow); }
+  .navbtn.is-active:not(.nav-logo) span { color: #0d0d0f; }
+  .nav-logo { padding: 6px 14px; }
+  .nav-velo {
+    top: 0; bottom: auto; height: 110px;
+    background: linear-gradient(to bottom, var(--cream) 0%, var(--cream) 35%, rgba(13, 13, 15, 0.85) 60%, rgba(13, 13, 15, 0) 100%);
+  }
+  .app { padding-top: 72px; }
 }
 
 @media (min-width: 1024px) and (prefers-reduced-motion: reduce) {

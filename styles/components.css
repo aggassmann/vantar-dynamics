@@ -413,3 +413,22 @@ body[data-vista="home"] .nav-logo { display: none; }
   pointer-events: none;
   background: linear-gradient(to top, var(--cream) 0%, var(--cream) 42%, rgba(13, 13, 15, 0.85) 62%, rgba(13, 13, 15, 0) 100%);
 }
+
+/* --- Servicios como lista técnica (sin tarjetas numeradas) --- */
+.svc-bloque { display: grid; gap: var(--s-6); }
+.svc-lista { list-style: none; padding: 0; margin: 0; }
+.svc-fila { display: grid; grid-template-columns: 34px 1fr; gap: var(--s-4); padding: var(--s-5) 0; border-top: 1px solid var(--hairline-2); }
+.svc-fila:last-child { border-bottom: 1px solid var(--hairline-2); }
+.svc-ico { width: 30px; height: 30px; color: var(--yellow); margin-top: 2px; }
+.svc-fila h3 { font-size: 1.12rem; }
+.svc-fila p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.55; margin-top: 6px; max-width: 60ch; }
+@media (min-width: 1024px) {
+  .svc-bloque { grid-template-columns: 1.1fr 0.9fr; align-items: start; gap: var(--s-7); }
+  .svc-bloque .lamina { position: sticky; top: 110px; }
+}
+
+/* --- Láminas: dibujos técnicos propios --- */
+.lamina { margin: 0; padding: var(--s-4); border: 1px solid var(--hairline-2); border-radius: var(--r-md); background: rgba(13, 13, 15, 0.6); }
+.lamina-dibujo { width: 100%; height: auto; display: block; }
+.lamina figcaption { margin-top: var(--s-3); font-size: 0.78rem; color: var(--ink-faint); line-height: 1.4; }
+.prod-detail .lamina { margin-block: var(--s-2); }
