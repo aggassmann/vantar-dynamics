@@ -164,7 +164,8 @@
   width: min(calc(100% - 24px), 620px);
   height: var(--nav-h);
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr); /* columnas iguales */
   align-items: center;
   background: var(--glass-bg-2);
   border: 1px solid var(--hairline-2);
@@ -394,3 +395,11 @@
 /* --- Quiénes somos --- */
 .about p { color: var(--ink-soft); line-height: 1.7; max-width: 65ch; }
 .about p:first-child { color: var(--ink); }
+
+/* Logo en la barra inferior: solo en páginas internas (en la portada ya está grande) */
+.nav-logo svg { width: 26px; height: 28px; stroke: none; }
+.nav-logo.is-active svg { stroke: none; }
+body[data-vista="home"] .nav-logo { display: none; }
+@media (max-width: 419px) {
+  .navbtn span { white-space: normal; text-align: center; line-height: 1.15; }
+}

@@ -28,6 +28,7 @@ function showTab(tab) {
   document.querySelectorAll("[data-tab]").forEach((b) =>
     b.classList.toggle("is-active", b.dataset.tab === tab)
   );
+  document.body.dataset.vista = tab; // el logo de la barra inferior se oculta en la portada
   if (tab === "tools") unmountTool(); // always land on the toolbox grid
   window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
 }

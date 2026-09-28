@@ -4,7 +4,7 @@
 
 .hero {
   position: relative;
-  padding: calc(var(--s-8) + 8px) var(--s-5) var(--s-7);
+  padding: calc(var(--s-8) + 8px + env(safe-area-inset-top, 0px)) var(--s-5) var(--s-7);
   overflow: hidden;
   isolation: isolate;
 }
