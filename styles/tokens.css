@@ -71,6 +71,7 @@
 
   /* --- Layout --- */
   --maxw:      560px;          /* mobile-first column cap */
+  --franja:    560px;          /* ancho de la franja con retícula (sigue a la columna) */
   --nav-h:     72px;
   --safe-b:    env(safe-area-inset-bottom, 0px);
 }
