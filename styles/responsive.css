@@ -65,9 +65,6 @@
   .topnav.menu-abierto .topnav-links { display: flex; }
   .topnav-links button { text-align: left; padding: 12px 14px; font-size: 1rem; border-radius: var(--r-md); }
 }
-@media (max-width: 339px) {
-  .topnav-brand .flag-nav { display: none; }
-}
 @media (min-width: 1024px) {
   .topnav { padding: 10px 12px 10px 24px; margin: 14px 0 0; top: 14px; }
   .topnav-links { gap: var(--s-2); }

@@ -41,8 +41,20 @@ body::before {
   background-position: center top;
   /* La retícula ocupa la franja del contenido y se funde en negro hacia los costados */
   --borde-franja: calc(50% - var(--franja) / 2);
-  -webkit-mask-image: linear-gradient(90deg, transparent calc(var(--borde-franja) - 90px), #000 calc(var(--borde-franja) + 10px), #000 calc(100% - var(--borde-franja) - 10px), transparent calc(100% - var(--borde-franja) + 90px));
-          mask-image: linear-gradient(90deg, transparent calc(var(--borde-franja) - 90px), #000 calc(var(--borde-franja) + 10px), #000 calc(100% - var(--borde-franja) - 10px), transparent calc(100% - var(--borde-franja) + 90px));
+  -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,0) calc(var(--borde-franja) - 300px), rgba(0,0,0,0.1) calc(var(--borde-franja) - 240px), rgba(0,0,0,0.22) calc(var(--borde-franja) - 180px), rgba(0,0,0,0.36) calc(var(--borde-franja) - 120px), rgba(0,0,0,0.5) calc(var(--borde-franja) - 60px), rgba(0,0,0,0.64) calc(var(--borde-franja) + 0px), rgba(0,0,0,0.78) calc(var(--borde-franja) + 60px), rgba(0,0,0,0.9) calc(var(--borde-franja) + 110px), rgba(0,0,0,1) calc(var(--borde-franja) + 160px), rgba(0,0,0,1) calc(100% - var(--borde-franja) - 160px), rgba(0,0,0,0.9) calc(100% - var(--borde-franja) - 110px), rgba(0,0,0,0.78) calc(100% - var(--borde-franja) - 60px), rgba(0,0,0,0.64) calc(100% - var(--borde-franja) + 0px), rgba(0,0,0,0.5) calc(100% - var(--borde-franja) + 60px), rgba(0,0,0,0.36) calc(100% - var(--borde-franja) + 120px), rgba(0,0,0,0.22) calc(100% - var(--borde-franja) + 180px), rgba(0,0,0,0.1) calc(100% - var(--borde-franja) + 240px), rgba(0,0,0,0) calc(100% - var(--borde-franja) + 300px));
+          mask-image: linear-gradient(90deg, rgba(0,0,0,0) calc(var(--borde-franja) - 300px), rgba(0,0,0,0.1) calc(var(--borde-franja) - 240px), rgba(0,0,0,0.22) calc(var(--borde-franja) - 180px), rgba(0,0,0,0.36) calc(var(--borde-franja) - 120px), rgba(0,0,0,0.5) calc(var(--borde-franja) - 60px), rgba(0,0,0,0.64) calc(var(--borde-franja) + 0px), rgba(0,0,0,0.78) calc(var(--borde-franja) + 60px), rgba(0,0,0,0.9) calc(var(--borde-franja) + 110px), rgba(0,0,0,1) calc(var(--borde-franja) + 160px), rgba(0,0,0,1) calc(100% - var(--borde-franja) - 160px), rgba(0,0,0,0.9) calc(100% - var(--borde-franja) - 110px), rgba(0,0,0,0.78) calc(100% - var(--borde-franja) - 60px), rgba(0,0,0,0.64) calc(100% - var(--borde-franja) + 0px), rgba(0,0,0,0.5) calc(100% - var(--borde-franja) + 60px), rgba(0,0,0,0.36) calc(100% - var(--borde-franja) + 120px), rgba(0,0,0,0.22) calc(100% - var(--borde-franja) + 180px), rgba(0,0,0,0.1) calc(100% - var(--borde-franja) + 240px), rgba(0,0,0,0) calc(100% - var(--borde-franja) + 300px));
+}
+
+/* Grano fino (dithering): evita que las transiciones oscuras se vean en escalones */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjkiIG51bU9jdGF2ZXM9IjIiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAgMSAgMCAwIDAgMCAxICAwIDAgMCAwIDEgIDAgMCAwIC41NSAwIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI24pIi8+PC9zdmc+");
+  background-size: 180px 180px;
+  opacity: 0.045;
 }
 
 /* Estela mostaza: fija al centro de la pantalla; estela.js la hace seguir el scroll con inercia */
