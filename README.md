@@ -1,6 +1,6 @@
 # VANTAR Dynamics — sitio web
 
-**Instrumentación para ingeniería.** Sitio de VANTAR Dynamics: consultoría de ingeniería (instrumentación,
+**Ingeniería del movimiento.** Sitio de VANTAR Dynamics: consultoría de ingeniería (instrumentación,
 vibraciones, simulación CAE, ingeniería de producto), productos propios en desarrollo (BalanSense y
 VibraSense) y un Toolbox que mide con los sensores del celular.
 
