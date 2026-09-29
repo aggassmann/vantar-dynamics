@@ -1,7 +1,7 @@
-# Guía: dominio propio `vantar-dynamics.com`
+# Guía: dominio propio `vantardynamics.com`
 
-Estado al 2026-09-27: **`vantar-dynamics.com` está libre** (también `vantardynamics.com`,
-`vantar-dynamics.com.ar` y `vantardynamics.com.ar`). Nadie lo reserva por vos: hasta que lo compres,
+Decisión 2026-09-29: el dominio es **`vantardynamics.com`** (sin guion). Al 2026-09-27 figuraba libre
+(también `vantardynamics.com.ar`). Nadie lo reserva por vos: hasta que lo compres,
 cualquiera puede registrarlo.
 
 Son 3 etapas. La **1** conviene hacerla ya (es barata y asegura el nombre). La **2** y la **3** recién
@@ -15,7 +15,7 @@ Recomendado: **Cloudflare Registrar** (cobra el precio de costo, sin recargos al
 y reenvío de email gratis). Alternativa: Namecheap o Porkbun.
 
 1. Crear cuenta en https://dash.cloudflare.com/sign-up (con tu mail).
-2. Menú **Domain Registration → Register Domains** → buscar `vantar-dynamics.com`.
+2. Menú **Domain Registration → Register Domains** → buscar `vantardynamics.com`.
 3. Comprar por 1 año (o más), con **renovación automática activada**.
    Precio orientativo de un `.com`: alrededor de USD 10–12 por año (confirmalo en pantalla).
 4. Dejar activada la **privacidad WHOIS** (viene por defecto: oculta tus datos personales).
@@ -31,10 +31,10 @@ y reenvío de email gratis). Alternativa: Namecheap o Porkbun.
 
 ## Etapa 2 — Email con tu dominio, gratis (10 minutos, vos)
 
-Para tener `contacto@vantar-dynamics.com` sin pagar una casilla:
+Para tener `contacto@vantardynamics.com` sin pagar una casilla:
 
 1. En Cloudflare → tu dominio → **Email → Email Routing** → activar.
-2. Crear la dirección `contacto@vantar-dynamics.com` → reenviar a tu Gmail.
+2. Crear la dirección `contacto@vantardynamics.com` → reenviar a tu Gmail.
 3. Para **responder** desde esa dirección en Gmail: *Configuración → Cuentas → Enviar como* (se puede
    hacer más adelante; lo vemos juntos cuando llegue el momento).
 
@@ -44,7 +44,7 @@ El sitio está en GitHub Pages y usa rutas relativas, así que funciona con domi
 de código.
 
 **En GitHub** (repo `vantar-dynamics` → *Settings → Pages*):
-1. *Custom domain*: `vantar-dynamics.com` → Save (GitHub crea un archivo `CNAME` en el repo).
+1. *Custom domain*: `vantardynamics.com` → Save (GitHub crea un archivo `CNAME` en el repo).
 2. Cuando el DNS propague (minutos a pocas horas): tildar **Enforce HTTPS**. Los sensores del
    toolbox necesitan HTTPS.
 3. Recomendado: en tu **perfil** de GitHub → *Settings → Pages → Verified domains* → verificar el
@@ -64,7 +64,7 @@ de código.
 | AAAA | `@` | `2606:50c0:8003::153` |
 | CNAME | `www` | `aggassmann.github.io` |
 
-Verificar: abrir `https://vantar-dynamics.com` y `https://www.vantar-dynamics.com`.
+Verificar: abrir `https://vantardynamics.com` y `https://www.vantardynamics.com`.
 
 > Las IPs son las oficiales de GitHub Pages; revisalas el día que lo hagas en
 > https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site

@@ -1,6 +1,6 @@
 # VANTAR Dynamics — sitio web
 
-**Ingeniería del movimiento.** Sitio de VANTAR Dynamics: consultoría de ingeniería (instrumentación,
+**Instrumentación para ingeniería.** Sitio de VANTAR Dynamics: consultoría de ingeniería (instrumentación,
 vibraciones, simulación CAE, ingeniería de producto), productos propios en desarrollo (BalanSense y
 VibraSense) y un Toolbox que mide con los sensores del celular.
 
@@ -42,7 +42,7 @@ y abrir `http://localhost:8080`.
 ## Publicación
 
 Se publica en GitHub Pages desde `main` (`git push`). **Todavía no se publica:** la decisión es lanzar
-cuando estén listos 6 meses de contenido para redes. Dominio previsto: `vantar-dynamics.com`
+cuando estén listos 6 meses de contenido para redes. Dominio previsto: `vantardynamics.com`
 (ver [`GUIA-DOMINIO.md`](GUIA-DOMINIO.md)).
 
 Al publicar una versión nueva, subir el número de `CACHE` en `sw.js` para que la PWA se actualice sola.

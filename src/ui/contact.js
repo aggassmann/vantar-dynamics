@@ -1,7 +1,7 @@
 // VANTAR Dynamics — Contact tab (premium form + professional links)
 
 // Dirección prevista con el dominio propio (ver GUIA-DOMINIO.md, etapa 2).
-const EMAIL = "contacto@vantar-dynamics.com";
+const EMAIL = "contacto@vantardynamics.com";
 
 const ICONS = {
   mail: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`,
@@ -58,7 +58,7 @@ export function renderContact() {
 
     <footer class="foot">
       <p><b>VANTAR Dynamics</b> · Ingeniería de medición y dinámica de máquinas</p>
-      <p class="foot-ar"><svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Bandera argentina"><use href="#flag-ar"/></svg><span>Diseñado y desarrollado en Argentina</span></p>
+      <p class="foot-ar"><svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Bandera argentina"><use href="#flag-ar"/></svg><span>Diseñado, desarrollado y fabricado en Argentina</span></p>
     </footer>
   `;
 

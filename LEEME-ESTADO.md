@@ -12,7 +12,7 @@
 1. **Datos de contacto reales:** teléfono o WhatsApp, y redes cuando existan.
 2. **Formulario de contacto con envío real** (hoy abre el cliente de correo). Recomendado: Formspree.
 3. **Fotos de los prototipos** para la página de Productos, cuando estén.
-4. **Dominio** `vantar-dynamics.com` comprado y conectado (ver `GUIA-DOMINIO.md`).
+4. **Dominio** `vantardynamics.com` comprado y conectado (ver `GUIA-DOMINIO.md`).
 5. `git push` a GitHub el día del lanzamiento.
 
 ## Vista previa privada (para el celular)
