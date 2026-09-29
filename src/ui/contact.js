@@ -2,6 +2,8 @@
 
 // Dirección prevista con el dominio propio (ver GUIA-DOMINIO.md, etapa 2).
 const EMAIL = "contacto@vantardynamics.com";
+const TELEFONO = "+54 9 3472 541798";
+const WHATSAPP = "5493472541798";
 
 const ICONS = {
   mail: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`,
@@ -52,13 +54,14 @@ export function renderContact() {
 
     <h3 style="margin:var(--s-6) 0 0">Otros canales</h3>
     <div class="social">
+      <a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noopener">${ICONS.whatsapp}<span>WhatsApp</span></a>
       <a href="mailto:${EMAIL}">${ICONS.mail}<span>Email</span></a>
     </div>
-    <p class="note" style="margin-top:var(--s-3)">LinkedIn, Instagram y Facebook: próximamente.</p>
+    <p class="note" style="margin-top:var(--s-3)">${TELEFONO} · LinkedIn, Instagram y Facebook: próximamente.</p>
 
     <footer class="foot">
       <p><b>VANTAR Dynamics</b> · Ingeniería de medición y dinámica de máquinas</p>
-      <p class="foot-ar"><svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Bandera argentina"><use href="#flag-ar"/></svg><span>Diseñado, desarrollado y fabricado en Argentina</span></p>
+      <p class="foot-ar"><svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Bandera argentina"><use href="#flag-ar"/></svg><span>Desarrollado y fabricado en Argentina</span></p>
     </footer>
   `;
 
