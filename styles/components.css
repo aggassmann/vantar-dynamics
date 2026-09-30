@@ -332,8 +332,15 @@
 .formok {
   margin-top: var(--s-4); padding: var(--s-4);
   background: rgba(47, 158, 111, 0.1); border: 1px solid rgba(47,158,111,0.3);
-  border-radius: var(--r-md); font-size: 0.86rem; color: #1f7a54;
+  border-radius: var(--r-md); font-size: 0.86rem; color: #6fdca8;
 }
+.formerr {
+  margin-top: var(--s-4); padding: var(--s-4);
+  background: rgba(220, 70, 60, 0.1); border: 1px solid rgba(220,70,60,0.35);
+  border-radius: var(--r-md); font-size: 0.86rem; color: #ff9b91;
+}
+.formerr a { color: inherit; text-decoration: underline; }
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* --- Footer ------------------------------------------------------------- */
 .foot { padding: var(--s-7) var(--s-5) var(--s-5); text-align: center; color: var(--ink-faint); font-size: 0.74rem; }

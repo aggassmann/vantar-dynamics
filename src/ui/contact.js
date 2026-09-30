@@ -4,6 +4,8 @@
 const EMAIL = "contacto@vantardynamics.com";
 const TELEFONO = "+54 9 3472 541798";
 const WHATSAPP = "5493472541798";
+// Formspree reenvía cada consulta al email de Alejandro (cuenta creada 2026-09-30).
+const FORM_ENDPOINT = "https://formspree.io/f/xvkgydjl";
 
 const ICONS = {
   mail: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`,
@@ -47,9 +49,14 @@ export function renderContact() {
         <label for="cf-msg">Describí tu desafío</label>
         <textarea id="cf-msg" name="message" placeholder="Qué equipo, qué síntoma, desde cuándo, qué necesitás…" required></textarea>
       </div>
-      <button type="submit" class="btn btn-primary btn-block">Enviar consulta</button>
-      <p class="note center">Abre tu cliente de correo con el mensaje pre-cargado. Sin servidores, sin tracking.</p>
-      <div id="cf-ok" class="formok hidden">✓ ¡Gracias! Tu cliente de correo debería haberse abierto con la consulta lista para enviar.</div>
+      <div class="hp-field" aria-hidden="true">
+        <label for="cf-gotcha">No completar</label>
+        <input id="cf-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" id="cf-send">Enviar consulta</button>
+      <p class="note center">Te respondemos por email. Tus datos se usan solo para contestarte.</p>
+      <div id="cf-ok" class="formok hidden" role="status">✓ ¡Gracias! Recibimos tu consulta y te vamos a responder a la brevedad.</div>
+      <div id="cf-err" class="formerr hidden" role="alert">No se pudo enviar. Probá de nuevo o escribinos a <a href="mailto:${EMAIL}">${EMAIL}</a>.</div>
     </form>
 
     <h3 style="margin:var(--s-6) 0 0">Otros canales</h3>
@@ -66,15 +73,32 @@ export function renderContact() {
   `;
 
   const form = document.getElementById("contact-form");
-  form.addEventListener("submit", (e) => {
+  const send = document.getElementById("cf-send");
+  const ok = document.getElementById("cf-ok");
+  const err = document.getElementById("cf-err");
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (!form.reportValidity()) return;
     const data = new FormData(form);
-    const subject = encodeURIComponent(`[VANTAR] ${data.get("type")} — ${data.get("name")}`);
-    const body = encodeURIComponent(
-      `Nombre/Empresa: ${data.get("name")}\nEmail: ${data.get("email")}\nTipo: ${data.get("type")}\n\n${data.get("message")}`
-    );
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    document.getElementById("cf-ok").classList.remove("hidden");
+    data.append("_subject", `[VANTAR] ${data.get("type")} — ${data.get("name")}`);
+    ok.classList.add("hidden");
+    err.classList.add("hidden");
+    send.disabled = true;
+    send.textContent = "Enviando…";
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      form.reset();
+      ok.classList.remove("hidden");
+    } catch {
+      err.classList.remove("hidden");
+    } finally {
+      send.disabled = false;
+      send.textContent = "Enviar consulta";
+    }
   });
 }
