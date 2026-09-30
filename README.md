@@ -41,8 +41,9 @@ y abrir `http://localhost:8080`.
 
 ## Publicación
 
-Se publica en GitHub Pages desde `main` (`git push`). **Todavía no se publica:** la decisión es lanzar
-cuando estén listos 6 meses de contenido para redes. Dominio previsto: `vantardynamics.com`
+Se publica en GitHub Pages desde `main` (`git push`): https://aggassmann.github.io/vantar-dynamics/
+Publicada y actualizada desde el 2026-09-30 (Alejandro decidió no esperar el contenido de redes).
+Dominio previsto: `vantardynamics.com`
 (ver [`GUIA-DOMINIO.md`](GUIA-DOMINIO.md)).
 
 Al publicar una versión nueva, subir el número de `CACHE` en `sw.js` para que la PWA se actualice sola.
