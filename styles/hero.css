@@ -102,3 +102,8 @@
 }
 .cta-texto span { color: var(--yellow); font-weight: 700; }
 .cta-texto:hover { background: rgba(212, 154, 23, 0.1); border-color: var(--yellow); }
+/* Pregunta que va rotando dentro del botón (src/ui/preguntas.js) */
+.cta-texto { flex-wrap: wrap; justify-content: center; max-width: min(92vw, 40rem); text-align: center; line-height: 1.4; }
+.cta-q { font-style: normal; transition: opacity 0.35s var(--ease); }
+.cta-q.oculta { opacity: 0; }
+.hero .lead { max-width: 60ch; }
