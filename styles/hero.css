@@ -107,3 +107,13 @@
 .cta-q { font-style: normal; transition: opacity 0.35s var(--ease); }
 .cta-q.oculta { opacity: 0; }
 .hero .lead { max-width: 60ch; }
+
+/* Portada compacta (pedido 30-sep: «es muy larga hacia abajo») */
+.hero { padding-top: calc(var(--s-6) + env(safe-area-inset-top, 0px)); padding-bottom: var(--s-4); }
+.brandmark { gap: 6px; margin-bottom: var(--s-2); }
+.brandmark .iso { width: clamp(118px, 32vw, 200px); }
+.brandmark .word { width: clamp(118px, 30vw, 170px); }
+.hecho-ar { margin-top: var(--s-3); }
+.hero .lead { margin-top: var(--s-4); font-size: 0.93rem; line-height: 1.5; }
+.cta-texto { margin-top: var(--s-5); }
+#view-home .foot { padding-top: var(--s-3); }
