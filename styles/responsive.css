@@ -38,7 +38,8 @@
   .app { max-width: 720px; }
   .grid { grid-template-columns: 1fr 1fr; }
   .tool-grid { grid-template-columns: 1fr 1fr; }
-  .social { grid-template-columns: 1fr 1fr 1fr 1fr; }
+  .social { grid-template-columns: 1fr 1fr; }
+  .social.social-redes { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
 }
 
 /* ======================================================================= */

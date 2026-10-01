@@ -328,6 +328,9 @@
 }
 .social a:active { transform: scale(0.97); }
 .social svg { width: 20px; height: 20px; }
+.social svg { flex-shrink: 0; }
+.social.social-redes { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); margin-top: var(--s-3); }
+.social-redes a { flex-direction: column; justify-content: center; gap: var(--s-2); padding: var(--s-3) var(--s-2); text-align: center; min-width: 0; }
 
 .formok {
   margin-top: var(--s-4); padding: var(--s-4);
