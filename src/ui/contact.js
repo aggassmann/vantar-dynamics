@@ -9,7 +9,7 @@ const FORM_ENDPOINT = "https://formspree.io/f/xvkgydjl";
 // Redes de VANTAR: cada una aparece en Contacto apenas tiene su enlace (vacío = oculta).
 const REDES = [
   { id: "instagram", nombre: "Instagram", url: "https://www.instagram.com/vantardynamics/" },
-  { id: "facebook", nombre: "Facebook", url: "" },
+  { id: "facebook", nombre: "Facebook", url: "https://www.facebook.com/vantardynamics" },
   { id: "linkedin", nombre: "LinkedIn", url: "https://www.linkedin.com/company/vantardynamics/" },
 ];
 
