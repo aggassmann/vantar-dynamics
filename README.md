@@ -15,7 +15,7 @@ styles/                 tokens · base · hero · components · responsive
 src/app.js              Router con transición de página, registro de instrumentos, service worker
 src/ui/estela.js        Estela mostaza que sigue el scroll con inercia
 src/ui/                 contacto, marca, permisos, modal
-src/tools/              acelerómetro, vibraciones (FFT), magnetómetro, luxómetro, sonómetro, inclinómetro
+src/tools/              acelerómetro, vibraciones (FFT), sonómetro, inclinómetro
 src/lib/                gráficos en canvas, FFT, CSV, detección de capacidades
 assets/                 logos v2.0 del kit, favicon, imagen para compartir
 ```

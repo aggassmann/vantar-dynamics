@@ -10,12 +10,10 @@ import { detectCapabilities, toolAvailable } from "./lib/capabilities.js";
 
 import accelerometer from "./tools/accelerometer.js";
 import vibration from "./tools/vibration.js";
-import magnetometer from "./tools/magnetometer.js";
-import luxmeter from "./tools/luxmeter.js";
 import soundmeter from "./tools/soundmeter.js";
 import inclinometer from "./tools/inclinometer.js";
 
-const TOOLS = [accelerometer, vibration, magnetometer, luxmeter, soundmeter, inclinometer];
+const TOOLS = [accelerometer, vibration, soundmeter, inclinometer];
 const $ = (s, r = document) => r.querySelector(s);
 const CAPS = detectCapabilities();
 
@@ -114,7 +112,7 @@ function renderMobileHint() {
     </span>
     <div>
       <h3>Mejor desde tu celular</h3>
-      <p>Los instrumentos usan los sensores del teléfono (acelerómetro, giroscopio, magnetómetro, luz). En esta PC algunos no están disponibles — el sonómetro sí funciona con tu micrófono.</p>
+      <p>Los instrumentos usan los sensores del teléfono (acelerómetro y giroscopio). En esta PC algunos no están disponibles — el sonómetro sí funciona con tu micrófono.</p>
       <button class="mh-url" type="button" title="Copiar enlace">
         <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
         ${url.replace(/^https?:\/\//, "")}

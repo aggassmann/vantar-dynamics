@@ -72,8 +72,6 @@ Probar al menos uno de cada fila:
 |---|---|---|
 | **Acelerómetro** | Iniciar captura → agitar el teléfono | Curvas X/Y/Z se mueven; Hz > 0; "Exportar CSV" descarga archivo con timestamps |
 | **Vibraciones** | Apoyar sobre algo que vibre (motor/parlante) | Espectro reacciona; muestra "pico ≈ X Hz" |
-| **Magnetómetro** | Acercar un objeto metálico/imán | µT sube; marca "anomalía" fuera de 25–65 µT |
-| **Luxómetro** | Tapar y luego iluminar el sensor | lx cambia; etiqueta de zona se actualiza (o fallback si no soportado) |
 | **Sonómetro** | Activar micrófono → silbar/hablar | dB sube; espectro de audio se mueve; "pico" de frecuencia |
 | **Inclinómetro** | Apoyar en mesa; inclinar; "Calibrar a 0" | Burbuja se mueve; verde al nivelar (±0.8°); ángulos correctos |
 | **Diagnóstico** | "Probar movimiento" + mover | Contador de eventos sube; muestra valores crudos |
@@ -100,7 +98,7 @@ Probar en ~360, 375, 414, 768, 1024, 1280, 1440 px:
 - [ ] Herramienta → "Toolbox" (back) vuelve a la grilla y **detiene el sensor**.
 
 ### 2.6 Degradado por capacidad
-- [ ] En **PC**: instrumentos de movimiento/magnetómetro/luz **atenuados** con "Mejor en celular"; aparece la tarjeta "Mejor desde tu celular" con enlace copiable.
+- [ ] En **PC**: instrumentos de movimiento **atenuados** con "Mejor en celular"; aparece la tarjeta "Mejor desde tu celular" con enlace copiable.
 - [ ] En **PC**: el **sonómetro NO** está atenuado (usa micrófono).
 - [ ] En **celular**: nada atenuado, sin banner.
 

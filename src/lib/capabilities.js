@@ -15,8 +15,6 @@ export function detectCapabilities() {
     likelyMobile,                                  // best proxy for "has motion sensors"
     motionApi: typeof DeviceMotionEvent !== "undefined" || typeof DeviceOrientationEvent !== "undefined",
     motion: likelyMobile,                          // usable accelerometer/gyro in practice
-    magnetometer: "Magnetometer" in window,
-    light: "AmbientLightSensor" in window,
     mic: !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && (window.AudioContext || window.webkitAudioContext)),
     touch,
   };
@@ -27,8 +25,6 @@ export const TOOL_NEEDS = {
   accelerometer: "motion",
   vibration: "motion",
   inclinometer: "motion",
-  magnetometer: "magnetometer",
-  luxmeter: "light",
   soundmeter: "mic",
 };
 

@@ -19,8 +19,6 @@ export function renderDiagnostics() {
     ["DeviceMotion", typeof DeviceMotionEvent !== "undefined" ? yes : no],
     ["DeviceOrientation", typeof DeviceOrientationEvent !== "undefined" ? yes : no],
     ["Gesto de permiso (iOS)", iosGesture ? "requerido" : "no necesario"],
-    ["Magnetometer", "Magnetometer" in window ? yes : no],
-    ["AmbientLightSensor", "AmbientLightSensor" in window ? yes : no],
     ["Micrófono (getUserMedia)", navigator.mediaDevices?.getUserMedia ? yes : no],
     ["AudioContext", (window.AudioContext || window.webkitAudioContext) ? yes : no],
   ];

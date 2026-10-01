@@ -1,7 +1,7 @@
 {
   "name": "VANTAR Dynamics — Engineering Toolbox",
   "short_name": "VANTAR",
-  "description": "Portafolio de ingeniería avanzada y toolbox técnico de sensores: acelerómetro, vibraciones, magnetómetro, luxómetro, sonómetro e inclinómetro.",
+  "description": "Portafolio de ingeniería avanzada y toolbox técnico de sensores: acelerómetro, vibraciones, sonómetro e inclinómetro.",
   "lang": "es",
   "start_url": "./index.html",
   "scope": "./",

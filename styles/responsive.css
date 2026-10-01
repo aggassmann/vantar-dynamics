@@ -61,7 +61,7 @@
 
   /* Denser grids on wide screens */
   .grid { grid-template-columns: repeat(3, 1fr); }
-  .tool-grid { grid-template-columns: repeat(3, 1fr); }
+  .tool-grid { grid-template-columns: repeat(4, 1fr); }
 
   /* Contact: form + aside side by side */
   #contact-mount { max-width: 760px; }
