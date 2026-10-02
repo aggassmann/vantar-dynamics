@@ -403,7 +403,7 @@
 }
 
 /* --- Quiénes somos --- */
-.about p { color: var(--ink-soft); line-height: 1.7; max-width: 65ch; }
+.about p { color: var(--ink-soft); line-height: 1.7; }
 .about p:first-child { color: var(--ink); }
 
 /* Logo en la barra inferior: solo en páginas internas (en la portada ya está grande) */

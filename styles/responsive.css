@@ -67,9 +67,6 @@
   /* Contact: columna angosta centrada, igual que la portada */
   #contact-mount { max-width: 760px; margin-inline: auto; }
 
-  /* Brand board: three cards in a row */
-  #view-brand .section > .card { display: inline-block; }
-
   /* Modals become centered dialogs */
   .modal { align-items: center; }
   .modal-sheet {

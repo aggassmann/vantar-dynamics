@@ -3,7 +3,6 @@
 
 import { initModal } from "./ui/portfolio.js";
 import { renderContact } from "./ui/contact.js";
-import { initBrandTab } from "./ui/brand.js";
 import { initEstela } from "./ui/estela.js";
 import { initPreguntas } from "./ui/preguntas.js";
 import { detectCapabilities, toolAvailable } from "./lib/capabilities.js";
@@ -18,7 +17,7 @@ const $ = (s, r = document) => r.querySelector(s);
 const CAPS = detectCapabilities();
 
 /* ----------------------------- Tab routing ----------------------------- */
-const VIEWS = { home: "#view-home", about: "#view-about", services: "#view-services", products: "#view-products", tools: "#view-tools", brand: "#view-brand", contact: "#view-contact" };
+const VIEWS = { home: "#view-home", about: "#view-about", services: "#view-services", products: "#view-products", tools: "#view-tools", contact: "#view-contact" };
 
 const SALIDA_MS = 240; // la página actual se desvanece antes de que entre la nueva
 let cambioPendiente = null;
@@ -182,7 +181,6 @@ function boot() {
   step("initModal", initModal);
   step("contact", renderContact);
   step("toolGrid", renderToolGrid);
-  step("brandTab", initBrandTab);
   step("estela", initEstela);
   step("preguntas", initPreguntas);
   step("serviceWorker", registerSW);
