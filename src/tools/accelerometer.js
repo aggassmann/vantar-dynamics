@@ -131,7 +131,7 @@ export default {
           });
           if (res !== "granted") {
             setStatus("", res === "insecure" ? "Requiere HTTPS" : res === "unsupported" ? "No soportado" : "Permiso denegado");
-            if (res === "unsupported") showHint("Tu navegador no expone <b>DeviceMotionEvent</b>. Probá Chrome o Firefox actualizados.");
+            if (res === "unsupported") showHint("Tu navegador no da acceso a los sensores de movimiento. Probá con Chrome o Firefox actualizados, desde el celular.");
             else if (res === "denied") showHint("Permiso denegado. En Chrome: candado/⋮ → <b>Configuración del sitio</b> → <b>Sensores de movimiento</b> → Permitir, y recargá.");
             return;
           }
