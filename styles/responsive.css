@@ -64,8 +64,8 @@
   .grid { grid-template-columns: repeat(3, 1fr); }
   .tool-grid { grid-template-columns: repeat(4, 1fr); }
 
-  /* Contact: form + aside side by side */
-  #contact-mount { max-width: 760px; }
+  /* Contact: columna angosta centrada, igual que la portada */
+  #contact-mount { max-width: 760px; margin-inline: auto; }
 
   /* Brand board: three cards in a row */
   #view-brand .section > .card { display: inline-block; }
