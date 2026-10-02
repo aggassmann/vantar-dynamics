@@ -58,7 +58,7 @@
   .section { padding-left: var(--s-6); padding-right: var(--s-6); }
 
   /* Hero becomes two columns */
-  .hero { padding: var(--s-7) var(--s-6) var(--s-9); }
+  .hero { padding: var(--s-3) var(--s-6) var(--s-4); }
 
   /* Denser grids on wide screens */
   .grid { grid-template-columns: repeat(3, 1fr); }
