@@ -64,6 +64,12 @@
   .grid { grid-template-columns: repeat(3, 1fr); }
   .tool-grid { grid-template-columns: repeat(4, 1fr); }
 
+  /* Pie: marca · contacto · redes en una franja */
+  .sitefoot { margin-left: var(--s-6); margin-right: var(--s-6); }
+  .sf-row { flex-direction: row; justify-content: space-between; text-align: left; }
+  .sf-contacto { flex-direction: row; gap: var(--s-5); }
+  .sf-legal { text-align: left; }
+
   /* Contact: columna angosta centrada, igual que la portada */
   #contact-mount { max-width: 760px; margin-inline: auto; }
 

@@ -3,6 +3,7 @@
 
 import { initModal } from "./ui/portfolio.js";
 import { renderContact } from "./ui/contact.js";
+import { renderFooter } from "./ui/footer.js";
 import { initEstela } from "./ui/estela.js";
 import { initPreguntas } from "./ui/preguntas.js";
 import { detectCapabilities, toolAvailable } from "./lib/capabilities.js";
@@ -180,6 +181,7 @@ function boot() {
   step("initNav", initNav);
   step("initModal", initModal);
   step("contact", renderContact);
+  step("footer", renderFooter);
   step("toolGrid", renderToolGrid);
   step("estela", initEstela);
   step("preguntas", initPreguntas);

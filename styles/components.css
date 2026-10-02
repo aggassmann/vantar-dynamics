@@ -346,8 +346,30 @@
 .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* --- Footer ------------------------------------------------------------- */
-.foot { padding: var(--s-7) var(--s-5) var(--s-5); text-align: center; color: var(--ink-faint); font-size: 0.74rem; }
-.foot b { color: var(--ink-soft); }
+.sitefoot {
+  margin: var(--s-7) var(--s-5) 0; padding: var(--s-6) 0 var(--s-5);
+  border-top: 1px solid var(--glass-brd);
+  color: var(--ink-soft); font-size: 0.86rem;
+}
+.sf-row { display: flex; flex-direction: column; align-items: center; gap: var(--s-4); text-align: center; }
+.sf-marca { display: flex; align-items: center; gap: var(--s-3); text-align: left; }
+.sf-marca img { width: 30px; height: auto; }
+.sf-marca b { display: block; color: var(--ink); font-size: 0.92rem; }
+.sf-marca span { font-size: 0.8rem; }
+.sf-contacto, .sf-redes { list-style: none; margin: 0; padding: 0; display: flex; }
+.sf-contacto { flex-direction: column; align-items: center; }
+.sf-contacto a { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 44px; color: var(--ink-soft); transition: color var(--dur) var(--ease); }
+.sf-contacto svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--yellow); }
+.sf-redes { gap: var(--s-2); }
+.sf-redes a {
+  display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+  background: var(--glass-bg); border: 1px solid var(--glass-brd); color: var(--ink-soft);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.sf-redes svg { width: 20px; height: 20px; }
+.sf-contacto a:hover, .sf-redes a:hover { color: var(--ink); }
+.sf-redes a:hover { border-color: var(--yellow); }
+.sf-legal { margin-top: var(--s-4); text-align: center; color: var(--ink-faint); font-size: 0.78rem; }
 
 /* --- Permission overlay ------------------------------------------------- */
 .perm {
@@ -395,8 +417,6 @@
 .nac-list { list-style: none; padding: 0; display: grid; gap: var(--s-3); }
 .nac-list li { color: var(--ink-soft); font-size: 0.9rem; line-height: 1.55; padding-left: var(--s-4); border-left: 2px solid var(--hairline-2); }
 .nac-list b { color: var(--ink); font-weight: 600; }
-.foot-ar { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-soft); }
-.foot-ar .flag { width: 18px; height: 12px; }
 @media (min-width: 1024px) {
   .nac { flex-direction: row; align-items: flex-start; gap: var(--s-6); }
   .nac-list { grid-template-columns: 1fr 1fr; gap: var(--s-4) var(--s-6); }
