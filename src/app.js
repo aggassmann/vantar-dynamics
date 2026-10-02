@@ -69,6 +69,32 @@ function initNav() {
   );
 }
 
+/* Enlaces directos (QR de calcos, mails, redes): vantardynamics.com/#vibrasense */
+const ENLACES = {
+  inicio: ["home"], nosotros: ["about"], servicios: ["services"], productos: ["products"],
+  toolbox: ["tools"], contacto: ["contact"],
+  balansense: ["products", "#prod-balansense"], vibrasense: ["products", "#prod-vibrasense"],
+};
+
+function abrirEnlace() {
+  const destino = ENLACES[decodeURIComponent(location.hash.slice(1)).toLowerCase()];
+  if (!destino) return;
+  const [tab, ancla] = destino;
+  showTab(tab);
+  if (!ancla) return;
+  setTimeout(() => {
+    const el = $(ancla);
+    if (!el) return;
+    // en computadora la barra de navegación flota arriba: dejar el título debajo
+    const barra = $(".bottomnav")?.getBoundingClientRect();
+    const tapa = barra && barra.top < innerHeight / 2 ? barra.bottom : 0;
+    // offsetTop no se altera por la animación de entrada de la vista (transform)
+    let y = 0;
+    for (let n = el; n; n = n.offsetParent) y += n.offsetTop;
+    window.scrollTo({ top: y - tapa - 16, behavior: "instant" });
+  }, SALIDA_MS + 60);
+}
+
 /* --------------------------- Toolbox registry -------------------------- */
 let activeCleanup = null;
 
@@ -186,6 +212,8 @@ function boot() {
   step("estela", initEstela);
   step("preguntas", initPreguntas);
   step("serviceWorker", registerSW);
+  step("enlace", abrirEnlace);
+  window.addEventListener("hashchange", abrirEnlace);
 }
 
 document.readyState === "loading"
