@@ -1,6 +1,6 @@
 // VANTAR Dynamics — pie de página único, igual en todas las secciones
 
-import { EMAIL, WHATSAPP, TELEFONO, REDES, ICONS } from "./datos.js";
+import { EMAIL, WHATSAPP, TELEFONO, CIUDAD, REDES, ICONS } from "./datos.js";
 
 export function renderFooter() {
   const app = document.querySelector("main.app");
@@ -19,7 +19,7 @@ export function renderFooter() {
         </ul>
         ${redes.length ? `<ul class="sf-redes">${redes.map((r) => `<li><a href="${r.url}" target="_blank" rel="noopener" aria-label="${r.nombre}">${ICONS[r.id]}</a></li>`).join("")}</ul>` : ""}
       </div>
-      <p class="sf-legal">© ${new Date().getFullYear()} VANTAR Dynamics</p>
+      <p class="sf-legal">© ${new Date().getFullYear()} VANTAR Dynamics · ${CIUDAD}</p>
     </footer>
   `);
 }

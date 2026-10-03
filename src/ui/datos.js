@@ -4,6 +4,7 @@
 export const EMAIL = "contacto@vantardynamics.com";
 export const TELEFONO = "+54 9 3472 541798";
 export const WHATSAPP = "5493472541798";
+export const CIUDAD = "Marcos Juárez, Córdoba, Argentina";
 // Redes de VANTAR: cada una aparece en Contacto y en el pie apenas tiene su enlace (vacío = oculta).
 export const REDES = [
   { id: "instagram", nombre: "Instagram", url: "https://www.instagram.com/vantardynamics/" },
