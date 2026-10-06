@@ -5,6 +5,8 @@ export const EMAIL = "contacto@vantardynamics.com";
 export const TELEFONO = "+54 9 3472 541798";
 export const WHATSAPP = "5493472541798";
 export const CIUDAD = "Marcos Juárez, Córdoba, Argentina";
+// Estadísticas: pegar el token de Cloudflare Web Analytics y el ID de proyecto de Microsoft Clarity (vacío = apagado).
+export const ESTADISTICAS = { cloudflare: "", clarity: "" };
 // Redes de VANTAR: cada una aparece en Contacto y en el pie apenas tiene su enlace (vacío = oculta).
 export const REDES = [
   { id: "instagram", nombre: "Instagram", url: "https://www.instagram.com/vantardynamics/" },

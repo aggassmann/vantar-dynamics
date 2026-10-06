@@ -6,6 +6,7 @@ import { renderContact } from "./ui/contact.js";
 import { renderFooter } from "./ui/footer.js";
 import { initEstela } from "./ui/estela.js";
 import { initPreguntas } from "./ui/preguntas.js";
+import { initEstadisticas, evento } from "./ui/estadisticas.js";
 import { detectCapabilities, toolAvailable } from "./lib/capabilities.js";
 
 import accelerometer from "./tools/accelerometer.js";
@@ -159,6 +160,7 @@ function mountTool(id) {
   $("#tools-home").classList.add("hidden");
   const stage = $("#tool-stage");
   activeCleanup = tool.render(stage) || null;
+  evento(`toolbox-${id}`);
   // Wire the back button rendered by the tool shell.
   const back = stage.querySelector("[data-tool-back]");
   if (back) back.addEventListener("click", unmountTool);
@@ -213,6 +215,7 @@ function boot() {
   step("preguntas", initPreguntas);
   step("serviceWorker", registerSW);
   step("enlace", abrirEnlace);
+  step("estadisticas", initEstadisticas);
   window.addEventListener("hashchange", abrirEnlace);
 }
 

@@ -1,6 +1,7 @@
 // VANTAR Dynamics — Contact tab (premium form + professional links)
 
 import { EMAIL, WHATSAPP, TELEFONO, REDES, ICONS } from "./datos.js";
+import { evento } from "./estadisticas.js";
 
 // Formspree reenvía cada consulta al email de Alejandro (cuenta creada 2026-09-30).
 const FORM_ENDPOINT = "https://formspree.io/f/xvkgydjl";
@@ -85,6 +86,7 @@ export function renderContact() {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       form.reset();
       ok.classList.remove("hidden");
+      evento("consulta-enviada");
     } catch {
       err.classList.remove("hidden");
     } finally {
