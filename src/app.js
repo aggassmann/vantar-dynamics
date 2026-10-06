@@ -66,7 +66,13 @@ function initNav() {
   );
   // Hero CTA buttons
   document.querySelectorAll("[data-go]").forEach((b) =>
-    b.addEventListener("click", () => showTab(b.dataset.go))
+    b.addEventListener("click", () => {
+      showTab(b.dataset.go);
+      // «Pedí una demostración»: Contacto abre con el motivo ya elegido
+      const tipo = document.getElementById("cf-type");
+      if (b.dataset.motivo && tipo) tipo.value = b.dataset.motivo;
+      if (b.dataset.motivo) evento(`demo-${b.dataset.motivo.includes("BalanSense") ? "balansense" : "vibrasense"}`);
+    })
   );
 }
 

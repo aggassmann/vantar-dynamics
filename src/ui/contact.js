@@ -36,6 +36,8 @@ export function renderContact() {
           <option>Simulación CAE</option>
           <option>Ingeniería conceptual / básica de producto</option>
           <option>Productos: BalanSense / VibraSense</option>
+          <option>Demostración de BalanSense</option>
+          <option>Demostración de VibraSense</option>
           <option>Otro</option>
         </select>
       </div>

@@ -1,7 +1,8 @@
 // VANTAR Dynamics — estadísticas de visitas (Cloudflare Web Analytics + Microsoft Clarity)
 // Cada servicio se activa solo cuando su código está cargado en datos.js (vacío = apagado).
 
-import { ESTADISTICAS } from "./datos.js";
+// Import de espacio de nombres: si el navegador tiene un datos.js viejo en caché, no rompe el arranque.
+import * as datos from "./datos.js";
 
 function cargarScript(src, attrs = {}) {
   const s = document.createElement("script");
@@ -12,7 +13,7 @@ function cargarScript(src, attrs = {}) {
 }
 
 export function initEstadisticas() {
-  const { cloudflare, clarity } = ESTADISTICAS;
+  const { cloudflare, clarity } = datos.ESTADISTICAS || {};
   if (cloudflare) {
     cargarScript("https://static.cloudflareinsights.com/beacon.min.js", {
       defer: "",
