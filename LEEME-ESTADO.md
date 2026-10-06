@@ -1,20 +1,19 @@
-# Estado del sitio (septiembre 2026)
+# Estado del sitio (6 de octubre de 2026)
 
-**Estado:** diseño **terminado** con la identidad v2.0 definitiva. Todo está en la rama `main` de esta PC,
-**sin publicar** (en GitHub sigue la versión vieja hasta el lanzamiento).
+**Publicado** en https://vantardynamics.com (GitHub Pages, rama `main`; cada `git push` publica en 1–2 minutos).
+**Lanzamiento oficial:** domingo 1 de noviembre de 2026 (plan en `C:\Desarrollo\Vantar\Proyectos\Lanzamiento`).
 
-## Qué está hecho
-- Portada, Quiénes somos, Servicios, Productos (BalanSense y VibraSense, en desarrollo), Toolbox y Contacto.
-- Navegación flotante, transiciones, estela, retícula con bordes difusos, logos animados.
-- Contenido sin datos inventados: los casos de clientes no se publican (confidencialidad).
+## Hecho
+- Portada, Quiénes somos, Servicios, Productos (BalanSense y VibraSense, con «Pedí una demostración»), Toolbox y Contacto.
+- Dominio propio con HTTPS, mail contacto@vantardynamics.com, formulario por Formspree, WhatsApp, redes.
+- Para Google: dirección canónica, imagen al compartir, datos de la empresa, `robots.txt` y `sitemap.xml`.
+- Estadísticas listas para activar en `src/ui/datos.js` (`ESTADISTICAS`): Cloudflare Web Analytics y Microsoft Clarity,
+  con eventos `toolbox-<herramienta>`, `demo-balansense`, `demo-vibrasense` y `consulta-enviada`.
 
-## Qué falta para lanzar
-1. **Datos de contacto reales:** teléfono o WhatsApp, y redes cuando existan.
-2. **Formulario de contacto con envío real** (hoy abre el cliente de correo). Recomendado: Formspree.
-3. **Fotos de los prototipos** para la página de Productos, cuando estén.
-4. **Dominio** `vantardynamics.com` comprado y conectado (ver `GUIA-DOMINIO.md`).
-5. `git push` a GitHub el día del lanzamiento.
+## Falta para el 1/11
+1. Códigos de las estadísticas (los pasa Alejandro; guía en Proyectos/Lanzamiento/GUIA-ESTADISTICAS.md).
+2. Toolbox v5 (espera el OK de Alejandro al prototipo).
+3. Fotos reales de BalanSense y VibraSense.
+4. Número de WhatsApp Business definitivo.
 
-## Vista previa privada (para el celular)
-https://claude.ai/artifact/CLyxZR4ZComAs9HJeXrtQZ — en la vista previa los sensores del Toolbox no funcionan
-(los bloquea claude.ai); en el sitio publicado sí.
+Al cambiar archivos, subir la versión de `CACHE` en `sw.js` para que los visitantes reciban lo nuevo.
