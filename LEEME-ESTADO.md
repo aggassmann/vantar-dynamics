@@ -7,7 +7,7 @@
 - Portada, Quiénes somos, Servicios, Productos (BalanSense y VibraSense, con «Pedí una demostración»), Toolbox y Contacto.
 - Dominio propio con HTTPS, mail contacto@vantardynamics.com, formulario por Formspree, WhatsApp, redes.
 - Para Google: dirección canónica, imagen al compartir, datos de la empresa, `robots.txt` y `sitemap.xml`.
-- Estadísticas ACTIVAS: Cloudflare Web Analytics (inyección automática desde Cloudflare, sin token en datos.js)
+- Estadísticas ACTIVAS: Cloudflare Web Analytics (token en datos.js; el dominio NO pasa por el proxy de Cloudflare)
   y Microsoft Clarity (ID en `src/ui/datos.js` → `ESTADISTICAS`),
   con eventos `toolbox-<herramienta>`, `demo-balansense`, `demo-vibrasense` y `consulta-enviada`.
 
