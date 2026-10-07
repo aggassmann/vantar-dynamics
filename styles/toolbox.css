@@ -169,6 +169,16 @@
 .tb-qr b { display: block; margin-bottom: 4px; }
 .tb-qr span { font-size: .86rem; color: var(--ink-soft); line-height: 1.45; }
 
+/* En computadora: «Abrilo en tu celular» */
+.tb-compu .tb-meta em:not(.agotado) { color: var(--ink-faint); }
+.tb-cel-cab { display: flex; align-items: center; gap: 12px; }
+.tb-cel-cab .tb-ic { width: 40px; height: 40px; }
+.tb-cel-cab .eyebrow { color: var(--yellow); }
+.tb-cel-qr { display: grid; justify-items: center; gap: 10px; padding: 24px 16px 16px; border-radius: 18px; background: var(--tb-surface); border: 1px solid var(--tb-line); }
+.tb-cel-qr img { width: 220px; height: 220px; border-radius: 14px; background: #fff; display: block; }
+.tb-cel-url { font-size: .9rem; color: var(--ink); letter-spacing: .01em; }
+.tb-cel-qr .tb-link { justify-self: center; align-self: center; }
+
 @media (max-width: 360px) {
   .tb-datos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tb-como span { font-size: .74rem; }

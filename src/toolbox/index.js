@@ -1,6 +1,6 @@
 // VANTAR Dynamics — Toolbox: navegación entre pantallas y medición con los sensores del celular
 
-import { HTML, IC, SOLO_CELULAR } from "./vistas.js";
+import { HTML, IC } from "./vistas.js";
 import * as G from "./graficos.js";
 import * as Vib from "./vibraciones.js";
 import * as Snd from "./sonido.js";
@@ -84,7 +84,8 @@ function mostrar(id, historial = "push") {
 function refrescarCupo(k) {
   const q = A.quedan(k), usados = A.LIMITE - q;
   const em = $(`[data-quedan="${k}"]`);
-  if (em) {
+  if (em && !caps.motion && USA_SENSORES.includes(k)) { em.textContent = "en el celular"; em.classList.remove("agotado"); }
+  else if (em) {
     em.textContent = q > 0 ? (q === A.LIMITE ? "3 gratis" : `quedan ${q}`) : `vuelve el ${fechaCorta(A.liberaEl(k))}`;
     em.classList.toggle("agotado", q <= 0);
   }
@@ -104,8 +105,33 @@ function refrescarInicio() {
   }
 }
 
+// Enlace directo de cada instrumento (los QR de la pantalla «Abrilo en tu celular» llevan acá)
+export const ENLACE = { vib: "vibraciones", snd: "sonido", lvl: "nivel", mov: "movimiento" };
+const USA_SENSORES = ["vib", "lvl", "mov"];
+const TXT_CELULAR = {
+  vib: "Vibraciones usa el sensor de movimiento del teléfono, que la computadora no tiene. Escaneá el código y se abre directo en el instrumento.",
+  lvl: "Nivel e inclinación usa los sensores de orientación del teléfono, que la computadora no tiene. Escaneá el código y se abre directo en el instrumento.",
+  mov: "Movimiento usa el acelerómetro y el giróscopo del teléfono, que la computadora no tiene. Escaneá el código y se abre directo en el instrumento.",
+};
+
+/** En computadora: en vez del instrumento, el QR que lo abre en el celular. */
+function pasarAlCelular(k) {
+  const url = `https://vantardynamics.com/#${ENLACE[k]}`;
+  $("#cel-ic").innerHTML = IC[k];
+  $("#cel-nombre").textContent = NOMBRE[k];
+  $("#cel-txt").textContent = TXT_CELULAR[k];
+  const img = $("#cel-qr");
+  img.src = `./assets/qr-${ENLACE[k]}.svg`;
+  img.alt = `Código QR para abrir ${NOMBRE[k]} en el celular`;
+  $("#cel-url").textContent = url.replace("https://", "");
+  $("#cel-copiar").dataset.url = url;
+  $("#cel-copiar").textContent = "Copiar el enlace";
+  mostrar("tb-celular");
+}
+
 function abrir(k) {
   evento(`toolbox-${k}`);
+  if (!caps.motion && USA_SENSORES.includes(k)) { pasarAlCelular(k); return; }
   if (k === "lvl") { mostrar("lvl"); return; }
   if (A.quedan(k) <= 0) {
     $("#tope-titulo").textContent = `Usaste tus 3 mediciones de ${NOMBRE[k]}`;
@@ -297,9 +323,6 @@ function cambiarModoNivel() {
 async function iniciarNivel() {
   cambiarModoNivel();
   error("lvl", "");
-  const solo = $("#lvl [data-solo-celular]");
-  solo.innerHTML = caps.motion ? "" : SOLO_CELULAR;
-  if (!caps.motion) return;
   const r = await requestMotion({ kind: "motion", title: "Sensor de orientación", message: "El nivel usa los sensores de orientación del celular. Todo se procesa en tu celular." });
   if (estado.actual !== "lvl") return;
   if (r !== "granted") { error("lvl", textoPermiso(r)); return; }
@@ -553,10 +576,15 @@ export function initToolbox({ irA: ir, caps: c }) {
   $$ = (s) => raiz.querySelectorAll(s);
   raiz.innerHTML = HTML;
   if (!caps.likelyMobile) $("#tb-qr-inicio").hidden = false;
-  ["vib-prep", "mov-prep"].forEach((v) => {
-    if (caps.motion) return;
-    $(`#${v} [data-solo-celular]`).innerHTML = SOLO_CELULAR;
-    $(`#${v} [data-medir]`).hidden = true;
+  if (!caps.motion) {
+    raiz.classList.add("tb-compu");
+    $('[data-abrir="lvl"] em').textContent = "en el celular";
+  }
+  $("#cel-copiar").addEventListener("click", async (e) => {
+    const b = e.currentTarget;
+    try { await navigator.clipboard.writeText(b.dataset.url); b.textContent = "¡Enlace copiado!"; }
+    catch { b.textContent = "Copialo de arriba"; }
+    setTimeout(() => (b.textContent = "Copiar el enlace"), 2200);
   });
 
   raiz.addEventListener("click", (e) => {
@@ -604,6 +632,12 @@ export function initToolbox({ irA: ir, caps: c }) {
   });
   vigilarPendiente();
   refrescarInicio();
+}
+
+/** Enlace directo (vantardynamics.com/#vibraciones, etc.): abre ese instrumento. */
+export function abrirInstrumento(nombre) {
+  const k = Object.keys(ENLACE).find((x) => ENLACE[x] === nombre);
+  if (raiz && k) abrir(k);
 }
 
 /** Al entrar a la pestaña Toolbox: siempre arranca en la lista de instrumentos. */

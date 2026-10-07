@@ -90,7 +90,6 @@ export const HTML = `
       <li><span><b>Soltalo.</b> Si lo sostenés con la mano, medís tu pulso.</span></li>
     </ol>
     <p class="tb-error" data-error hidden></p>
-    <div data-solo-celular></div>
     <button class="tb-btn pri" data-medir="vib">Medir 10 segundos</button>
     <p class="tb-cupo" data-cupo="vib"></p>
     <p class="tb-fino">El celular te va a pedir permiso para usar el sensor de movimiento. La pantalla queda encendida mientras mide.</p>
@@ -173,7 +172,6 @@ export const HTML = `
     <h2>Nivel e inclinación</h2>
     ${chips("lvlmodo", "Cómo apoyás el celular", [["sup", "Acostado: superficie"], ["canto", "De canto: ángulo"]], "sup")}
     <p class="tb-error" data-error hidden></p>
-    <div data-solo-celular></div>
     <div id="lvl-sup"><div class="tb-burbuja" id="lvl-burbuja"><span class="blanco"></span><span class="gota" id="lvl-gota"></span></div></div>
     <div id="lvl-canto" hidden>
       <div class="tb-canto">
@@ -207,7 +205,6 @@ export const HTML = `
       <li><span><b>Registrá hasta 1 minuto.</b> Podés detenerlo antes; al minuto termina solo.</span></li>
     </ol>
     <p class="tb-error" data-error hidden></p>
-    <div data-solo-celular></div>
     <button class="tb-btn pri" data-medir="mov">Alinear y empezar</button>
     <p class="tb-cupo" data-cupo="mov"></p>
     <p class="tb-fino">El celular te va a pedir permiso para usar los sensores de movimiento. La pantalla queda encendida mientras registra.</p>
@@ -300,6 +297,22 @@ export const HTML = `
     <button class="tb-btn sec" data-abrir="lvl">Usar Nivel e inclinación (libre)</button>
     <p class="tb-fino tb-centro">Cada medición se libera 30 días después de hecha, en este celular.</p>
   </section>
+  <!-- ============ EN COMPUTADORA: PASAR AL CELULAR ============ -->
+  <section class="tb-vista" id="tb-celular">
+    <div class="tb-barra">${volver("tb-inicio")}</div>
+    <div class="tb-cel-cab"><span class="tb-ic" id="cel-ic"></span><span class="eyebrow" id="cel-nombre"></span></div>
+    <h2>Abrilo en tu celular</h2>
+    <p class="tb-sub" id="cel-txt"></p>
+    <div class="tb-cel-qr">
+      <img id="cel-qr" src="./assets/qr-toolbox.svg" alt="" width="220" height="220">
+      <span class="tb-cel-url" id="cel-url"></span>
+      <button type="button" class="tb-link" id="cel-copiar">Copiar el enlace</button>
+    </div>
+    <ol class="tb-pasos">
+      <li><span><b>Abrí la cámara</b> del celular.</span></li>
+      <li><span><b>Apuntá al código</b> y tocá el enlace que aparece.</span></li>
+      <li><span>Se abre directo en el instrumento, <b>listo para medir</b>.</span></li>
+    </ol>
+    <button class="tb-btn sec" data-abrir="snd">${IC.snd}Mientras tanto, probá Sonido en esta computadora</button>
+  </section>
 </div>`;
-
-export const SOLO_CELULAR = `<div class="tb-qr"><img src="./assets/qr-toolbox.svg" alt="Código QR a vantardynamics.com" width="104" height="104"><div><b>Este instrumento usa el celular</b><span>Necesita los sensores de movimiento del teléfono. Escaneá el código para abrirlo ahí.</span></div></div>`;

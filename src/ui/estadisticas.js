@@ -13,6 +13,8 @@ function cargarScript(src, attrs = {}) {
 }
 
 export function initEstadisticas() {
+  // solo en el sitio publicado: las pruebas locales no ensucian las estadísticas
+  if (location.hostname !== "vantardynamics.com") return;
   const { cloudflare, clarity } = datos.ESTADISTICAS || {};
   if (cloudflare) {
     cargarScript("https://static.cloudflareinsights.com/beacon.min.js", {

@@ -8,7 +8,7 @@ import { initEstela } from "./ui/estela.js";
 import { initPreguntas } from "./ui/preguntas.js";
 import { initEstadisticas, evento } from "./ui/estadisticas.js";
 import { detectCapabilities } from "./lib/capabilities.js";
-import { initToolbox, entrarToolbox, salirToolbox } from "./toolbox/index.js";
+import { initToolbox, entrarToolbox, salirToolbox, abrirInstrumento } from "./toolbox/index.js";
 const $ = (s, r = document) => r.querySelector(s);
 const CAPS = detectCapabilities();
 
@@ -76,13 +76,17 @@ const ENLACES = {
   inicio: ["home"], nosotros: ["about"], servicios: ["services"], productos: ["products"],
   toolbox: ["tools"], contacto: ["contact"],
   balansense: ["products", "#prod-balansense"], vibrasense: ["products", "#prod-vibrasense"],
+  // instrumentos del Toolbox (los QR de «Abrilo en tu celular» llevan acá)
+  vibraciones: ["tools", null, "vibraciones"], sonido: ["tools", null, "sonido"],
+  nivel: ["tools", null, "nivel"], movimiento: ["tools", null, "movimiento"],
 };
 
 function abrirEnlace() {
   const destino = ENLACES[decodeURIComponent(location.hash.slice(1)).toLowerCase()];
   if (!destino) return;
-  const [tab, ancla] = destino;
+  const [tab, ancla, instrumento] = destino;
   showTab(tab);
+  if (instrumento) { setTimeout(() => abrirInstrumento(instrumento), SALIDA_MS + 60); return; }
   if (!ancla) return;
   setTimeout(() => {
     const el = $(ancla);
