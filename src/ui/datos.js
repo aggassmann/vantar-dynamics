@@ -9,7 +9,7 @@ export const CIUDAD = "Marcos Juárez, Córdoba, Argentina";
 export const ESTADISTICAS = { cloudflare: "", clarity: "yu7qvkjhjj" };
 // Toolbox: dirección del script de Google que manda el informe por mail (termina en /exec) y la clave
 // pública de Cloudflare Turnstile (vacía = sin verificación anti-robots; quedan el campo trampa y los topes).
-export const TOOLBOX = { informeUrl: "", turnstile: "" };
+export const TOOLBOX = { informeUrl: "https://script.google.com/macros/s/AKfycbyLv1bKS4wMs3jgGBPGHt23V4FpO4ZEroi79IgPFQbzwLHZEbtzkP-otW7YvEz0EVcm/exec", turnstile: "" };
 // Redes de VANTAR: cada una aparece en Contacto y en el pie apenas tiene su enlace (vacío = oculta).
 export const REDES = [
   { id: "instagram", nombre: "Instagram", url: "https://www.instagram.com/vantardynamics/" },
