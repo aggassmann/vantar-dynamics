@@ -7,6 +7,9 @@ export const WHATSAPP = "5493472541798";
 export const CIUDAD = "Marcos Juárez, Córdoba, Argentina";
 // Estadísticas: pegar el token de Cloudflare Web Analytics y el ID de proyecto de Microsoft Clarity (vacío = apagado).
 export const ESTADISTICAS = { cloudflare: "", clarity: "" };
+// Toolbox: dirección del script de Google que manda el informe por mail (termina en /exec) y la clave
+// pública de Cloudflare Turnstile (vacía = sin verificación anti-robots; quedan el campo trampa y los topes).
+export const TOOLBOX = { informeUrl: "", turnstile: "" };
 // Redes de VANTAR: cada una aparece en Contacto y en el pie apenas tiene su enlace (vacío = oculta).
 export const REDES = [
   { id: "instagram", nombre: "Instagram", url: "https://www.instagram.com/vantardynamics/" },

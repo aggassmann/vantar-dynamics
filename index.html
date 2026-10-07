@@ -19,6 +19,8 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
+  <!-- Seguridad: solo corre el código del sitio y de los servicios que usa (estadísticas, formularios, informe del Toolbox). -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.clarity.ms https://scripts.clarity.ms https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://formspree.io https://script.google.com https://script.googleusercontent.com https://cloudflareinsights.com https://*.clarity.ms; frame-src https://challenges.cloudflare.com; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io" />
   <link rel="canonical" href="https://vantardynamics.com/" />
   <script type="application/ld+json">
   {
@@ -54,6 +56,7 @@
   <link rel="stylesheet" href="./styles/hero.css" />
   <link rel="stylesheet" href="./styles/components.css" />
   <link rel="stylesheet" href="./styles/responsive.css" />
+  <link rel="stylesheet" href="./styles/toolbox.css" />
 </head>
 <body data-vista="home">
   <div class="estela" aria-hidden="true"></div>
@@ -228,21 +231,7 @@
 
     <!-- ============================ TAB 2: TOOLS =========================== -->
     <section id="view-tools" class="view" aria-label="Toolbox de ingeniería">
-      <!-- Toolbox home (grid of tools) -->
-      <div id="tools-home">
-        <div class="section">
-          <div class="sec-head" style="margin-top:var(--s-7)">
-            <span class="eyebrow">Toolbox de ingeniería</span>
-            <h2>Instrumentos de campo,<br />en tu bolsillo.</h2>
-            <p class="lead" style="margin-top:var(--s-3);font-size:.92rem">Cuatro instrumentos de demostración que usan los sensores de tu celular. Es el mismo principio de medición que usamos en campo con VibraSense. Solo te piden permiso para usar los sensores.</p>
-          </div>
-          <div class="tool-grid" id="tool-grid"><!-- injected --></div>
-
-        </div>
-      </div>
-
-      <!-- Individual tool views (populated by each tool module) -->
-      <div class="section" id="tool-stage"><!-- a single toolview mounts here --></div>
+      <div class="section" id="toolbox-mount"><!-- src/toolbox --></div>
     </section>
 
     <!-- ============================ TAB 3: CONTACT ========================= -->

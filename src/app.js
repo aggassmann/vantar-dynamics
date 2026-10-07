@@ -7,14 +7,8 @@ import { renderFooter } from "./ui/footer.js";
 import { initEstela } from "./ui/estela.js";
 import { initPreguntas } from "./ui/preguntas.js";
 import { initEstadisticas, evento } from "./ui/estadisticas.js";
-import { detectCapabilities, toolAvailable } from "./lib/capabilities.js";
-
-import accelerometer from "./tools/accelerometer.js";
-import vibration from "./tools/vibration.js";
-import soundmeter from "./tools/soundmeter.js";
-import inclinometer from "./tools/inclinometer.js";
-
-const TOOLS = [accelerometer, vibration, soundmeter, inclinometer];
+import { detectCapabilities } from "./lib/capabilities.js";
+import { initToolbox, entrarToolbox, salirToolbox } from "./toolbox/index.js";
 const $ = (s, r = document) => r.querySelector(s);
 const CAPS = detectCapabilities();
 
@@ -36,10 +30,11 @@ function showTab(tab) {
   const entrar = () => {
     document.querySelectorAll(".view").forEach((v) => v.classList.remove("is-active", "saliendo"));
     nueva.classList.add("is-active");
-    if (tab === "tools") unmountTool(); // always land on the toolbox grid
+    if (tab === "tools") entrarToolbox(); // siempre arranca en la lista de instrumentos
     window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
   };
 
+  if (tab !== "tools") salirToolbox(); // apaga sensores y micrófono al salir
   clearTimeout(cambioPendiente);
   if (actual === nueva) { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
   if (!actual || window.matchMedia("(prefers-reduced-motion: reduce)").matches) { entrar(); return; }
@@ -102,85 +97,6 @@ function abrirEnlace() {
   }, SALIDA_MS + 60);
 }
 
-/* --------------------------- Toolbox registry -------------------------- */
-let activeCleanup = null;
-
-function renderToolGrid() {
-  const grid = $("#tool-grid");
-  grid.innerHTML = TOOLS.map((t) => {
-    const ok = toolAvailable(t.id, CAPS);
-    const badge = ok ? "" :
-      `<span class="tc-badge">${CAPS.likelyMobile ? "No disponible" : "Mejor en celular"}</span>`;
-    return `
-    <button class="card toolcard${ok ? "" : " unavail"}" data-tool="${t.id}" aria-label="${t.name}">
-      <div class="ic">${t.icon}</div>
-      <div class="tc-title">${t.name}</div>
-      <div class="tc-sub">${t.sub}</div>
-      ${badge}
-    </button>`;
-  }).join("");
-  grid.querySelectorAll("[data-tool]").forEach((btn) =>
-    btn.addEventListener("click", () => mountTool(btn.dataset.tool))
-  );
-  renderMobileHint();
-}
-
-// On a desktop/non-touch device most motion sensors aren't usable — invite the
-// user to open the site on their phone for the full instrument set.
-function renderMobileHint() {
-  if (CAPS.likelyMobile) return;
-  const grid = $("#tool-grid");
-  if (!grid || grid.parentElement.querySelector(".mobile-hint")) return;
-  const url = location.origin + location.pathname;
-  const hint = document.createElement("div");
-  hint.className = "card card-pad mobile-hint";
-  hint.innerHTML = `
-    <span class="mh-ico" aria-hidden="true">
-      <svg viewBox="0 0 100 100" stroke="#fff" fill="none">
-        <path d="M18.900 23.624L43.556 70.695A7.75 7.75 0 0 1 49.657 67.258L25.100 20.376A3.5 3.5 0 0 0 18.900 23.624Z" fill="#fff" stroke="none"/>
-        <line x1="78" y1="22" x2="56" y2="64" stroke-width="2.5"/>
-        <circle cx="50" cy="75" r="9" stroke-width="2.5"/>
-        <circle cx="78" cy="22" r="5" fill="#D49A17"/><circle cx="67" cy="43" r="5" fill="#D49A17"/><circle cx="56" cy="64" r="5" fill="#D49A17"/>
-      </svg>
-    </span>
-    <div>
-      <h3>Mejor desde tu celular</h3>
-      <p>Los instrumentos usan los sensores del teléfono (acelerómetro y giroscopio). En esta PC algunos no están disponibles — el sonómetro sí funciona con tu micrófono.</p>
-      <button class="mh-url" type="button" title="Copiar enlace">
-        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-        ${url.replace(/^https?:\/\//, "")}
-      </button>
-    </div>`;
-  grid.parentElement.insertBefore(hint, grid);
-  const btn = hint.querySelector(".mh-url");
-  btn.addEventListener("click", async () => {
-    try { await navigator.clipboard.writeText(url); btn.lastChild.textContent = " ¡Enlace copiado!"; }
-    catch { btn.lastChild.textContent = " " + url.replace(/^https?:\/\//, ""); }
-  });
-}
-
-function mountTool(id) {
-  const tool = TOOLS.find((t) => t.id === id);
-  if (!tool) return;
-  unmountTool();
-  $("#tools-home").classList.add("hidden");
-  const stage = $("#tool-stage");
-  activeCleanup = tool.render(stage) || null;
-  evento(`toolbox-${id}`);
-  // Wire the back button rendered by the tool shell.
-  const back = stage.querySelector("[data-tool-back]");
-  if (back) back.addEventListener("click", unmountTool);
-  window.scrollTo({ top: 0 });
-}
-
-function unmountTool() {
-  if (activeCleanup) { try { activeCleanup(); } catch {} activeCleanup = null; }
-  const stage = $("#tool-stage");
-  if (stage) stage.innerHTML = "";
-  const home = $("#tools-home");
-  if (home) home.classList.remove("hidden");
-}
-
 /* ------------------------------ PWA / SW ------------------------------- */
 function registerSW() {
   if (!("serviceWorker" in navigator)) return;
@@ -216,7 +132,7 @@ function boot() {
   step("initModal", initModal);
   step("contact", renderContact);
   step("footer", renderFooter);
-  step("toolGrid", renderToolGrid);
+  step("toolbox", () => initToolbox({ irA: showTab, caps: CAPS }));
   step("estela", initEstela);
   step("preguntas", initPreguntas);
   step("serviceWorker", registerSW);
