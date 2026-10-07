@@ -7,7 +7,8 @@
 - Portada, Quiénes somos, Servicios, Productos (BalanSense y VibraSense, con «Pedí una demostración»), Toolbox y Contacto.
 - Dominio propio con HTTPS, mail contacto@vantardynamics.com, formulario por Formspree, WhatsApp, redes.
 - Para Google: dirección canónica, imagen al compartir, datos de la empresa, `robots.txt` y `sitemap.xml`.
-- Estadísticas listas para activar en `src/ui/datos.js` (`ESTADISTICAS`): Cloudflare Web Analytics y Microsoft Clarity,
+- Estadísticas ACTIVAS: Cloudflare Web Analytics (inyección automática desde Cloudflare, sin token en datos.js)
+  y Microsoft Clarity (ID en `src/ui/datos.js` → `ESTADISTICAS`),
   con eventos `toolbox-<herramienta>`, `demo-balansense`, `demo-vibrasense` y `consulta-enviada`.
 
 - Toolbox v5 (7/10): Vibraciones (mm/s y espectro), Sonido, Nivel e inclinación y Movimiento (1 min, giróscopo),
@@ -18,7 +19,7 @@
 - Política de seguridad (CSP) en `index.html`: si se suma un servicio externo, agregarlo ahí.
 
 ## Falta para el 1/11
-1. Códigos de las estadísticas (los pasa Alejandro; guía en Proyectos/Lanzamiento/GUIA-ESTADISTICAS.md).
+1. Google Search Console: terminar la verificación (Cloudflare Web Analytics y Clarity ya activos el 7/10).
 2. Activar el script del informe por mail (guía GUIA-INFORME-MAIL.md) y pegar la dirección en `TOOLBOX.informeUrl`.
 3. Fotos reales de BalanSense y VibraSense.
 4. Número de WhatsApp Business definitivo.

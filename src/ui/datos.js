@@ -6,7 +6,7 @@ export const TELEFONO = "+54 9 3472 541798";
 export const WHATSAPP = "5493472541798";
 export const CIUDAD = "Marcos Juárez, Córdoba, Argentina";
 // Estadísticas: pegar el token de Cloudflare Web Analytics y el ID de proyecto de Microsoft Clarity (vacío = apagado).
-export const ESTADISTICAS = { cloudflare: "", clarity: "" };
+export const ESTADISTICAS = { cloudflare: "", clarity: "yu7qvkjhjj" };
 // Toolbox: dirección del script de Google que manda el informe por mail (termina en /exec) y la clave
 // pública de Cloudflare Turnstile (vacía = sin verificación anti-robots; quedan el campo trampa y los topes).
 export const TOOLBOX = { informeUrl: "", turnstile: "" };
