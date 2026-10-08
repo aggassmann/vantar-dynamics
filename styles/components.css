@@ -467,3 +467,11 @@ body[data-vista="home"] .nav-logo { display: none; }
 .siguiente { text-align: center; }
 .siguiente p { color: var(--ink-soft); margin-bottom: var(--s-3); }
 .siguiente .controls { justify-content: center; }
+
+/* Servicios: «Cómo trabajamos», cuatro pasos numerados */
+.pasos { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s-3); }
+.pasos li { display: flex; gap: var(--s-3); align-items: flex-start; padding: var(--s-4); border: 1px solid var(--hairline); border-radius: var(--r-md); background: rgba(255, 255, 255, 0.02); }
+.paso-n { flex: 0 0 32px; width: 32px; height: 32px; align-self: flex-start; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--yellow); color: var(--yellow); font-weight: 700; font-size: 0.9rem; }
+.pasos h3 { font-size: 0.98rem; margin: 4px 0 2px; }
+.pasos p { color: var(--ink-soft); font-size: 0.88rem; line-height: 1.5; margin: 0; }
+@media (min-width: 900px) { .pasos { grid-template-columns: repeat(4, 1fr); } .pasos li { flex-direction: column; } }
