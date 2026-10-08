@@ -22,7 +22,7 @@ assets/                 logos v2.0 del kit, favicon, imagen para compartir
 
 ## Diseño
 
-- Portada centrada: isotipo animado, nombre, eslogan, "Hecho en Argentina" e invitación a contactar.
+- Portada centrada: isotipo animado, nombre, eslogan, "Hechos en Argentina" e invitación a contactar.
 - Navegación flotante: abajo en el celular (con íconos) y arriba en computadora. En las páginas internas
   suma el isotipo animado para volver al inicio.
 - Fondo: retícula técnica limitada a la franja del contenido, con bordes difusos y grano anti-bandas;

@@ -430,6 +430,8 @@
 .nav-logo svg { width: 26px; height: 28px; stroke: none; }
 .nav-logo.is-active svg { stroke: none; }
 body[data-vista="home"] .nav-logo { display: none; }
+/* En la portada el logo y el eslogan ya están arriba en grande: el pie no los repite */
+body[data-vista="home"] .sf-marca { display: none; }
 @media (max-width: 419px) {
   .navbtn span { white-space: normal; text-align: center; line-height: 1.15; }
 }
