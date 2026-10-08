@@ -15,7 +15,7 @@ export function renderContact() {
     <div class="sec-head" style="margin-top:var(--s-7)">
       <span class="eyebrow">Contacto</span>
       <h2>Contanos qué necesitás<br />resolver.</h2>
-      <p class="lead" style="margin-top:var(--s-3);font-size:.92rem">Vibraciones, balanceo, instrumentación, simulación o un producto en desarrollo. Te respondemos con una propuesta técnica, y todo lo que compartas es confidencial.</p>
+      <p class="lead" style="margin-top:var(--s-3);font-size:.92rem">Un producto en desarrollo, una simulación, un ensayo, vibraciones o balanceo. Te respondemos con una propuesta técnica, y todo lo que compartas es confidencial.</p>
     </div>
 
     <form class="card card-pad stack" id="contact-form" novalidate>
@@ -30,11 +30,11 @@ export function renderContact() {
       <div class="field">
         <label for="cf-type">Tema</label>
         <select id="cf-type" name="type">
+          <option>Desarrollo de producto (diseño, prototipos, ensayos)</option>
           <option>Vibraciones y diagnóstico</option>
           <option>Balanceo dinámico</option>
           <option>Instrumentación / adquisición de datos</option>
           <option>Simulación CAE</option>
-          <option>Ingeniería conceptual / básica de producto</option>
           <option>Consulta sobre BalanSense o VibraSense</option>
           <option>Demostración de BalanSense</option>
           <option>Demostración de VibraSense</option>

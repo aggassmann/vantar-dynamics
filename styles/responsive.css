@@ -49,7 +49,7 @@
   :root { --maxw: 1120px; --franja: 1120px; }
   .app {
     max-width: 1120px;
-    padding-bottom: var(--s-8);
+    padding-bottom: var(--s-3);
     padding-top: 0;
   }
 
@@ -64,11 +64,13 @@
   .grid { grid-template-columns: repeat(3, 1fr); }
   .tool-grid { grid-template-columns: repeat(4, 1fr); }
 
-  /* Pie: marca · contacto · redes en una franja */
+  /* Pie: marca · íconos de contacto y redes en una franja */
   .sitefoot { margin-left: var(--s-6); margin-right: var(--s-6); }
   .sf-row { flex-direction: row; justify-content: space-between; text-align: left; }
-  .sf-contacto { flex-direction: row; gap: var(--s-5); }
   .sf-legal { text-align: left; }
+  /* En la portada (sin marca) el pie va centrado, como el resto de la portada */
+  body[data-vista="home"] .sf-row { justify-content: center; }
+  body[data-vista="home"] .sf-legal { text-align: center; }
 
   /* Contact: columna angosta centrada, igual que la portada */
   #contact-mount { max-width: 760px; margin-inline: auto; }
