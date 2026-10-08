@@ -15,6 +15,7 @@ export const REDES = [
   { id: "instagram", nombre: "Instagram", url: "https://www.instagram.com/vantardynamics/" },
   { id: "facebook", nombre: "Facebook", url: "https://www.facebook.com/vantardynamics" },
   { id: "linkedin", nombre: "LinkedIn", url: "https://www.linkedin.com/company/vantardynamics/" },
+  { id: "youtube", nombre: "YouTube", url: "https://www.youtube.com/@VANTARDynamics" },
 ];
 
 export const ICONS = {
