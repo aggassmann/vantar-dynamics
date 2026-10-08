@@ -1,11 +1,11 @@
 // VANTAR Dynamics — Preguntas que rotan en el botón "Contanos" de la portada.
 const PREGUNTAS = [
-  "¿Necesitás definir y desarrollar un nuevo producto?",
-  "¿Necesitás hacer un desarrollo y no podés dar un paso en falso desde el diseño?",
-  "¿Necesitás proyectar un equipo nuevo o evaluar cómo se comportará antes de fabricarlo?",
-  "¿Tus máquinas sufren roturas y necesitás medir qué está pasando realmente?",
-  "¿Necesitás diagnosticar y solucionar problemas de vibración en tu planta?",
-  "¿Buscás instrumental de precisión para diagnosticar o ensayar tu propia maquinaria?",
+  "¿Estás por desarrollar un producto nuevo?",
+  "¿Querés validar un diseño antes de fabricarlo?",
+  "¿Tus máquinas se rompen y no sabés por qué?",
+  "¿Tenés vibraciones en tu planta que no lográs resolver?",
+  "¿Necesitás balancear un rotor sin desmontarlo?",
+  "¿Buscás instrumental para ensayar tu propia maquinaria?",
 ];
 const CADA_MS = 4000;
 

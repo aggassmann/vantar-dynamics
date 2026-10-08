@@ -562,7 +562,7 @@ function consultar(k) {
   irA("contact");
   setTimeout(() => {
     const tipo = document.getElementById("cf-type"), txt = document.getElementById("cf-msg");
-    if (tipo) tipo.value = "Análisis de vibraciones / diagnóstico";
+    if (tipo) tipo.value = "Vibraciones y diagnóstico";
     if (txt) { txt.value = msg; txt.scrollIntoView({ block: "center" }); txt.focus({ preventScroll: true }); txt.setSelectionRange(msg.length, msg.length); }
   }, 400);
 }

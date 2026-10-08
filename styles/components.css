@@ -310,7 +310,7 @@
 .field label { font-size: 0.76rem; font-weight: 600; letter-spacing: 0.02em; color: var(--ink-soft); }
 .field input, .field textarea, .field select {
   background: var(--paper); border: 1px solid var(--hairline-2); border-radius: var(--r-md);
-  padding: 13px 14px; font-size: 0.92rem; transition: border var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  padding: 13px 14px; font-size: 1rem; transition: border var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
 .field input:focus, .field textarea:focus, .field select:focus {
   outline: none; border-color: var(--violet);
@@ -462,3 +462,8 @@ body[data-vista="home"] .nav-logo { display: none; }
 .lamina-dibujo { width: 100%; height: auto; display: block; }
 .lamina figcaption { margin-top: var(--s-3); font-size: 0.78rem; color: var(--ink-faint); line-height: 1.4; }
 .prod-detail .lamina { margin-block: var(--s-2); }
+
+/* Cierre de cada sección: una pregunta y el paso siguiente */
+.siguiente { text-align: center; }
+.siguiente p { color: var(--ink-soft); margin-bottom: var(--s-3); }
+.siguiente .controls { justify-content: center; }
