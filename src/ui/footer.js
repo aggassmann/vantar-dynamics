@@ -14,10 +14,6 @@ export function renderFooter() {
   app.insertAdjacentHTML("beforeend", `
     <footer class="sitefoot">
       <div class="sf-row">
-        <div class="sf-marca">
-          <img src="assets/isotype.svg" alt="" width="30" height="32" />
-          <p><b>VANTAR Dynamics</b><span>Ingeniería del movimiento.</span></p>
-        </div>
         <ul class="sf-redes">${iconos.map((i) => `<li><a href="${i.href}"${i.afuera ? ` target="_blank" rel="noopener"` : ""} aria-label="${i.txt}" title="${i.txt}">${ICONS[i.ic]}</a></li>`).join("")}</ul>
       </div>
       <p class="sf-legal">© ${new Date().getFullYear()} VANTAR Dynamics · ${CIUDAD}</p>

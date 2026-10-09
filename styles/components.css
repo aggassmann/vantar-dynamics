@@ -318,19 +318,6 @@
 }
 .field textarea { resize: vertical; min-height: 110px; }
 
-.social { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); margin-top: var(--s-4); }
-.social a {
-  display: flex; align-items: center; gap: var(--s-3);
-  padding: var(--s-3) var(--s-4); border-radius: var(--r-md);
-  background: var(--glass-bg); border: 1px solid var(--glass-brd);
-  font-size: 0.86rem; font-weight: 600;
-  transition: transform var(--dur) var(--ease);
-}
-.social a:active { transform: scale(0.97); }
-.social svg { width: 20px; height: 20px; }
-.social svg { flex-shrink: 0; }
-.social.social-redes { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); margin-top: var(--s-3); }
-.social-redes a { flex-direction: column; justify-content: center; gap: var(--s-2); padding: var(--s-3) var(--s-2); text-align: center; min-width: 0; }
 
 .formok {
   margin-top: var(--s-4); padding: var(--s-4);
@@ -352,10 +339,6 @@
   color: var(--ink-soft); font-size: 0.86rem;
 }
 .sf-row { display: flex; flex-direction: column; align-items: center; gap: var(--s-4); text-align: center; }
-.sf-marca { display: flex; align-items: center; gap: var(--s-3); text-align: left; }
-.sf-marca img { width: 30px; height: auto; }
-.sf-marca b { display: block; color: var(--ink); font-size: 0.92rem; }
-.sf-marca span { font-size: 0.8rem; }
 .sf-redes { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-2); }
 .sf-redes a {
   display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
@@ -426,8 +409,6 @@
 .nav-logo svg { width: 26px; height: 28px; stroke: none; }
 .nav-logo.is-active svg { stroke: none; }
 body[data-vista="home"] .nav-logo { display: none; }
-/* En la portada el logo y el eslogan ya están arriba en grande: el pie no los repite */
-body[data-vista="home"] .sf-marca { display: none; }
 @media (max-width: 419px) {
   .navbtn span { white-space: normal; text-align: center; line-height: 1.15; }
 }

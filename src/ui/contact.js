@@ -1,6 +1,6 @@
 // VANTAR Dynamics — Contact tab (premium form + professional links)
 
-import { EMAIL, WHATSAPP, TELEFONO, REDES, ICONS } from "./datos.js";
+import { EMAIL } from "./datos.js";
 import { evento } from "./estadisticas.js";
 
 // Formspree reenvía cada consulta al email de Alejandro (cuenta creada 2026-09-30).
@@ -10,7 +10,6 @@ const FORM_ENDPOINT = "https://formspree.io/f/xvkgydjl";
 export function renderContact() {
   const mount = document.getElementById("contact-mount");
   if (!mount) return;
-  const redesActivas = REDES.filter((r) => r.url);
   mount.innerHTML = `
     <div class="sec-head" style="margin-top:var(--s-7)">
       <span class="eyebrow">Contacto</span>
@@ -55,15 +54,6 @@ export function renderContact() {
       <div id="cf-err" class="formerr hidden" role="alert">No se pudo enviar. Probá de nuevo o escribinos a <a href="mailto:${EMAIL}">${EMAIL}</a>.</div>
     </form>
 
-    <h3 style="margin:var(--s-6) 0 0">Otros canales</h3>
-    <div class="social">
-      <a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noopener">${ICONS.whatsapp}<span>WhatsApp</span></a>
-      <a href="mailto:${EMAIL}">${ICONS.mail}<span>Mail</span></a>
-    </div>
-    ${redesActivas.length ? `<div class="social social-redes">` : ""}
-      ${redesActivas.map((r) => `<a href="${r.url}" target="_blank" rel="noopener">${ICONS[r.id]}<span>${r.nombre}</span></a>`).join("")}
-    ${redesActivas.length ? `</div>` : ""}
-    <p class="note" style="margin-top:var(--s-3)">${TELEFONO}${redesActivas.length < REDES.length ? ` · ${REDES.filter((r) => !r.url).map((r) => r.nombre).join(", ")}: próximamente.` : ""}</p>
   `;
 
   const form = document.getElementById("contact-form");
