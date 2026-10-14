@@ -12,6 +12,7 @@ const ICONS = {
 
 /** Generic intent dialog. Resolves true (grant clicked) / false (cancel). */
 export function askIntent({ kind = "motion", title, message }) {
+  closeIntent();
   return new Promise((resolve) => {
     const perm = el("perm");
     el("perm-ic").innerHTML = ICONS[kind] || ICONS.motion;
@@ -20,6 +21,7 @@ export function askIntent({ kind = "motion", title, message }) {
     perm.classList.add("is-open");
 
     const cleanup = (val) => {
+      cancelarAbierto = null;
       perm.classList.remove("is-open");
       el("perm-grant").removeEventListener("click", onGrant);
       el("perm-cancel").removeEventListener("click", onCancel);
@@ -27,9 +29,16 @@ export function askIntent({ kind = "motion", title, message }) {
     };
     const onGrant = () => cleanup(true);
     const onCancel = () => cleanup(false);
+    cancelarAbierto = onCancel;
     el("perm-grant").addEventListener("click", onGrant);
     el("perm-cancel").addEventListener("click", onCancel);
   });
+}
+
+let cancelarAbierto = null;
+/** Cierra el aviso de permiso si quedó abierto (por ejemplo, al salir con «Atrás»). */
+export function closeIntent() {
+  if (cancelarAbierto) cancelarAbierto();
 }
 
 /** True if we appear to be on a secure context (sensors require HTTPS). */

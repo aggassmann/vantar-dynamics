@@ -16,7 +16,7 @@ export function renderFooter() {
       <div class="sf-row">
         <ul class="sf-redes">${iconos.map((i) => `<li><a href="${i.href}"${i.afuera ? ` target="_blank" rel="noopener"` : ""} aria-label="${i.txt}" title="${i.txt}">${ICONS[i.ic]}</a></li>`).join("")}</ul>
       </div>
-      <p class="sf-legal">© ${new Date().getFullYear()} VANTAR Dynamics · ${CIUDAD}</p>
+      <p class="sf-legal">© ${new Date().getFullYear()} VANTAR Dynamics · ${CIUDAD} · <a href="#privacidad" title="Qué datos recibimos y para qué los usamos">Privacidad</a></p>
     </footer>
   `);
 }

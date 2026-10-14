@@ -7,7 +7,7 @@ import * as Snd from "./sonido.js";
 import * as Mov from "./movimiento.js";
 import * as A from "./almacen.js";
 import { enviar, vigilarPendiente } from "./informe.js";
-import { requestMotion, requestMic } from "../ui/permissions.js";
+import { requestMotion, requestMic, closeIntent } from "../ui/permissions.js";
 import { evento } from "../ui/estadisticas.js";
 import * as datos from "../ui/datos.js";
 
@@ -29,6 +29,7 @@ let candado = null;
 /* ------------------------------- utilidades ------------------------------- */
 function alSalir(f) { limpiar.push(f); }
 function detener() {
+  closeIntent(); // el aviso de permiso no queda flotando sobre otra pantalla
   limpiar.forEach((f) => { try { f(); } catch { /* ya detenido */ } });
   limpiar = [];
   if (candado) { candado.release().catch(() => {}); candado = null; }
@@ -74,7 +75,8 @@ function mostrar(id, historial = "push") {
   estado.actual = id;
   if (historial === "push") history.pushState({ tb: id }, "", "#toolbox");
   else if (historial === "replace") history.replaceState({ tb: id }, "", "#toolbox");
-  window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+  // salto directo, sin el desplazamiento suave del CSS
+  window.scrollTo({ top: 0, behavior: "instant" });
   if (id === "tb-inicio") refrescarInicio();
   if (id === "lvl") iniciarNivel();
   const prep = id.match(/^(vib|snd|mov)-prep$/);

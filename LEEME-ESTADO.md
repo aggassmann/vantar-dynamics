@@ -1,4 +1,4 @@
-# Estado del sitio (7 de octubre de 2026)
+# Estado del sitio (14 de octubre de 2026)
 
 **Publicado** en https://vantardynamics.com (GitHub Pages, rama `main`; cada `git push` publica en 1–2 minutos).
 **Lanzamiento oficial:** domingo 1 de noviembre de 2026 (plan en `C:\Desarrollo\Vantar\Proyectos\Lanzamiento`).
@@ -16,6 +16,9 @@
   «Consultar con un especialista» que abre Contacto con la medición escrita. Código en `src/toolbox/`.
   Informe por mail: script de Google en `C:\Desarrollo\Vantar\Proyectos\Lanzamiento\informe-toolbox`
   (dirección en `src/ui/datos.js` → `TOOLBOX.informeUrl`). Sin script, el pedido llega por Formspree.
+- Cada sección tiene dirección propia (#nosotros, #servicios, #productos, #toolbox, #contacto, #privacidad):
+  el botón «Atrás» vuelve a la sección anterior. Página de Privacidad enlazada en el pie y en los formularios.
+  `404.html`: direcciones como /servicios llevan solas a la sección.
 - Política de seguridad (CSP) en `index.html`: si se suma un servicio externo, agregarlo ahí.
 
 ## Falta para el 1/11

@@ -49,7 +49,7 @@ export function renderContact() {
         <input id="cf-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
       </div>
       <button type="submit" class="btn btn-primary btn-block" id="cf-send">Enviar consulta</button>
-      <p class="note center">Te respondemos por mail. Usamos tus datos solo para contestarte.</p>
+      <p class="note center">Te respondemos por mail. Usamos tus datos solo para contestarte (<a href="#privacidad" title="Qué datos recibimos y para qué los usamos">privacidad</a>).</p>
       <div id="cf-ok" class="formok hidden" role="status">✓ ¡Gracias! Recibimos tu consulta y te respondemos pronto por mail.</div>
       <div id="cf-err" class="formerr hidden" role="alert">No se pudo enviar. Probá de nuevo o escribinos a <a href="mailto:${EMAIL}">${EMAIL}</a>.</div>
     </form>

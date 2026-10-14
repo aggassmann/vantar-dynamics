@@ -13,25 +13,41 @@ const $ = (s, r = document) => r.querySelector(s);
 const CAPS = detectCapabilities();
 
 /* ----------------------------- Tab routing ----------------------------- */
-const VIEWS = { home: "#view-home", about: "#view-about", services: "#view-services", products: "#view-products", tools: "#view-tools", contact: "#view-contact" };
+const VIEWS = { home: "#view-home", about: "#view-about", services: "#view-services", products: "#view-products", tools: "#view-tools", contact: "#view-contact", privacy: "#view-privacy" };
+// Cada sección tiene su dirección (vantardynamics.com/#servicios) y su título de pestaña, así el botón
+// «Atrás» del celular vuelve a la sección anterior en vez de salir del sitio.
+const RUTAS = { home: "", about: "nosotros", services: "servicios", products: "productos", tools: "toolbox", contact: "contacto", privacy: "privacidad" };
+const TITULOS = { about: "Quiénes somos", services: "Servicios", products: "Productos", tools: "Toolbox", contact: "Contacto", privacy: "Privacidad" };
+const TITULO_BASE = document.title;
 
 const SALIDA_MS = 240; // la página actual se desvanece antes de que entre la nueva
 let cambioPendiente = null;
 
-function showTab(tab) {
+/** historial: "push" (clic del visitante), "replace" (al abrir el sitio) o "none" (Atrás / Adelante). */
+function showTab(tab, historial = "push", y = 0) {
   const nueva = $(VIEWS[tab]);
   if (!nueva) return;
+  const anterior = document.body.dataset.vista;
   document.querySelectorAll("[data-tab]").forEach((b) =>
     b.classList.toggle("is-active", b.dataset.tab === tab)
   );
   document.body.dataset.vista = tab; // el logo de la barra inferior se oculta en la portada
+  document.title = TITULOS[tab] ? `${TITULOS[tab]} — VANTAR Dynamics` : TITULO_BASE;
+  const url = RUTAS[tab] ? `#${RUTAS[tab]}` : location.pathname + location.search;
+  if (historial === "replace") history.replaceState({ vista: tab }, "", url);
+  else if (historial === "push" && tab !== anterior) {
+    // se guarda dónde estaba el visitante para devolverlo ahí con «Atrás»
+    history.replaceState({ ...history.state, y: window.scrollY }, "");
+    history.pushState({ vista: tab }, "", url);
+  }
 
   const actual = document.querySelector(".view.is-active:not(.saliendo)");
   const entrar = () => {
     document.querySelectorAll(".view").forEach((v) => v.classList.remove("is-active", "saliendo"));
     nueva.classList.add("is-active");
     if (tab === "tools") entrarToolbox(); // siempre arranca en la lista de instrumentos
-    window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+    // salto directo (sin el desplazamiento suave del CSS): la vista nueva entra ya en su lugar
+    window.scrollTo({ top: y, behavior: "instant" });
   };
 
   if (tab !== "tools") salirToolbox(); // apaga sensores y micrófono al salir
@@ -74,7 +90,7 @@ function initNav() {
 /* Enlaces directos (QR de calcos, mails, redes): vantardynamics.com/#vibrasense */
 const ENLACES = {
   inicio: ["home"], nosotros: ["about"], servicios: ["services"], productos: ["products"],
-  toolbox: ["tools"], contacto: ["contact"],
+  toolbox: ["tools"], contacto: ["contact"], privacidad: ["privacy"],
   balansense: ["products", "#prod-balansense"], vibrasense: ["products", "#prod-vibrasense"],
   // instrumentos del Toolbox (los QR de «Abrilo en tu celular» llevan acá)
   vibraciones: ["tools", null, "vibraciones"], sonido: ["tools", null, "sonido"],
@@ -83,9 +99,11 @@ const ENLACES = {
 
 function abrirEnlace() {
   const destino = ENLACES[decodeURIComponent(location.hash.slice(1)).toLowerCase()];
-  if (!destino) return;
+  if (!destino) { showTab("home", "replace"); return; }
   const [tab, ancla, instrumento] = destino;
-  showTab(tab);
+  const original = location.hash;
+  showTab(tab, "replace");
+  if (ancla) history.replaceState(history.state, "", original); // #vibrasense sigue llevando a la tarjeta al recargar
   if (instrumento) { setTimeout(() => abrirInstrumento(instrumento), SALIDA_MS + 60); return; }
   if (!ancla) return;
   setTimeout(() => {
@@ -142,7 +160,22 @@ function boot() {
   step("serviceWorker", registerSW);
   step("enlace", abrirEnlace);
   step("estadisticas", initEstadisticas);
-  window.addEventListener("hashchange", abrirEnlace);
+  // Enlaces internos a una sección (<a href="#privacidad">): misma transición e historial que los botones
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    const destino = a && ENLACES[a.getAttribute("href").slice(1)];
+    if (!destino || destino[1] || destino[2]) return;
+    e.preventDefault();
+    showTab(destino[0]);
+  });
+  // Atrás / Adelante. Las pantallas internas del Toolbox guardan { tb } y las maneja el Toolbox.
+  // Una dirección escrita a mano (sin estado) se abre como enlace directo.
+  window.addEventListener("popstate", (e) => {
+    const s = e.state || {};
+    const vista = s.vista || (s.tb ? "tools" : null);
+    if (!vista) { abrirEnlace(); return; }
+    if (vista !== document.body.dataset.vista) showTab(vista, "none", s.y || 0);
+  });
 }
 
 document.readyState === "loading"

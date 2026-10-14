@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página no encontrada — VANTAR Dynamics</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0d0d0f" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <script>
+    // GitHub Pages muestra esta página para cualquier dirección que no existe.
+    // Si es el nombre de una sección (vantardynamics.com/servicios), se lleva directo a ella.
+    (function () {
+      var secciones = ["inicio", "nosotros", "servicios", "productos", "toolbox", "contacto", "privacidad",
+        "balansense", "vibrasense", "vibraciones", "sonido", "nivel", "movimiento"];
+      var alias = { "quienes-somos": "nosotros", "quienessomos": "nosotros", "servicio": "servicios",
+        "producto": "productos", "contact": "contacto", "privacy": "privacidad" };
+      var p = decodeURIComponent(location.pathname).toLowerCase()
+        .normalize("NFD").replace(/[̀-ͯ]/g, "")
+        .replace(/\.html?$/, "").replace(/^\/+|\/+$/g, "").split("/").pop();
+      p = alias[p] || p;
+      if (secciones.indexOf(p) >= 0) location.replace("/#" + p);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/tokens.css" />
+  <link rel="stylesheet" href="/styles/base.css" />
+  <link rel="stylesheet" href="/styles/components.css" />
+  <style>
+    .no-hay { min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; padding: var(--s-5); text-align: center; }
+    .no-hay-box { max-width: 420px; }
+    .no-hay img { width: 56px; height: 56px; margin: 0 auto var(--s-5); }
+    .no-hay .eyebrow { display: block; margin-bottom: var(--s-3); }
+    .no-hay p { color: var(--ink-soft); line-height: 1.6; margin: var(--s-4) 0 var(--s-6); }
+  </style>
+</head>
+<body>
+  <main class="no-hay">
+    <div class="no-hay-box">
+      <img src="/assets/isotype.svg" alt="" />
+      <span class="eyebrow">Error 404</span>
+      <h2>Esta página no existe.</h2>
+      <p>Puede que la dirección esté mal escrita o que la página se haya movido.</p>
+      <a class="btn btn-primary" href="/" title="Ir a la página principal de VANTAR Dynamics">Ir al inicio</a>
+    </div>
+  </main>
+</body>
+</html>

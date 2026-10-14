@@ -274,7 +274,7 @@ export const HTML = `
       <div id="tm-turnstile"></div>
       <p class="tb-error" id="tm-error" role="alert" hidden></p>
       <button class="tb-btn pri" type="submit" id="tm-enviar">Enviar el informe</button>
-      <p class="tb-fino">Usamos tus datos solo para enviarte el informe y, si lo marcaste, para contactarte.</p>
+      <p class="tb-fino">Usamos tus datos solo para enviarte el informe y, si lo marcaste, para contactarte (<a href="#privacidad" title="Qué datos recibimos y para qué los usamos">privacidad</a>).</p>
     </form>
   </section>
 

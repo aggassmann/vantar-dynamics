@@ -349,6 +349,14 @@
 .sf-redes a:hover { color: var(--ink); }
 .sf-redes a:hover { border-color: var(--yellow); }
 .sf-legal { margin-top: var(--s-4); text-align: center; color: var(--ink-faint); font-size: 0.78rem; }
+.sf-legal a, .note a, .tb-fino a, .legal a { text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--glass-brd); }
+.sf-legal a:hover, .note a:hover, .tb-fino a:hover, .legal a:hover { color: var(--ink); text-decoration-color: var(--yellow); }
+
+/* --- Privacidad --------------------------------------------------------- */
+.legal p { color: var(--ink-soft); line-height: 1.7; }
+.legal p:first-child { color: var(--ink); }
+.legal h3 { margin-top: var(--s-6); font-size: 1rem; color: var(--ink); }
+.legal h3 + p { margin-top: var(--s-2); }
 
 /* --- Permission overlay ------------------------------------------------- */
 .perm {
