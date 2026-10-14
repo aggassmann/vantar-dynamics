@@ -181,7 +181,7 @@
   color: var(--ink-faint);
   transition: color var(--dur) var(--ease);
 }
-.navbtn svg { width: 22px; height: 22px; stroke-width: 1.7; }
+.navbtn svg { width: 22px; height: 22px; stroke-width: 1.75; }
 .navbtn span { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.02em; white-space: nowrap; }
 @media (min-width: 700px) { .navbtn span { font-size: 0.7rem; } }
 .navbtn.is-active { color: var(--ink); }
@@ -322,12 +322,12 @@
 .formok {
   margin-top: var(--s-4); padding: var(--s-4);
   background: rgba(47, 158, 111, 0.1); border: 1px solid rgba(47,158,111,0.3);
-  border-radius: var(--r-md); font-size: 0.86rem; color: #6fdca8;
+  border-radius: var(--r-md); font-size: 0.86rem; color: var(--good);
 }
 .formerr {
   margin-top: var(--s-4); padding: var(--s-4);
   background: rgba(220, 70, 60, 0.1); border: 1px solid rgba(220,70,60,0.35);
-  border-radius: var(--r-md); font-size: 0.86rem; color: #ff9b91;
+  border-radius: var(--r-md); font-size: 0.86rem; color: var(--bad);
 }
 .formerr a { color: inherit; text-decoration: underline; }
 .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
@@ -449,8 +449,12 @@ body[data-vista="home"] .nav-logo { display: none; }
 
 /* Servicios: «Cómo trabajamos», cuatro pasos numerados */
 .pasos { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s-3); }
-.pasos li { display: flex; gap: var(--s-3); align-items: flex-start; padding: var(--s-4); border: 1px solid var(--hairline); border-radius: var(--r-md); background: rgba(255, 255, 255, 0.02); }
-.paso-n { flex: 0 0 32px; width: 32px; height: 32px; align-self: flex-start; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--yellow); color: var(--yellow); font-weight: 700; font-size: 0.9rem; }
+.pasos li { position: relative; display: flex; gap: var(--s-3); align-items: center; padding: var(--s-4); border: 1px solid var(--hairline); border-radius: var(--r-md); background: rgba(255, 255, 255, 0.02); }
+.paso-n { flex: 0 0 44px; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid var(--yellow); color: var(--yellow); font-weight: 700; font-size: 1.3rem; line-height: 1; }
 .pasos h3 { font-size: 0.98rem; margin: 4px 0 2px; }
 .pasos p { color: var(--ink-soft); font-size: 0.88rem; line-height: 1.5; margin: 0; }
-@media (min-width: 900px) { .pasos { grid-template-columns: repeat(4, 1fr); } .pasos li { flex-direction: column; } }
+.pasos li > div { flex: 1; }
+/* Ícono de cada paso: biblioteca de marca, en el mismo recuadro que los instrumentos del Toolbox (.tb-ic) */
+.paso-ic { flex: 0 0 44px; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(212, 154, 23, 0.14); color: var(--yellow); }
+.paso-ic svg { width: 22px; height: 22px; }
+@media (min-width: 900px) { .pasos { grid-template-columns: repeat(4, 1fr); } .pasos li { flex-direction: column; align-items: flex-start; } .paso-ic { position: absolute; top: var(--s-4); right: var(--s-4); } }

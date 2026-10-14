@@ -81,10 +81,10 @@ export function analizar(d, { ctx, dur }) {
 /* ------------------------------ Interpretación ----------------------------- */
 // Zonas orientativas para una máquina mediana (criterio de severidad de las normas de vibración).
 const ZONAS = [
-  { hasta: 1.4, nombre: "Buena", color: "#3fb67f" },
-  { hasta: 2.8, nombre: "Aceptable", color: "#9bbf3a" },
-  { hasta: 7.1, nombre: "Revisar", color: "#e46a3c" },
-  { hasta: 18, nombre: "Peligrosa", color: "#d8443a" },
+  { hasta: 1.4, nombre: "Buena", color: "#2F9E6F" },
+  { hasta: 2.8, nombre: "Aceptable", color: "#9BBF3A" },
+  { hasta: 7.1, nombre: "Revisar", color: "#E8A33D" },
+  { hasta: 18, nombre: "Peligrosa", color: "#E2553B" },
 ];
 const COLS = [1.1, 1.7, 2.3, 3];
 

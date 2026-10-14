@@ -362,7 +362,7 @@ async function iniciarNivel() {
     nivel.ok = ok;
     const est = $("#lvl-estado");
     est.textContent = ok ? "Nivelado" : "Inclinado";
-    est.style.color = ok ? "#3fb67f" : "";
+    est.style.color = ok ? "#2F9E6F" : "";
   });
 }
 
@@ -575,7 +575,6 @@ export function initToolbox({ irA: ir, caps: c }) {
   $ = (s) => raiz.querySelector(s);
   $$ = (s) => raiz.querySelectorAll(s);
   raiz.innerHTML = HTML;
-  if (!caps.likelyMobile) $("#tb-qr-inicio").hidden = false;
   if (!caps.motion) {
     raiz.classList.add("tb-compu");
     $('[data-abrir="lvl"] em').textContent = "en el celular";

@@ -92,10 +92,10 @@ export function analizar(sesion, { ctx, dur }) {
 /* ------------------------------ Interpretación ----------------------------- */
 export const claseTono = (f) => (f < 300 ? "grave" : f < 2000 ? "medio" : "agudo");
 const ZONAS = [
-  { hasta: 40, nombre: "Silencioso", color: "#3fb67f" },
-  { hasta: 65, nombre: "Conversación", color: "#9bbf3a" },
-  { hasta: 85, nombre: "Ruidoso", color: "#e0a526" },
-  { hasta: 110, nombre: "Dañino", color: "#d8443a" },
+  { hasta: 40, nombre: "Silencioso", color: "#2F9E6F" },
+  { hasta: 65, nombre: "Conversación", color: "#9BBF3A" },
+  { hasta: 85, nombre: "Ruidoso", color: "#E8A33D" },
+  { hasta: 110, nombre: "Dañino", color: "#E2553B" },
 ];
 const COLS = [1, 1.25, 1.25, 1.5];
 const fmt0 = (n) => Math.round(n).toLocaleString("es-AR");

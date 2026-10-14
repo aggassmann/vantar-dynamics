@@ -3,7 +3,7 @@
 // en la página y en la imagen que viaja en el informe por mail.
 
 export const C = {
-  fondo: "#161619", amarillo: "#D49A17", tinta: "#ffffff", z: "#6fa8dc",
+  fondo: "#151518", amarillo: "#D49A17", tinta: "#ffffff", z: "#A1A1A6",
   grilla: "rgba(255,255,255,.06)", tenue: "#8a8a90", relleno: "rgba(212,154,23,.35)",
 };
 const FUENTE = "'Space Grotesk', system-ui, sans-serif";

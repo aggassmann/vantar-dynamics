@@ -1,25 +1,25 @@
 // VANTAR Dynamics — Toolbox: pantallas (HTML estático; los datos se cargan después con textContent
 // o con números calculados acá, nunca con texto escrito por la persona)
 
+// Íconos de instrumentos: biblioteca de marca (IdentidadVisual/_fuente/marca.py, ICONOS)
 export const IC = {
-  vib: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12h3l2-6 3 12 3-9 2 5 2-2h5"/></svg>`,
-  snd: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>`,
-  lvl: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="9" width="20" height="6" rx="3"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg>`,
-  mov: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V4M4 20h16M8 14l3-4 3 2 5-6"/></svg>`,
-  atras: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>`,
-  cerrar: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>`,
-  si: `<svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>`,
-  aviso: `<svg class="no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 8v5M12 16.5v.5"/><circle cx="12" cy="12" r="9"/></svg>`,
-  menos: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12"/></svg>`,
-  mail: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`,
-  candado: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`,
-  sol: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></svg>`,
-  reloj: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`,
+  vib: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h2.5l1.5-5 2.5 10 2.5-12 2.5 14 2.5-10 1.5 3H22"/></svg>`,
+  snd: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6.5 9H3.5v6h3l4.5 4V5Z"/><path d="M15.5 9a4 4 0 0 1 0 6M18.5 6a8 8 0 0 1 0 12"/></svg>`,
+  lvl: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="8.5" width="19" height="7" rx="3.5"/><path d="M9.5 8.5v7M14.5 8.5v7"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>`,
+  mov: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16h16"/><path d="m8 15 3-4 3 2.5 5-6.5"/></svg>`,
+  atras: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>`,
+  cerrar: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>`,
+  si: `<svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>`,
+  aviso: `<svg class="no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M12 8v5M12 16.5v.5"/><circle cx="12" cy="12" r="9"/></svg>`,
+  menos: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12"/></svg>`,
+  mail: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`,
+  sol: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></svg>`,
+  reloj: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`,
 };
 
 const volver = (destino, texto = "Instrumentos") => `<button class="tb-volver" data-ir="${destino}">${IC.atras}${texto}</button>`;
 const cancelar = (destino) => `<button class="tb-volver" data-cancelar="${destino}">${IC.cerrar}Cancelar</button>`;
-const anillo = (n, rot) => `<div class="tb-anillo"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#1d1d21" stroke-width="6"/><circle class="arco" cx="50" cy="50" r="44" fill="none" stroke="#D49A17" stroke-width="6" stroke-linecap="round" stroke-dasharray="276.5" stroke-dashoffset="276.5"/></svg><div class="n"><div><b class="seg">${n}</b><span>${rot}</span></div></div></div>`;
+const anillo = (n, rot) => `<div class="tb-anillo"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#1F1F23" stroke-width="6"/><circle class="arco" cx="50" cy="50" r="44" fill="none" stroke="#D49A17" stroke-width="6" stroke-linecap="round" stroke-dasharray="276.5" stroke-dashoffset="276.5"/></svg><div class="n"><div><b class="seg">${n}</b><span>${rot}</span></div></div></div>`;
 const chips = (grupo, etiqueta, ops, activo) => `<div class="tb-chips" data-grupo="${grupo}" role="group" aria-label="${etiqueta}">${ops.map(([v, t]) => `<button type="button" aria-pressed="${v === activo}" data-v="${v}">${t}</button>`).join("")}</div>`;
 const CTX_VIB = [["maq", "Máquina"], ["est", "Estructura"], ["veh", "Vehículo"], ["otro", "Otro"]];
 const CTX_SND = [["maq", "Una máquina"], ["amb", "El ambiente"], ["otro", "Otro"]];
@@ -31,7 +31,7 @@ const acciones = (k, otraVez = "Medir de nuevo") => `
     <button class="tb-btn sec" data-abrir="${k}">${otraVez}</button>
   </div>
   <p class="tb-guardado">${IC.si}Queda en este celular hasta que pidas el informe.</p>`;
-const ejes = `<div class="tb-leyenda"><span><i style="background:#D49A17"></i>X</span><span><i style="background:#fff"></i>Y</span><span><i style="background:#6fa8dc"></i>Z</span></div>`;
+const ejes = `<div class="tb-leyenda"><span><i style="background:#D49A17"></i>X</span><span><i style="background:#fff"></i>Y</span><span><i style="background:#A1A1A6"></i>Z</span></div>`;
 
 export const HTML = `
 <div class="tb">
@@ -43,20 +43,20 @@ export const HTML = `
       <p class="lead" style="margin-top:var(--s-3);font-size:.92rem">Medí vibraciones, sonido, inclinación o movimiento de cualquier cosa: una máquina, una estructura, un vehículo. Sin instalar nada.</p>
     </div>
     <div class="tb-retomar" id="tb-retomar" hidden><span id="tb-retomar-txt"></span><button type="button" id="tb-retomar-ver">Ver</button></div>
-    <div class="tb-qr" id="tb-qr-inicio" hidden><img src="./assets/qr-toolbox.svg" alt="Código QR a vantardynamics.com" width="104" height="104"><div><b>Mejor desde tu celular</b><span>Escaneá el código y medí en segundos: Vibraciones, Nivel y Movimiento usan los sensores del teléfono. Sonido también funciona en esta computadora, con su micrófono.</span></div></div>
+    <h3 class="tb-tit">¿Cómo funciona?</h3>
+    <ol class="pasos" aria-label="Cómo funciona">
+      <li><span class="paso-n">1</span><div><h3>Elegí un instrumento</h3><p>Vibraciones, sonido, nivel o movimiento.</p></div><span class="paso-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h10M10 12h10M10 18h10"/><path d="m3.5 6 1.5 1.5L8 4.5"/><circle cx="5.5" cy="12" r="1.2"/><circle cx="5.5" cy="18" r="1.2"/></svg></span></li>
+      <li><span class="paso-n">2</span><div><h3>Apoyá el celular y medí</h3><p>Seguí las indicaciones en pantalla: la medición dura unos segundos.</p></div><span class="paso-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="3" width="8" height="16" rx="2"/><path d="M11 16h2"/><path d="M4.5 8.5c-1 1.2-1 2.8 0 4M19.5 8.5c1 1.2 1 2.8 0 4"/><path d="M3 21.5h18"/></svg></span></li>
+      <li><span class="paso-n">3</span><div><h3>Recibí el informe por mail</h3><p>Gratis, con los resultados de tu medición.</p></div><span class="paso-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span></li>
+    </ol>
+    <h3 class="tb-tit">Qué podés medir</h3>
     <div class="tb-lista">
       <button class="tb-inst" data-abrir="vib"><span class="tb-ic">${IC.vib}</span><span><b>Vibraciones</b><span>Cuánto vibra y a qué frecuencia.</span></span><span class="tb-meta">mm/s · Hz<em data-quedan="vib"></em></span></button>
       <button class="tb-inst" data-abrir="snd"><span class="tb-ic">${IC.snd}</span><span><b>Sonido</b><span>Nivel de ruido y tonos que dominan.</span></span><span class="tb-meta">dB · Hz<em data-quedan="snd"></em></span></button>
       <button class="tb-inst" data-abrir="lvl"><span class="tb-ic">${IC.lvl}</span><span><b>Nivel e inclinación</b><span>Ángulos en dos ejes, con burbuja.</span></span><span class="tb-meta">grados<em>libre</em></span></button>
       <button class="tb-inst" data-abrir="mov"><span class="tb-ic">${IC.mov}</span><span><b>Movimiento</b><span>Aceleración y giro en 3 ejes, hasta 1 minuto.</span></span><span class="tb-meta">m/s² · °/s<em data-quedan="mov"></em></span></button>
     </div>
-    <div class="tb-como" aria-label="Cómo funciona">
-      <div><b>1</b><span>Elegí un instrumento</span></div>
-      <div><b>2</b><span>Apoyá el celular y medí</span></div>
-      <div><b>3</b><span>Recibí el informe por mail</span></div>
-    </div>
     <button class="tb-link" data-ir="tb-faq">¿Qué tan preciso es? Preguntas frecuentes</button>
-    <p class="tb-confianza">${IC.candado}Las mediciones se procesan en tu celular. Solo salen de él cuando pedís el informe por mail.</p>
   </section>
 
   <!-- ============ PREGUNTAS ============ -->
@@ -80,7 +80,7 @@ export const HTML = `
   <section class="tb-vista" id="vib-prep">
     <div class="tb-barra">${volver("tb-inicio")}</div>
     <h2>Vibraciones</h2>
-    <div class="tb-dibujo" aria-hidden="true"><svg viewBox="0 0 320 120"><rect width="320" height="120" fill="#161619"/><rect x="30" y="74" width="260" height="26" rx="6" fill="#26262b" stroke="#3a3a40"/><rect x="122" y="54" width="76" height="20" rx="5" fill="#0d0d0f" stroke="#D49A17" stroke-width="2"/><circle cx="190" cy="64" r="2" fill="#D49A17"/><path d="M136 40c4-5 8-5 12 0s8 5 12 0 8-5 12 0 8-5 12 0" stroke="#D49A17" stroke-width="2" fill="none" stroke-linecap="round"/><text x="160" y="22" fill="#a1a1a6" font-size="11" text-anchor="middle" font-family="Space Grotesk, sans-serif">celular acostado y firme sobre lo que medís</text></svg></div>
+    <div class="tb-dibujo" aria-hidden="true"><svg viewBox="0 0 320 120"><rect width="320" height="120" fill="#151518"/><rect x="30" y="74" width="260" height="26" rx="6" fill="#1F1F23" stroke="rgba(255,255,255,.15)"/><rect x="122" y="54" width="76" height="20" rx="5" fill="#0d0d0f" stroke="#D49A17" stroke-width="2"/><circle cx="190" cy="64" r="2" fill="#D49A17"/><path d="M136 40c4-5 8-5 12 0s8 5 12 0 8-5 12 0 8-5 12 0" stroke="#D49A17" stroke-width="2" fill="none" stroke-linecap="round"/><text x="160" y="22" fill="#a1a1a6" font-size="11" text-anchor="middle" font-family="Space Grotesk, sans-serif">celular acostado y firme sobre lo que medís</text></svg></div>
     <p class="tb-rot">Qué estás midiendo</p>
     ${chips("vibctx", "Qué estás midiendo", CTX_VIB, "maq")}
     <p class="tb-rot">Duración</p>
@@ -92,7 +92,7 @@ export const HTML = `
     <p class="tb-error" data-error hidden></p>
     <button class="tb-btn pri" data-medir="vib">Medir 10 segundos</button>
     <p class="tb-cupo" data-cupo="vib"></p>
-    <p class="tb-fino">El celular te va a pedir permiso para usar el sensor de movimiento. La pantalla queda encendida mientras mide.</p>
+    <p class="tb-fino">El celular te va a pedir permiso para usar el sensor de movimiento. La pantalla queda encendida mientras mide. La medición se procesa en tu celular y solo sale de él si pedís el informe por mail.</p>
   </section>
 
   <section class="tb-vista" id="vib-run">
@@ -128,7 +128,7 @@ export const HTML = `
   <section class="tb-vista" id="snd-prep">
     <div class="tb-barra">${volver("tb-inicio")}</div>
     <h2>Sonido</h2>
-    <div class="tb-dibujo" aria-hidden="true"><svg viewBox="0 0 320 120"><rect width="320" height="120" fill="#161619"/><rect x="34" y="40" width="86" height="56" rx="8" fill="#26262b" stroke="#3a3a40"/><circle cx="77" cy="68" r="14" fill="none" stroke="#3a3a40" stroke-width="2"/><path d="M134 50c8 8 8 28 0 36M146 42c13 13 13 39 0 52" stroke="#D49A17" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="220" y="30" width="30" height="62" rx="6" fill="#0d0d0f" stroke="#D49A17" stroke-width="2" transform="rotate(-90 235 61)"/><circle cx="206" cy="61" r="2.5" fill="#D49A17"/><line x1="160" y1="104" x2="205" y2="104" stroke="#8a8a90" stroke-dasharray="3 3"/><text x="182" y="116" fill="#8a8a90" font-size="10" text-anchor="middle" font-family="Space Grotesk, sans-serif">30 cm</text><text x="160" y="20" fill="#a1a1a6" font-size="11" text-anchor="middle" font-family="Space Grotesk, sans-serif">micrófono (abajo del celular) hacia la fuente</text></svg></div>
+    <div class="tb-dibujo" aria-hidden="true"><svg viewBox="0 0 320 120"><rect width="320" height="120" fill="#151518"/><rect x="34" y="40" width="86" height="56" rx="8" fill="#1F1F23" stroke="rgba(255,255,255,.15)"/><circle cx="77" cy="68" r="14" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="2"/><path d="M134 50c8 8 8 28 0 36M146 42c13 13 13 39 0 52" stroke="#D49A17" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="220" y="30" width="30" height="62" rx="6" fill="#0d0d0f" stroke="#D49A17" stroke-width="2" transform="rotate(-90 235 61)"/><circle cx="206" cy="61" r="2.5" fill="#D49A17"/><line x1="160" y1="104" x2="205" y2="104" stroke="#8a8a90" stroke-dasharray="3 3"/><text x="182" y="116" fill="#8a8a90" font-size="10" text-anchor="middle" font-family="Space Grotesk, sans-serif">30 cm</text><text x="160" y="20" fill="#a1a1a6" font-size="11" text-anchor="middle" font-family="Space Grotesk, sans-serif">micrófono (abajo del celular) hacia la fuente</text></svg></div>
     <p class="tb-rot">Qué estás escuchando</p>
     ${chips("sndctx", "Qué estás escuchando", CTX_SND, "maq")}
     <p class="tb-rot">Duración</p>
@@ -140,7 +140,7 @@ export const HTML = `
     <p class="tb-error" data-error hidden></p>
     <button class="tb-btn pri" data-medir="snd">Medir 10 segundos</button>
     <p class="tb-cupo" data-cupo="snd"></p>
-    <p class="tb-fino">El celular te va a pedir permiso para usar el micrófono. El audio no se graba ni se guarda.</p>
+    <p class="tb-fino">El celular te va a pedir permiso para usar el micrófono. El audio no se graba ni se guarda. La medición se procesa en tu celular y solo sale de él si pedís el informe por mail.</p>
   </section>
 
   <section class="tb-vista" id="snd-run">
@@ -175,7 +175,7 @@ export const HTML = `
     <div id="lvl-sup"><div class="tb-burbuja" id="lvl-burbuja"><span class="blanco"></span><span class="gota" id="lvl-gota"></span></div></div>
     <div id="lvl-canto" hidden>
       <div class="tb-canto">
-        <svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="88" fill="#161619" stroke="rgba(255,255,255,.09)"/><g stroke="rgba(255,255,255,.18)"><line x1="12" y1="100" x2="30" y2="100"/><line x1="170" y1="100" x2="188" y2="100"/><line x1="100" y1="12" x2="100" y2="24"/></g><line x1="20" y1="100" x2="180" y2="100" stroke="rgba(255,255,255,.12)" stroke-dasharray="4 4"/><g id="lvl-linea"><line x1="22" y1="100" x2="178" y2="100" stroke="#D49A17" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="100" r="5" fill="#D49A17"/></g></svg>
+        <svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="88" fill="#151518" stroke="rgba(255,255,255,.09)"/><g stroke="rgba(255,255,255,.18)"><line x1="12" y1="100" x2="30" y2="100"/><line x1="170" y1="100" x2="188" y2="100"/><line x1="100" y1="12" x2="100" y2="24"/></g><line x1="20" y1="100" x2="180" y2="100" stroke="rgba(255,255,255,.12)" stroke-dasharray="4 4"/><g id="lvl-linea"><line x1="22" y1="100" x2="178" y2="100" stroke="#D49A17" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="100" r="5" fill="#D49A17"/></g></svg>
         <span class="grados" id="lvl-grados">0,0°</span>
       </div>
       <p class="tb-fino tb-centro">Apoyá el lado largo del celular sobre la superficie.</p>
@@ -198,7 +198,7 @@ export const HTML = `
     <div class="tb-barra">${volver("tb-inicio")}</div>
     <h2>Movimiento</h2>
     <p class="tb-sub">Registra la aceleración y la velocidad de giro en los tres ejes del celular, durante hasta 1 minuto.</p>
-    <div class="tb-dibujo" aria-hidden="true"><svg viewBox="0 0 320 130"><rect width="320" height="130" fill="#161619"/><g transform="translate(160 70)"><rect x="-26" y="-44" width="52" height="88" rx="9" fill="#0d0d0f" stroke="#3a3a40" stroke-width="2"/><line x1="0" y1="0" x2="70" y2="0" stroke="#D49A17" stroke-width="2.5"/><path d="M70 -5 80 0 70 5Z" fill="#D49A17"/><text x="86" y="4" fill="#D49A17" font-size="12" font-family="Space Grotesk, sans-serif">X</text><line x1="0" y1="0" x2="0" y2="-58" stroke="#ffffff" stroke-width="2.5"/><path d="M-5 -58 0 -66 5 -58Z" fill="#ffffff"/><text x="8" y="-56" fill="#ffffff" font-size="12" font-family="Space Grotesk, sans-serif">Y</text><line x1="0" y1="0" x2="-48" y2="30" stroke="#6fa8dc" stroke-width="2.5"/><path d="M-46 24 -56 35 -41 33Z" fill="#6fa8dc"/><text x="-72" y="44" fill="#6fa8dc" font-size="12" font-family="Space Grotesk, sans-serif">Z</text></g></svg></div>
+    <div class="tb-dibujo" aria-hidden="true"><svg viewBox="0 0 320 130"><rect width="320" height="130" fill="#151518"/><g transform="translate(160 70)"><rect x="-26" y="-44" width="52" height="88" rx="9" fill="#0d0d0f" stroke="rgba(255,255,255,.15)" stroke-width="2"/><line x1="0" y1="0" x2="70" y2="0" stroke="#D49A17" stroke-width="2.5"/><path d="M70 -5 80 0 70 5Z" fill="#D49A17"/><text x="86" y="4" fill="#D49A17" font-size="12" font-family="Space Grotesk, sans-serif">X</text><line x1="0" y1="0" x2="0" y2="-58" stroke="#ffffff" stroke-width="2.5"/><path d="M-5 -58 0 -66 5 -58Z" fill="#ffffff"/><text x="8" y="-56" fill="#ffffff" font-size="12" font-family="Space Grotesk, sans-serif">Y</text><line x1="0" y1="0" x2="-48" y2="30" stroke="#A1A1A6" stroke-width="2.5"/><path d="M-46 24 -56 35 -41 33Z" fill="#A1A1A6"/><text x="-72" y="44" fill="#A1A1A6" font-size="12" font-family="Space Grotesk, sans-serif">Z</text></g></svg></div>
     <ol class="tb-pasos">
       <li><span><b>Sujetá el celular</b> a lo que querés registrar: una puerta, una herramienta, un vehículo.</span></li>
       <li><span><b>Dejalo quieto 3 segundos.</b> Medimos hacia dónde está la gravedad y la restamos, para que solo quede el movimiento.</span></li>
@@ -207,7 +207,7 @@ export const HTML = `
     <p class="tb-error" data-error hidden></p>
     <button class="tb-btn pri" data-medir="mov">Alinear y empezar</button>
     <p class="tb-cupo" data-cupo="mov"></p>
-    <p class="tb-fino">El celular te va a pedir permiso para usar los sensores de movimiento. La pantalla queda encendida mientras registra.</p>
+    <p class="tb-fino">El celular te va a pedir permiso para usar los sensores de movimiento. La pantalla queda encendida mientras registra. La medición se procesa en tu celular y solo sale de él si pedís el informe por mail.</p>
   </section>
 
   <section class="tb-vista" id="mov-align">
